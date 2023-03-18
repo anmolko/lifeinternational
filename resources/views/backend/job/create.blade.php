@@ -304,13 +304,17 @@
         $('#start_date').datepicker({
             autoclose: "true",
             clearBtn:"true",
-            format:"dd/mm/yyyy"
+            format:"dd/mm/yyyy",
+            todayBtn: true,
+            todayHighlight: true
 
         });
         $('#end_date').datepicker({
             autoclose: "true",
             clearBtn:"true",
-            format:"dd/mm/yyyy"
+            format:"dd/mm/yyyy",
+            todayBtn: true,
+            todayHighlight: true
 
         });
 

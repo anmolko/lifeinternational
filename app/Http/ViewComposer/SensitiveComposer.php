@@ -4,6 +4,7 @@
 namespace App\Http\ViewComposer;
 
 use App\Models\Blog;
+use App\Models\Job;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\View\View;
@@ -29,6 +30,7 @@ class SensitiveComposer
        $footerItemTitle1     = @$footerMenu[0]->title;
        $footerItemTitle2     = @$footerMenu[1]->title;
        $footerItemTitle3     = @$footerMenu[2]->title;
+       $today = date('Y-m-d');
 
 
        if(!empty(@$topNavItems)){
@@ -88,7 +90,8 @@ class SensitiveComposer
             $menu3->type    = MenuItem::where('id',$menu3->id)->value('type');
         }
     }
-        $services  = Service::take(6)->latest()->get();
+        $services = Service::take(6)->latest()->get();
+        $jobs     = Job::take(2)->latest()->get();
 
         $latestPostsfooter = Blog::orderBy('created_at', 'DESC')->where('status','publish')->take(2)->get();
         $theme_data = Setting::first();
@@ -102,7 +105,9 @@ class SensitiveComposer
            ->with('footer_nav_data3', $footerItem3)
            ->with('footer_nav_title3', $footerItemTitle3)
            ->with('top_nav_data', $topNavItems)
-           ->with('nav_services', $services);
+           ->with('nav_services', $services)
+           ->with('today', $today)
+           ->with('footer_jobs', $jobs);
 
 
     }

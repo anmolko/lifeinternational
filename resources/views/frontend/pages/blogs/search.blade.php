@@ -3,90 +3,78 @@
 
 @section('content')
 
-        <!-- Page Banner Start -->
-        <section class="page-banner-area pt-245 rpt-150 pb-170 rpb-100 rel z-1 bgc-lighter text-center">
-            <div class="container">
-                <div class="banner-inner rpt-10">
-                    <h1 class="page-title wow fadeInUp delay-0-2s">Search Result For : <strong>{{$query}}</strong></h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center wow fadeInUp delay-0-4s">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{url('/blog')}}">Blog</a></li>
-                            <li class="breadcrumb-item active">Search</li>
-                        </ol>
-                    </nav>
+    <div class="page__banner" data-background="{{asset('assets/frontend/img/pages/page-banner.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="page__banner-content">
+                        <span>Search</span>
+                        <ul>
+                            <li><a href="index.html">Home</a><span>|</span></li>
+                            <li>Search Result For : {{$query}}</li>
+                        </ul>
+                        <h1>Search result</h1>
+                    </div>
                 </div>
             </div>
-            <div class="banner-shapes">
-                <div class="circle wow zoomInLeft delay-0-2s" data-wow-duration="2s"></div>
-                <img class="shape-one" src="{{asset('assets/frontend/images/shapes/hero-shape1.png')}}" alt="Shape">
-                <img class="shape-two" src="{{asset('assets/frontend/images/shapes/hero-shape2.png')}}" alt="Shape">
-            </div>
-        </section>
-        <!-- Page Banner End -->
+        </div>
+    </div>
 
-        <!-- Blog Grid Area start -->
-        <section class="blog-grid-area py-130 rel z-1">
-            <div class="container">
-                <div class="row ">
-                  @if(count($allPosts) > 0)
-                    <div class="col-lg-8">
-                        <div class="row">
-
-                          @foreach($allPosts as $post)
-                            <div class="col-xl-6 col-md-6">
-                                <div class="blog-grid-item wow fadeInUp delay-0-2s">
-                                    <div class="image">
-                                        <img src="<?php if(@$post->image){?>{{asset('/images/blog/'.@$post->image)}}<?php }?>" alt="{{@$post->slug}}">
-                                    </div>
-                                    <div class="blog-content">
-                                        <ul class="blog-meta">
-                                            <li>
-                                                <i class="fas fa-tasks-alt"></i>
-                                                <a href="{{url('/blog/categories/'.@$post->category->slug)}}">{{ucwords(@$post->category->name)}}</a>
-                                            </li>
-                                            <li>
-                                                <i class="far fa-calendar-alt"></i>
-                                                <a href="{{route('blog.single',$post->slug)}}">{{date('M j, Y',strtotime(@$post->created_at))}}</a>
-                                            </li>
-                                        </ul>
-                                        <h5><a href="{{route('blog.single',$post->slug)}}">
-                                          {!! ucwords(Str::limit(@$post->title, 35,'...')) !!}
-                                      </a></h5>
-                                      
-                                        <a class="read-more" href="{{route('blog.single',$post->slug)}}">Read More <i class="far fa-arrow-right"></i></a>
-                                    </div>
+    <div class="news__standard section-padding">
+        <div class="container">
+            <div class="row">
+                @if(count($allPosts) > 0)
+                    <div class="col-xl-8 col-lg-8 lg-mb-60">
+                        <div class="container">
+                            <div class="row">
+                                    @foreach($allPosts as $post)
+                                        <div class="col-xl-6 col-lg-6 mb-30">
+                                            <div class="blog__two-item page">
+                                                <div class="blog__two-item-image">
+                                                    <a href="{{route('blog.single',$post->slug)}}">
+                                                        <img src="{{ (@$post->image) ? asset('/images/blog/'.@$post->image):'' }} " alt="">
+                                                    </a>
+                                                    <div class="blog__two-item-image-date">
+                                                        <span class="text-five">{{date('M j, Y',strtotime(@$post->created_at))}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="blog__two-item-content">
+                                                    <div class="blog__two-item-content-meta">
+                                                        <ul>
+                                                            <li><a href="{{route('blog.category',$post->category->slug)}}"><i class="far fa-list-alt"></i>{{ucwords(@$post->category->name)}}</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <h4><a href="{{route('blog.single',$post->slug)}}">
+                                                            {!! ucwords(Str::limit(@$post->title, 35,'...')) !!}</a></h4>
+                                                    <a class="btn-six" href="{{route('blog.single',$post->slug)}}">Read More<i class="far fa-chevron-double-right"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
-                            </div>
-                          
-                          @endforeach
-                        {{ $allPosts->links('vendor.pagination.default') }}
-
                         </div>
-
+                        <div class="row mt-50 ml-15">
+                            <div class="col-xl-12">
+                                {{ $allPosts->links('vendor.pagination.default') }}
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4">
-                      <div class="row">
-                            @include('frontend.pages.blogs.sidebar')
-                      </div>
+                @else
+                    <div class="col-xl-8 col-lg-8 lg-mb-60">
+                        <div class="error-page">
+                            <h2>Oops! Blog Post not found.</h2>
+                            <p>The post you are looking for is not available or has been moved from this website!</p>
+                            <a class="btn-one" href="/">Back to Home<i class="far fa-chevron-double-right"></i></a>
+                        </div>
                     </div>
-                  @else
-
-                  <section class="no-results not-found">
-                      <header class="page-header">
-                          <h2 class="page-title">Nothing Found</h2>
-                      </header>
-                      <div class="page-content">
-                          <p>It seems we can not find what you are looking for.</p>
-                      
-                      </div>
-                  </section>
-                  @endif
+                @endif
+                <div class="col-xl-4 col-lg-4">
+                    @include('frontend.pages.blogs.sidebar')
                 </div>
-
-                
             </div>
-        </section>
+        </div>
+    </div>
+
 
 
 

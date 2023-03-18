@@ -9904,8 +9904,8 @@ News Details CSS
   border: 1px solid var(--border-color-1);
 }
 .news__details-left-meta {
-  margin-bottom: 30px;
-  padding-bottom: 30px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--border-color-1);
 }
 .news__details-left-meta ul {
@@ -11660,34 +11660,35 @@ Post CSS
 /*==========================================================================
 Theme Pagination CSS
 ==========================================================================*/
-.theme__pagination ul {
+.theme__pagination ul, ul.pagination {
   margin: 0;
   padding: 0;
   margin-left: -5px;
 }
-.theme__pagination ul li {
+.theme__pagination ul li, ul.pagination li {
   list-style: none;
   display: inline-block;
   margin: 5px;
 }
-.theme__pagination ul li .active {
+.theme__pagination ul li .active, ul.pagination li.active .page-link {
   background: var(--primary-color-1);
   color: var(--text-white);
   border-color: var(--primary-color-1);
 }
-.theme__pagination ul li a {
+.theme__pagination ul li a, ul.pagination li .page-link {
   font-family: var(--heading-font);
   border: 1px solid var(--border-color-1);
   display: block;
   height: 50px;
   width: 50px;
-  line-height: 50px;
+  line-height: 40px;
   text-align: center;
   font-weight: 800;
   font-size: 16px;
   transition: 0.4s;
+  color: inherit;
 }
-.theme__pagination ul li a:hover {
+.theme__pagination ul li a:hover, ul.pagination li a:hover{
   background: var(--primary-color-1);
   color: var(--text-white);
   border-color: var(--primary-color-1);
@@ -11695,7 +11696,9 @@ Theme Pagination CSS
 .theme__pagination ul li a i {
   font-size: 14px;
 }
-
+ul.pagination li.disabled{
+    display: none;
+}
 @media (max-width: 1399px) {
   .all__sidebar-item {
     padding: 35px 30px;

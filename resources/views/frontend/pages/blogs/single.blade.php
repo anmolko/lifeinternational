@@ -37,86 +37,70 @@
 @endsection
 @section('content')
 
-        <!-- Page Banner Start -->
-        <section class="page-banner-area pt-245 rpt-150 pb-170 rpb-100 rel z-1 bgc-lighter text-center">
-            <div class="container">
-                <div class="banner-inner rpt-10">
-                    <!-- <h1 class="page-title wow fadeInUp delay-0-2s">{{ @$singleBlog->title }}</h1> -->
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center wow fadeInUp delay-0-4s">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{url('/blog')}}">Blog</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('blog.category',$singleBlog->category->slug)}}">{{ucwords($singleBlog->category->name)}}</a></li>
-                            <li class="breadcrumb-item active">{{ @$singleBlog->title }}</li>
-                        </ol>
-                    </nav>
+    <div class="page__banner" data-background="{{asset('assets/frontend/img/pages/page-banner.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="page__banner-content">
+                        <span>Blog</span>
+                        <ul>
+                            <li><a href="/">Home</a><span>|</span></li>
+                            <li>{{ @$singleBlog->title }}</li>
+                        </ul>
+                        <h1>Blog detail</h1>
+                    </div>
                 </div>
             </div>
-            <div class="banner-shapes">
-                <div class="circle wow zoomInLeft delay-0-2s" data-wow-duration="2s"></div>
-                <img class="shape-one" src="{{asset('assets/frontend/images/shapes/hero-shape1.png')}}" alt="Shape">
-                <img class="shape-two" src="{{asset('assets/frontend/images/shapes/hero-shape2.png')}}" alt="Shape">
-            </div>
-        </section>
-        <!-- Page Banner End -->
-        
-
-             
-        <!-- Blog Details Area start -->
-        <section class="blog-details-area py-130 rel z-1">
-            <div class="container">
-                <div class="row medium-gap">
-                    <div class="col-lg-8">
-                        <div class="blog-details-content wow fadeInUp delay-0-2s">
-                            <div class="image mb-45">
-                                <img src="{{ asset('/images/blog/'.@$singleBlog->image) }}" alt="Blog ">
-                            </div>
-                            <h3>{{ ucwords(@$singleBlog->title) }}</h3>
-                            <ul class="blog-meta mt-20 pb-30">
-                                <li>
-                                     <i class="fas fa-tasks-alt"></i>
-                                          <a href="{{url('/blog/categories/'.@$singleBlog->category->slug)}}">{{ucwords(@$singleBlog->category->name)}}</a>
-                                </li>
-                                <li>
-                                    <i class="far fa-calendar-alt"></i>
-                                    <a href="#">{{date('M j Y',strtotime(@$singleBlog->created_at))}}</a>
-                                </li>
-                                
-                            </ul>
-                            <div class="win-justify">
-                            {!! $singleBlog->description !!}
-                            </div>
-
+        </div>
+    </div>
+    <div class="news__details section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 lg-mb-60">
+                    <div class="news__details-left">
+                        <div class="news__details-left-meta">
+                            <h3 class="">{{ ucwords(@$singleBlog->title) }}</h3>
                         </div>
-                        <div class="tag-share pt-40 pb-25 wow fadeInUp delay-0-2s">
-                            
-                            <div class="item">
-                                <h5>Share :</h5>
-                                <div class="social-style-three">
-                                    <a href="#"><i class="fab fa-facebook-f" onclick='fbShare("{{route('blog.single',$singleBlog->slug)}}")'></i></a>
-                                    <a href="#"><i class="fab fa-twitter"  onclick='twitShare("{{route('blog.single',$singleBlog->slug)}}","{{ $singleBlog->title }}")'></i></a>
-                                    <a href="#"><i class="fab fa-whatsapp" onclick='whatsappShare("{{route('blog.single',$singleBlog->slug)}}","{{ $singleBlog->title }}")'></i></a>
+                        <div class="dark__image">
+                            <img class="img__full mb-30" src="{{ asset('/images/blog/'.@$singleBlog->image) }}" alt="">
+                        </div>
+                        {!! $singleBlog->description !!}
 
-
+                        <div class="row mt-45 mb-60">
+                            <div class="col-md-8 md-mb-15">
+                                <div class="news__details-left-tag">
+                                    <h6>Category:</h6>
+                                    <ul>
+                                        <li><a href="#">{{@$singleBlog->category->name }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="news__details-left-share">
+                                    <h6>Share:</h6>
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="fab fa-facebook-f" onclick='fbShare("{{route('blog.single',$singleBlog->slug)}}")'></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-twitter"  onclick='twitShare("{{route('blog.single',$singleBlog->slug)}}","{{ $singleBlog->title }}")'></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-whatsapp" onclick='whatsappShare("{{route('blog.single',$singleBlog->slug)}}","{{ $singleBlog->title }}")'></i></a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-               
-                       
-                       
-                    </div>
-                    <div class="col-lg-4 col-md-7 col-sm-9">
-                       @include('frontend.pages.blogs.sidebar')
 
-                  
                     </div>
                 </div>
+                <div class="col-xl-4 col-lg-4">
+                    @include('frontend.pages.blogs.sidebar')
+                </div>
             </div>
-        </section>
-        <!-- Blog Details Area end -->
-
-
-
+        </div>
+    </div>
 @endsection
 
 @section('js')

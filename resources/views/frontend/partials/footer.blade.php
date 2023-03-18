@@ -1,7 +1,7 @@
 
 <!-- Footer Top Area Start -->
 <div class="footer__top">
-    <img class="footer__top-shape" src="assets/img/shape/footer.png" alt="">
+    <img class="footer__top-shape" src="{{asset('assets/frontend/img/shape/footer.png')}}" alt="">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-7 col-lg-8 lg-mb-30">
@@ -11,7 +11,7 @@
             </div>
             <div class="col-xl-5 col-lg-4">
                 <div class="footer__top-btn t-right lg-t-center">
-                    <a class="btn-two" href="request-quote.html">let's Work together<i class="far fa-chevron-double-right"></i></a>
+                    <a class="btn-two" href="{{route('contact')}}">let's Work together<i class="far fa-chevron-double-right"></i></a>
                 </div>
             </div>
         </div>
@@ -20,37 +20,37 @@
 <!-- Footer Top Area End -->
 <!-- Footer One Area Start -->
 <div class="footer__one">
-    <img class="footer__one-shape" src="assets/img/shape/footer-bg.png" alt="">
+    <img class="footer__one-shape" src="{{asset('assets/frontend/img/shape/footer-bg.png')}}" alt="">
     <div class="container">
         <div class="row">
             <div class="col-xl-3 col-md-6 col-sm-7 xl-mb-30">
                 <div class="footer__one-widget">
                     <div class="footer__one-widget-about">
-                        <a href="#"><img src="assets/img/logo-2.png" alt=""></a>
-                        <p>Donec quis viverra enim. Integer mi felis, auctor eget magna</p>
-                        <div class="footer__one-widget-about-social">
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                            </ul>
-                        </div>
+                        <a href="#"><img src="{{ (@$setting_data->logo) ? asset('/images/settings/'.@$setting_data->logo):'' }}" alt=""></a>
+                        <p>{!! ucfirst(@$setting_data->website_description ?? '') !!}</p>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6 col-sm-5 sm-mb-30">
-                <div class="footer__one-widget border-one">
-                    <h4>Our Solution</h4>
-                    <div class="footer__one-widget-solution">
-                        <ul>
-                            <li><a href="services-right-sidebar.html"><i class="far fa-chevron-double-right"></i>Business Consulting</a></li>
-                            <li><a href="services-right-sidebar.html"><i class="far fa-chevron-double-right"></i>human resource</a></li>
-                            <li><a href="services-right-sidebar.html"><i class="far fa-chevron-double-right"></i>Digital Solution</a></li>
-                            <li><a href="services-right-sidebar.html"><i class="far fa-chevron-double-right"></i>strategy & research</a></li>
-                        </ul>
+                @if(@$footer_nav_data1 !== null)
+                    <div class="footer__one-widget border-one">
+                        <h4>{{@$footer_nav_title1 ?? 'Our Solution'}} </h4>
+                        <div class="footer__one-widget-solution">
+                            <ul>
+                                @foreach($footer_nav_data1 as $nav)
+                                    @if(empty($nav->children[0]))
+                                        <li>
+                                            <a href="{{get_menu_url($nav->type, $nav)}}" target="{{@$nav->target ? '_blank':''}}">
+                                                <i class="far fa-chevron-double-right"></i>
+                                                {{ @$nav->name ?? @$nav->title ?? ''}}
+                                            </a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
             <div class="col-xl-3 col-md-6 col-sm-6 sm-mb-30">
                 <div class="footer__one-widget border-one">
@@ -64,29 +64,55 @@
                                 <a href="#">2972 Westheimer Rd. Santa Ana, Illinois 85486</a>
                             </div>
                         </div>
-                        <h6>Branch Office</h6>
-                        <div class="footer__one-widget-location-item">
-                            <div class="footer__one-widget-location-item-icon">
-                                <i class="far fa-map-marker-alt"></i>
-                            </div>
-                            <div class="footer__one-widget-location-item-info">
-                                <a href="#">8502 Preston Rd. Inglewood, Maine 98380</a>
-                            </div>
+                        <h6>Our Socials</h6>
+                        <div class="footer__one-widget-about-social">
+                            <ul>
+                                @if(@$setting_data->facebook)
+                                    <li><a href="{{@$setting_data->facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                @endif
+                                @if(@$setting_data->youtube)
+                                    <li><a href="{{@$setting_data->youtube}}"><i class="fab fa-youtube"></i></a></li>
+                                @endif
+                                @if(@$setting_data->instagram)
+                                    <li><a href="{{@$setting_data->instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                @endif
+                                @if(@$setting_data->linkedin)
+                                    <li><a href="{{@$setting_data->linkedin}}"><i class="fab fa-linkedin"></i></a></li>
+                                @endif
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-6 col-sm-6">
-                <div class="footer__one-widget border-one tow">
-                    <h4>Subscribe</h4>
-                    <div class="footer__one-widget-subscribe">
-                        <p>Join over <span>68,000</span> people getting our emails</p>
-                        <form action="#">
-                            <input type="text" name="email" placeholder="Email Address" required="">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </form>
-                    </div>
+            <div class="col-xl-3 col-md-6 col-sm-5">
+                @if($footer_jobs)
+                    <div class="footer__two-widget footer-border">
+                    <h4>Latest Jobs</h4>
+                    @foreach(@$footer_jobs as $job)
+                        <div class="post__item">
+                            <div class="post__item-image">
+                                <a href="{{route('job.single',@$job->slug)}}">
+                                    <img src="{{ ($job->image !== null) ? asset('/images/job/'.@$job->image): asset('assets/frontend/images/win.png')}}" alt="">
+                                </a>
+                            </div>
+                            <div class="post__item-title">
+                                <span><i class="far fa-calendar-alt"></i>
+                                     @if(@$job->end_date >= $today)
+                                       {{date('M j, Y',strtotime(@$job->end_date))}}
+                                    @else
+                                        Expired
+                                    @endif
+                                </span>
+                                <h6>
+                                    <a href="{{route('job.single',@$job->slug)}}">
+                                        {{ ucfirst($job->name)}}
+                                    </a>
+                                </h6>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
+                @endif
             </div>
         </div>
     </div>
