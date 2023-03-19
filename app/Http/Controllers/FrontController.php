@@ -295,9 +295,10 @@ class FrontController extends Controller
 
 
     public function blogs(){
-        $bcategories = $this->bcategory->get();
+        $bcategories = $this->bcategory->withCount('blogs')->having('blogs_count', '>', 0)->get();
         $allPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->paginate(2);
         $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
+
         return view('frontend.pages.blogs.index',compact('allPosts','latestPosts','bcategories'));
     }
 
@@ -309,7 +310,7 @@ class FrontController extends Controller
             return abort(404);
         }
         $catid = $singleBlog->blog_category_id;
-        $bcategories = $this->bcategory->get();
+        $bcategories = $this->bcategory->withCount('blogs')->having('blogs_count', '>', 0)->get();
         $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
         return view('frontend.pages.blogs.single',compact('singleBlog','bcategories','latestPosts'));
     }
@@ -518,7 +519,7 @@ class FrontController extends Controller
 
     public function jobs(){
         $today      = date('Y-m-d');
-        $alljobs    = Job::orderBy('created_at', 'DESC')->where('start_date','<=',$today)->paginate(4);
+        $alljobs    = Job::orderBy('created_at', 'DESC')->where('start_date','<=',$today)->paginate(9);
         $category   = JobCategory::all();
         $latestJobs = Job::orderBy('created_at', 'DESC')->where('start_date','<=',$today)->take(3)->get();
 

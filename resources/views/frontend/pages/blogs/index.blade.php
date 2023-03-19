@@ -10,7 +10,7 @@
                     <div class="page__banner-content">
                         <span>Our Blogs</span>
                         <ul>
-                            <li><a href="index.html">Home</a><span>|</span></li>
+                            <li><a href="/">Home</a><span>|</span></li>
                             <li>List</li>
                         </ul>
                         <h1>Blogs</h1>

@@ -150,9 +150,9 @@
                                 <span class="header__area-menubar-right-box-search-icon open"><i class="fal fa-search"></i></span>
                             </div>
                             <div class="header__area-menubar-right-box-search-box">
-                                <form>
-                                    <input type="search" placeholder="Search Here.....">
-                                    <button type="submit"><i class="fal fa-search"></i>
+                                <form method="get" id="searchform" action="{{route('searchJob')}}">
+                                    <input  id="s" name="s" type="text"  placeholder="Find Jobs here.." oninvalid="this.setCustomValidity('Type a keyword')" oninput="this.setCustomValidity('')" required>
+                                        <button type="submit"><i class="fal fa-search"></i>
                                     </button>
                                 </form> <span class="header__area-menubar-right-box-search-box-icon"><i class="fal fa-times"></i></span>
                             </div>
@@ -161,7 +161,7 @@
                             <div class="header__area-menubar-right-sidebar-popup-icon"><img src="{{asset('assets/frontend/img/icon/menu.png')}}" alt=""></div>
                         </div>
                         <div class="header__area-menubar-right-box-btn">
-                            <a class="btn-one" href="request-quote.html">Request quote<i class="far fa-chevron-double-right"></i></a>
+                            <a class="btn-one" href="{{route('contact')}}">Reach out<i class="far fa-chevron-double-right"></i></a>
                         </div>
                         <!-- sidebar Menu Start -->
                         <div class="header__area-menubar-right-sidebar-popup">

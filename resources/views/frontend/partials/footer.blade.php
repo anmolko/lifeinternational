@@ -154,5 +154,7 @@
 <script src="{{asset('assets/frontend/js/jquery.meanmenu.min.js')}}"></script>
 <!-- Custom JS -->
 <script src="{{asset('assets/frontend/js/custom.js')}}"></script>
+@yield('js')
+@stack('scripts')
 </body>
 </html>

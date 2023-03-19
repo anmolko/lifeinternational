@@ -9,7 +9,7 @@
     <style>
 
             .feature-image-button{
-                position: absolute;
+                /*position: absolute;*/
                 top: 25%;
             }
             .profile-foreground-img-file-input {

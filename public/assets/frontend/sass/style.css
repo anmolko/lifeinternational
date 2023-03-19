@@ -11927,3 +11927,32 @@ Error CSS
     line-height: 60px;
   }
 }/*# sourceMappingURL=style.css.map */
+
+.apply-btn{
+    transition: 0.4s;
+    border: 1px solid var(--border-color-3);
+    margin: 0px 3px;
+    overflow: hidden;
+    padding: 4px 20px 5px 20px;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.project__details-area-custom ul, .project__details-area-custom ol{
+    padding: 25px;
+}
+.project__details-area-custom ul li, .project__details-area-custom ol li{
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+.project__details-area-custom ul li:before, .project__details-area-custom ol li:before{
+    color: var(--primary-color-1);
+    margin-right: 10px;
+    content: "\f00c";
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 400;
+}

@@ -10,10 +10,10 @@
                     <div class="page__banner-content">
                         <span>Search</span>
                         <ul>
-                            <li><a href="index.html">Home</a><span>|</span></li>
+                            <li><a href="/">Home</a><span>|</span></li>
                             <li>Search Result For : {{$query}}</li>
                         </ul>
-                        <h1>Search result</h1>
+                        <h1>Blogs Search result</h1>
                     </div>
                 </div>
             </div>

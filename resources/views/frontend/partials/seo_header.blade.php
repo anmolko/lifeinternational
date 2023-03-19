@@ -37,6 +37,8 @@
 
         gtag('config', '{{@$setting_data->google_analytics}}');
     </script>
+    @yield('css')
+    @stack('styles')
 </head>
 
 <body>
