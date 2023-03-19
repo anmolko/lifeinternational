@@ -55,7 +55,7 @@
 
                             <div class="form-group mb-3">
                                 <label>Description <span class="text-muted text-danger">*</span></label>
-                                <textarea class="form-control" rows="6" maxlength="550" name="description" required></textarea>
+                                <textarea class="form-control" rows="6" maxlength="550" name="description" id="ckeditor-classic-director-one" required></textarea>
                                 <div class="invalid-feedback">
                                     Please write the short description
                                 </div>
@@ -92,23 +92,6 @@
                                     <i class="ri-image-edit-line align-bottom me-1"></i> Add Image
                                 </label>
                             </div>
-
-                            <div class="form-group mb-3">
-                                <label>Button Text </label>
-                                <input type="text" class="form-control" maxlength="20" name="button">
-                                <div class="invalid-feedback">
-                                    Please enter the button text.
-                                </div>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label>Button link </label>
-                                <input type="text" class="form-control" name="link">
-                                <div class="invalid-feedback">
-                                    Please enter the button link.
-                                </div>
-                            </div>
-
                         </div>
 
                     </div>
@@ -133,7 +116,6 @@
                                             <th>Image</th>
                                             <th>Heading</th>
                                             <th>Designation</th>
-                                            <th>Button</th>
                                             <th>Description</th>
                                             <th class="text-right">Action</th>
                                         </tr>
@@ -150,7 +132,6 @@
                                                     </td>
                                                     <td>{{$managing->heading}}</td>
                                                     <td>{{$managing->designation}}</td>
-                                                    <td>{{(!empty($managing->button) ? $managing->button:"Not Set")}}</td>
                                                     <td>{{ substr_replace($managing->description, "...", 20)}}</td>
                                                     <td>
                                                         <div class="row">
@@ -225,27 +206,12 @@
 
                                         <div class="form-group mb-3">
                                             <label>Description <span class="text-muted text-danger">*</span></label>
-                                            <textarea class="form-control" rows="6" maxlength="550" name="description" id="description" required></textarea>
+                                            <textarea class="form-control" rows="6" maxlength="550" name="description" id="ckeditor-classic-director" required></textarea>
                                             <div class="invalid-feedback">
                                                 Please write the short description
                                             </div>
                                         </div>
 
-                                        <div class="form-group mb-3">
-                                            <label>Button Text </label>
-                                            <input type="text" class="form-control" maxlength="20" name="button" id="button">
-                                            <div class="invalid-feedback">
-                                                Please enter the button text.
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Button link </label>
-                                            <input type="text" class="form-control" name="link" id="link">
-                                            <div class="invalid-feedback">
-                                                Please enter the button link.
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -296,6 +262,7 @@
     <!-- Sweet Alerts js -->
     <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
     <script src="{{asset('assets/backend/js/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('assets/backend/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>
 
     <script type="text/javascript">
 
@@ -304,7 +271,21 @@
             var replacement = document.getElementById(id2);
             replacement.src = URL.createObjectURL(event.target.files[0]);
         };
-
+        // $(document).ready(function () {
+        //     createEditor('ckeditor-classic-director-one');
+        //     createEditor('ckeditor-classic-director-one');
+        // });
+        // function createEditor(id){
+        //     ClassicEditor.create(document.querySelector("#"+id))
+        //         .then( editor => {
+        //             window.editor = editor;
+        //             editor.ui.view.editable.element.style.height="200px";
+        //             editor.model.document.on( 'change:data', () => {
+        //                 $( '#' + id).text(editor.getData());
+        //             } );
+        //         } )
+        //         .catch(function(e){console.error(e)});
+        // }
 
         $(document).ready(function () {
             $('#client-index').DataTable({
@@ -331,7 +312,7 @@
                         $("#editdirector").modal("toggle");
                         $('#heading').attr('value',dataResult.heading);
                         $('#designation').attr('value',dataResult.designation);
-                        $('#description').text(dataResult.description);
+                        $('#ckeditor-classic-director').text(dataResult.description);
                         if(dataResult.link !== null){
                             $('#link').attr('value',dataResult.link);
                         }

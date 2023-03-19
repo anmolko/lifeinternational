@@ -47,6 +47,7 @@
 	});
     ///=============  Banner One Slider  =============\\\
     let bannerOne = ".banner-one-slider";
+    let directorOne = ".director-slider";
     let sliderOne = new Swiper(bannerOne, {
         loop: true,
         slidesPerView: 1,
@@ -54,12 +55,18 @@
         autoplay: {
             delay: 5000,
 			reverseDirection: true,
-			disableOnInteraction: false,			
+			disableOnInteraction: false,
         },
         pagination: {
             el: ".banner-four-pagination",
             clickable: true,
         },
+    });
+    let slidertwoDirector = new Swiper(directorOne, {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 40,
+        autoplay:false,
     });
 	///=============  Banner Two Slider  =============\\\
 	let bannerTwo = '.banner-two-slider';
@@ -73,12 +80,12 @@
 		navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
-		},		
+		},
 		pagination: {
 			el: ".banner-pagination",
 			clickable: true,
 		},
-	});	
+	});
     function animated_swiper(selector, init) {
         let animated = function animated() {
             $(selector + " [data-animation]").each(function () {
@@ -109,14 +116,14 @@
     animated_swiper(bannerTwo, sliderTwo);
 	///=============  Banner Three Slider  =============\\\
 	var swiper = new Swiper(".banner__three__slider", {
-		loop: true,	
+		loop: true,
 		slidesPerView: 2,
 		spaceBetween: 20,
         pagination: {
           el: ".swiper-pagination",
 		  clickable: true,
         },
-    });	
+    });
 	///=============  Team Details Skill Bar  =============\\\
 	if($('.team__details-skills-item-bar').length) {
 		$('.team__details-skills-item-bar').appear(function() {
@@ -145,7 +152,7 @@
 		autoplay: {
 			delay: 4500,
 			reverseDirection: true,
-			disableOnInteraction: false,			
+			disableOnInteraction: false,
 		},
 		breakpoints: {
 			0: {
@@ -162,8 +169,8 @@
 				slidesPerView: 4
 			},
 		}
-	});	
-	///=============  Features Active Hover  =============\\\
+	});
+    ///=============  Features Active Hover  =============\\\
 	$(".features-area-item").hover(function() {
 		$(".features-area-item").removeClass("features-area-item-hover");
 		$(this).addClass("features-area-item-hover");
@@ -244,7 +251,7 @@
 	$(".blog__three-item").hover(function() {
 		$(".blog__three-item").removeClass("blog__three-item-hover");
 		$(this).addClass("blog__three-item-hover");
-	});	
+	});
 	///=============  Portfolio Active Hover  =============\\\
 	const portfolioItems = document.querySelectorAll(".portfolio-item");
 	portfolioItems.forEach((portfolioItem) => {
@@ -360,7 +367,7 @@
 			$(this).siblings('.active').removeClass('active');
 			$(this).addClass('active');
 		});
-   });		
+   });
 })(jQuery);
 ///=============  Theme Dark Light  =============\\\
 function darkLight(){

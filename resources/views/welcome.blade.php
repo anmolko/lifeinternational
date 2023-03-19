@@ -250,58 +250,41 @@
         <!-- Cta Area End -->
     @endif
     <!-- Experience Area Start -->
-
-    <div class="team__details dark__image section-padding">
-        <div class="container">
-            <div class="row mb-40 align-items-end">
-                <div class="col-xl-8 col-lg-8 lg-mb-30">
-                    <div class="testimonial__area-title lg-t-center">
-                        <span class="subtitle-one">Real Client Stories</span>
-                        <h2>Customer Experiences</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-xl-5 xl-mb-30">
-                    <div class="team__details-thumb dark__image">
-                        <img class="img__full" src="{{asset('assets/frontend/img/team/team-details.jpg')}}" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-7">
-                    <div class="team__details-content ml-20 xl-ml-0">
-                        <span>Business Expert</span>
-                        <h2>Courtney Henry</h2>
-                        <p>Most gardens consist of a mix of natural and constructed although even very 'natural' gardens are always an inherently artificial creation. Natural elements present in a garden principally.</p>
-                        <div class="team__details-content-contact">
-                            <div class="team__details-content-contact-item mb-25">
-                                <i class="far fa-envelope"></i>
-                                <div class="team__details-content-contact-item-info">
-                                    <span>Quick Email</span>
-                                    <h5><a href="mailto:henry@support.com">henry@support.com</a></h6>
-                                </div>
-                            </div>
-                            <div class="team__details-content-contact-item mb-25">
-                                <i class="fal fa-phone-alt"></i>
-                                <div class="team__details-content-contact-item-info">
-                                    <span>Tell With US</span>
-                                    <h5><a href="tel:+125(895)658568">+125 (895) 658 568</a></h5>
-                                </div>
-                            </div>
-                            <div class="team__details-content-contact-item mb-45">
-                                <i class="far fa-map-marker-alt"></i>
-                                <div class="team__details-content-contact-item-info">
-                                    <span>Office Location</span>
-                                    <h5><a href="#">PV3M+X68, United Kingdom</a></h5>
-                                </div>
-                            </div>
-                            <a class="btn-one" href="contact.html">Get in Touch<i class="far fa-chevron-double-right"></i></a>
+    @if(count($director) > 0)
+        <div class="team__details dark__image section-padding">
+            <div class="container">
+                <div class="row mb-40 align-items-end">
+                    <div class="col-xl-8 col-lg-8 lg-mb-30">
+                        <div class="testimonial__area-title lg-t-center">
+                            <span class="subtitle-one">Real Client Stories</span>
+                            <h2>Customer Experiences</h2>
                         </div>
+                    </div>
+                </div>
+                <div class="swiper director-slider">
+                    <div class="swiper-wrapper">
+                        @foreach($director as $managing)
+                            <div class="row align-items-center swiper-slide">
+                                <div class="col-xl-5 xl-mb-30">
+                                    <div class="team__details-thumb dark__image">
+                                        <img class="img__full" src="{{asset('/images/director/'.@$managing->image)}}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-xl-7">
+                                    <div class="team__details-content ml-20 xl-ml-0">
+                                        <span>{{ucfirst($managing->designation)}}</span>
+                                        <h2>{{ucfirst($managing->heading)}}</h2>
+                                        <p> {{$managing->description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Experience Area End -->
+    @endif
+
     <!-- Portfolio Area Start -->
     <div class="portfolio__area section-padding pb-0">
         <div class="container-fluid p-0">
