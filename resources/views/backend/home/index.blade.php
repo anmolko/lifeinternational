@@ -219,7 +219,7 @@
                                                             id="profile-foreground-img-file-input" onchange="loadFile(event)" name="welcome_image" {{ (@$homesettings->welcome_image !== null) ? '' :  'required' }}
                                                         class="profile-foreground-img-file-input" >
 
-                                                        <figcaption class="figure-caption">*use image minimum of 450 x 595px </figcaption>
+                                                        <figcaption class="figure-caption">*use image minimum of 700 x 570px </figcaption>
                                                         <div class="invalid-feedback" >
                                                                 Please select a image.
                                                             </div>
@@ -266,17 +266,18 @@
                                                     </figure>
                                                     <div class="position-relative mb-3">
                                                         <label class="form-label" for="core_main_heading-input">Main Heading <span class="text-muted text-danger">*</span></label>
-                                                        <input type="text" class="form-control" maxlength="18" id="core_main_heading-input" name="core_main_heading" value="{{@$homesettings->core_main_heading}}"
+                                                        <input type="text" class="form-control" maxlength="35" id="core_main_heading-input" name="core_main_heading" value="{{@$homesettings->core_main_heading}}"
                                                                placeholder="Enter heading" required>
                                                         <div class="invalid-feedback">
                                                             Please enter the heading.
                                                         </div>
                                                     </div>
                                                     <div class="position-relative mb-3">
-                                                        <label class="form-label"> Description <span class="text-muted text-danger">*</span></label>
-                                                        <textarea class="form-control" maxlength="125" name="core_main_description" placeholder="Enter core value main description" rows="8" required>{{@$homesettings->core_main_description}}</textarea>
+                                                        <label class="form-label"> Subheading <span class="text-muted text-danger">*</span></label>
+                                                        <input type="text" class="form-control" maxlength="25" id="core_main_description-input" name="core_main_description" value="{{@$homesettings->core_main_description}}"
+                                                               placeholder="Enter subheading" required>
                                                         <div class="invalid-tooltip">
-                                                            Please enter the  description.
+                                                            Please enter the subheading.
                                                         </div>
                                                     </div>
                                                 </div>
@@ -486,7 +487,7 @@
                                 {!! Form::open(['url'=>route('homepage.mv', @$homesettings->id),'id'=>'homesettings-mv-header-form','class'=>'needs-validation','novalidate'=>'','method'=>'PUT','enctype'=>'multipart/form-data']) !!}
 
                                 <div class="row  mb-2">
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-12">
                                         <div class="sticky-side-div">
                                             <div class="card">
                                                 <div class="card-header">
@@ -497,60 +498,11 @@
                                                         <img src="{{asset('images/mission.png')}}" class="figure-img img-fluid rounded" alt="...">
                                                         <figcaption class="figure-caption">Output Sample.</figcaption>
                                                     </figure>
-                                                    <div class="position-relative mb-3">
-                                                        <label class="form-label">Heading <span class="text-muted text-danger">*</span></label>
-                                                        <input type="text" class="form-control" maxlength="50" name="mv_heading" value="{{@$homesettings->mv_heading}}"
-                                                               placeholder="Enter heading" required>
-                                                        <div class="invalid-feedback">
-                                                            Please enter the heading.
-                                                        </div>
-                                                    </div>
-                                                    <div class="position-relative mb-3">
-                                                        <label class="form-label">SubHeading</label>
-                                                        <input type="text" class="form-control" maxlength="50" name="mv_subheading" value="{{@$homesettings->mv_subheading}}"
-                                                               placeholder="Enter heading">
-                                                        <div class="invalid-feedback">
-                                                            Please enter the heading.
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                                <!-- end card body -->
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="sticky-side-div">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h5 class="card-title mb-0">Image Details</h5>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="mb-3">
-                                                        <img  id="current-mv-img"  src="{{ (@$homesettings->mv_image !== null) ? asset('images/home/welcome/'.@$homesettings->mv_image) :  asset('images/default-image.jpg') }}" class="position-relative img-fluid img-thumbnail welcome-feature-image" >
-                                                        <input  type="file" accept="image/png, image/jpeg" hidden
-                                                                id="mv-upload-image" onchange="loadbasicFile('mv-upload-image','current-mv-img',event)" name="mv_image" {{ (@$homesettings->mv_image !== null) ? '' :  'required' }}
-                                                                class="profile-foreground-img-file-input" >
-
-                                                        <figcaption class="figure-caption">*use image minimum of 450 x 595px </figcaption>
-                                                        <div class="invalid-feedback" >
-                                                            Please select a image.
-                                                        </div>
-                                                        <label for="mv-upload-image" class="profile-photo-edit btn btn-light feature-image-button">
-                                                            <i class="ri-image-edit-line align-bottom me-1"></i> Add  Image
-                                                        </label>
-                                                    </div>
                                                 </div>
                                                 <!-- end card body -->
                                             </div>
-
-
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="row  mb-2">
                                     <div class="col-lg-12">
@@ -562,21 +514,21 @@
                                                 <div class="card-body">
                                                     <div class="position-relative mb-3">
                                                         <label class="form-label">Mission Description <span class="text-muted text-danger">*</span></label>
-                                                        <textarea class="form-control" maxlength="230" name="mission" placeholder="Enter mission description" rows="4" required>{{@$homesettings->mission}}</textarea>
+                                                        <textarea class="form-control" maxlength="250" name="mission" placeholder="Enter mission description" rows="4" required>{{@$homesettings->mission}}</textarea>
                                                         <div class="invalid-tooltip">
                                                             Please enter the  description.
                                                         </div>
                                                     </div>
                                                     <div class="position-relative mb-3">
                                                         <label class="form-label">Vision Description <span class="text-muted text-danger">*</span></label>
-                                                        <textarea class="form-control" maxlength="230" name="vision" placeholder="Enter vision description" rows="4" required>{{@$homesettings->vision}}</textarea>
+                                                        <textarea class="form-control" maxlength="250" name="vision" placeholder="Enter vision description" rows="4" required>{{@$homesettings->vision}}</textarea>
                                                         <div class="invalid-tooltip">
                                                             Please enter the  description.
                                                         </div>
                                                     </div>
                                                     <div class="position-relative mb-3">
                                                         <label class="form-label">Value Description <span class="text-muted text-danger">*</span></label>
-                                                        <textarea class="form-control" maxlength="230" name="value" placeholder="Enter value description" rows="4" required>{{@$homesettings->value}}</textarea>
+                                                        <textarea class="form-control" maxlength="250" name="value" placeholder="Enter value description" rows="4" required>{{@$homesettings->value}}</textarea>
                                                         <div class="invalid-tooltip">
                                                             Please enter the  description.
                                                         </div>
@@ -977,7 +929,7 @@
                                                         <figcaption class="figure-caption">Output Sample.</figcaption>
                                                     </figure>
                                                     <div class="position-relative mb-3">
-                                                        <label class="form-label" for="direction-heading-input">Heading 1 <span class="text-muted text-danger">*</span></label>
+                                                        <label class="form-label" for="direction-heading-input">Heading <span class="text-muted text-danger">*</span></label>
                                                         <input type="text" class="form-control" maxlength="35" id="direction-heading-input" name="action_heading" value="{{@$homesettings->action_heading}}"
                                                                placeholder="Enter heading" required>
                                                         <div class="invalid-feedback">
@@ -985,25 +937,24 @@
                                                         </div>
                                                     </div>
                                                     <div class="position-relative mb-3">
-                                                        <label class="form-label" for="direction-heading-inputs" >Link 1 <span class="text-muted text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="direction-heading-inputs" name="action_link" value="{{@$homesettings->action_link}}"
-                                                               placeholder="Enter button link" required>
-                                                        <div class="invalid-feedback">
-                                                            Please enter the button link.
-                                                        </div>
-                                                    </div>
-
-                                                    <hr/>
-                                                    <div class="position-relative mb-3">
-                                                        <label class="form-label" for="direction-heading-input">Heading 2 <span class="text-muted text-danger">*</span></label>
-                                                        <input type="text" class="form-control" maxlength="35" id="direction-heading-input" name="action_heading2" value="{{@$homesettings->action_heading2}}"
+                                                        <label class="form-label" for="direction-heading-input">Sub Heading<span class="text-muted text-danger">*</span></label>
+                                                        <input type="text" class="form-control" maxlength="60" id="direction-heading-input" name="action_heading2" value="{{@$homesettings->action_heading2}}"
                                                                placeholder="Enter heading" required>
                                                         <div class="invalid-feedback">
                                                             Please enter the heading.
                                                         </div>
                                                     </div>
                                                     <div class="position-relative mb-3">
-                                                        <label class="form-label" for="direction-heading-inputs">Link 2 <span class="text-muted text-danger">*</span></label>
+                                                        <label class="form-label" for="direction-heading-inputs" >Button </label>
+                                                        <input type="text" class="form-control" id="direction-heading-inputs" name="action_link" value="{{@$homesettings->action_link}}"
+                                                               placeholder="Enter button link">
+                                                        <div class="invalid-feedback">
+                                                            Please enter the button link.
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="position-relative mb-3">
+                                                        <label class="form-label" for="direction-heading-inputs">Link <span class="text-muted text-danger">*</span></label>
                                                         <input type="text" class="form-control" id="direction-heading-inputs" name="action_link2" value="{{@$homesettings->action_link2}}"
                                                                placeholder="Enter button link" required>
                                                         <div class="invalid-feedback">

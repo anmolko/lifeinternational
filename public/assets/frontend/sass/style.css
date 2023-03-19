@@ -148,6 +148,9 @@ a:hover {
 .section-padding {
   padding: 120px 0px;
 }
+.section-padding-2 {
+    padding: 120px 0px 80px 0px;
+}
 
 @media (max-width: 575px) {
   .section-padding {
@@ -590,7 +593,7 @@ Conbix Button And Title Styles CSS
   color: var(--btn-heading-color);
 }
 .btn-five {
-  background: var(--primary-color-2);
+  background: var(--primary-color-1);
   color: var(--text-white);
   border-radius: 30px;
 }
@@ -4693,7 +4696,7 @@ Banner Two CSS
 ==========================================================================*/
 .banner__two {
   position: relative;
-    height: 550px;
+    height: 580px;
 }
 .banner__two-image {
   background-position: center;
@@ -4746,7 +4749,7 @@ Banner Two CSS
   z-index: -1;
 }
 .banner__two-content span {
-  color: var(--primary-color-2);
+  color: var(--primary-color-1);
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
@@ -4772,7 +4775,7 @@ Banner Two CSS
   line-height: 60px;
   display: inline-block;
   text-align: center;
-  background: var(--primary-color-2);
+  background: var(--primary-color-1);
   font-size: 22px;
   color: var(--text-white);
   border-radius: 50%;
@@ -4792,7 +4795,7 @@ Banner Two CSS
   line-height: 60px;
   display: inline-block;
   text-align: center;
-  background: var(--primary-color-2);
+  background: var(--primary-color-1);
   font-size: 22px;
   color: var(--text-white);
   border-radius: 50%;
@@ -5213,7 +5216,7 @@ About One CSS
   line-height: 28px;
 }
 .about__one-right {
-  margin-left: 95px;
+  margin-left: 50px;
 }
 .about__one-right-title {
   margin-bottom: 45px;
@@ -5937,7 +5940,7 @@ Company History CSS
 Features CSS
 ==========================================================================*/
 .features {
-  margin-top: -80px;
+  margin-top: -60px;
   position: relative;
   z-index: 1;
 }
@@ -5960,7 +5963,7 @@ Features CSS
 }
 .features-area-item span i {
   font-size: 25px;
-  color: var(--primary-color-3);
+  color: var(--primary-color-1);
   position: relative;
   width: 137px;
   height: 137px;
@@ -5981,7 +5984,7 @@ Features CSS
   width: 137px;
   height: 137px;
   opacity: 0.1;
-  background: var(--primary-color-3);
+  background: var(--primary-color-1);
   border-radius: 50%;
   transition: 0.4s;
 }
@@ -5990,11 +5993,11 @@ Features CSS
   transition: 0.4s;
 }
 .features-area-item p {
-  max-width: 270px;
+  max-width: 370px;
   transition: 0.4s;
 }
 .features-area-item-hover {
-  background: var(--primary-color-3);
+  background: var(--primary-color-1);
 }
 .features-area-item-hover h4 {
   color: var(--text-white);
@@ -7680,6 +7683,10 @@ Team Three CSS
 /*==========================================================================
 Team Details CSS
 ==========================================================================*/
+.team__details{
+    background: var(--color-6);
+}
+
 .team__details-content > span {
   font-weight: 600;
   color: var(--color-2);
