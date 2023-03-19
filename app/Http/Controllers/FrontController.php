@@ -73,7 +73,7 @@ class FrontController extends Controller
     public function index()
     {
         $clients            = $this->client->orderBy('created_at', 'asc')->get();
-        $latestServices     = $this->service->inRandomOrder()->take(5)->get();
+        $latestServices     = $this->service->latest()->take(4)->get();
         $countries          = CountryState::getCountries();
         $sliders            = $this->slider->where('status','active')->orderBy('created_at', 'asc')->get();
         $homepage_info      = $this->home_page->first();
@@ -82,9 +82,8 @@ class FrontController extends Controller
         $servicecategory    = ServiceCategory::inRandomOrder()->take(6)->get();
         $recruitments       = RecruitmentProcess::all();
         $director           = ManagingDirector::orderBy('order', 'asc')->get();
-        $today = date('Y-m-d');
+        $today              = date('Y-m-d');
         $latestJobs         = Job::orderBy('created_at', 'DESC')->where('start_date','<=',$today)->take(4)->get();
-
 
 
         return view('welcome',compact('director','today','latestJobs','clients','recruitments','servicecategory','testimonials','clients','latestPosts','latestServices','countries','homepage_info','sliders'));

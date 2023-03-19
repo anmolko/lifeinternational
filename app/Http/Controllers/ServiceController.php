@@ -62,15 +62,22 @@ class ServiceController extends Controller
         if(!empty($request->file('banner_image'))){
             $image          = $request->file('banner_image');
             $name           = uniqid().'_banner_'.$image->getClientOriginalName();
+            $thumb_name     = 'thumb_'.$name;
             $blog_path      = public_path('/images/service');
+            $thumb_path     = public_path('/images/service/thumb');
 
             if (!is_dir($blog_path)) {
                 mkdir($blog_path, 0777);
             }
+            if (!is_dir($thumb_path)) {
+                mkdir($thumb_path, 0777);
+            }
             $path           = base_path().'/public/images/service/';
-            $moved          = Image::make($image->getRealPath())->fit(850, 567)->orientate()->save($path.$name);
+            $thumb          = base_path().'/public/images/service/thumb/';
+            $moved          = Image::make($image->getRealPath())->fit(850, 450)->orientate()->save($path.$name);
+            $thumb_moved    = Image::make($image->getRealPath())->fit(659, 500)->orientate()->save($thumb.$thumb_name);
 
-            if ($moved){
+            if ($moved && $thumb_moved){
                 $data['banner_image']=$name;
             }
         }
@@ -127,17 +134,30 @@ class ServiceController extends Controller
         $service->meta_tags           =  $request->input('meta_tags');
         $service->meta_description    =  $request->input('meta_description');
         $banner                       =  $service->banner_image;
+        $thumb_banner                 =  'thumb_'.$service->banner_image;
         $path                         = base_path().'/public/images/service/';
+        $thumb_path                   = base_path().'/public/images/service/thumb/';
 
         if (!empty($request->file('banner_image'))){
             $image       = $request->file('banner_image');
             $name1       = uniqid().'_banner_'.$image->getClientOriginalName();
-            $moved       = Image::make($image->getRealPath())->fit(850, 567)->orientate()->save($path.$name1);
+            $thumb_name  = 'thumb_'.$name1;
+            if (!is_dir($path)) {
+                mkdir($path, 0777);
+            }
+            if (!is_dir($thumb_path)) {
+                mkdir($thumb_path, 0777);
+            }
+            $moved        = Image::make($image->getRealPath())->fit(850, 567)->orientate()->save($path.$name1);
+            $thumb_moved  = Image::make($image->getRealPath())->fit(659, 500)->orientate()->save($thumb_path.$thumb_name);
 
-            if ($moved){
+            if ($moved && $thumb_moved){
                 $service->banner_image= $name1;
                 if (!empty($banner) && file_exists(public_path().'/images/service/'.$banner)){
                     @unlink(public_path().'/images/service/'.$banner);
+                }
+                if (!empty($thumb_banner) && file_exists(public_path().'/images/service/thumb/'.$thumb_banner)){
+                    @unlink(public_path().'/images/service/thumb/'.$thumb_banner);
                 }
             }
         }
@@ -163,6 +183,7 @@ class ServiceController extends Controller
         $delete          = Service::find($id);
         $blogid          = $delete->id;
         $banner          = $delete->banner_image;
+        $thumb_banner    =  'thumb_'.$delete->banner_image;
         $count           = $delete->count();
 
         $serviceid        = $delete->id;
@@ -180,6 +201,9 @@ class ServiceController extends Controller
 
         if (!empty($banner) && file_exists(public_path().'/images/service/'.$banner)){
             @unlink(public_path().'/images/service/'.$banner);
+        }
+        if (!empty($thumb_banner) && file_exists(public_path().'/images/service/thumb/'.$thumb_banner)){
+            @unlink(public_path().'/images/service/thumb/'.$thumb_banner);
         }
 
         $remove          = $delete->delete();

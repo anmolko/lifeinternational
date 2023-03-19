@@ -142,69 +142,68 @@
 {{--                    </div>--}}
                 </div>
                 <div class="row">
-                    <div class="swiper portfolio__area-slider">
-                        <div class="swiper-wrapper">
-                            <div class="col-xl-3 col-lg-4 col-md-6 xl-mb-30 swiper-slide">
-                                <div class="services__one-item">
-                                    <div class="services__one-item-icon">
-                                        <img src="{{asset('assets/frontend/img/icon/services-1.png')}}" alt="">
-                                        <div class="services__one-item-icon-one">
-                                            <img src="{{asset('assets/frontend/img/icon/services-11.png')}}" alt="">
-                                        </div>
+
+                        <div class="col-xl-4 col-lg-4 col-md-6 xl-mb-30">
+                            <div class="services__one-item">
+                                <div class="services__one-item-icon">
+                                    <img src="{{asset('assets/frontend/img/icon/services-1.png')}}" alt="">
+                                    <div class="services__one-item-icon-one">
+                                        <img src="{{asset('assets/frontend/img/icon/services-11.png')}}" alt="">
                                     </div>
-                                    <h4><a>{{ucwords(@$homepage_info->core_heading1 ?? '')}}</a></h4>
-                                    <p>{{ucfirst(@$homepage_info->core_description1 ?? '')}}</p>
                                 </div>
+                                <h4><a>{{ucwords(@$homepage_info->core_heading1 ?? '')}}</a></h4>
+                                <p>{{ucfirst(@$homepage_info->core_description1 ?? '')}}</p>
                             </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 md-mb-30 swiper-slide">
-                                <div class="services__one-item">
-                                    <div class="services__one-item-icon">
-                                        <img src="{{asset('assets/frontend/img/icon/services-2.png')}}" alt="">
-                                        <div class="services__one-item-icon-one">
-                                            <img src="{{asset('assets/frontend/img/icon/services-22.png')}}" alt="">
-                                        </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 md-mb-30">
+                            <div class="services__one-item">
+                                <div class="services__one-item-icon">
+                                    <img src="{{asset('assets/frontend/img/icon/services-2.png')}}" alt="">
+                                    <div class="services__one-item-icon-one">
+                                        <img src="{{asset('assets/frontend/img/icon/services-22.png')}}" alt="">
                                     </div>
-                                    <h4><a>{{ucwords(@$homepage_info->core_heading2)}}</a></h4>
-                                    <p>{{ucfirst(@$homepage_info->core_description2)}}</p>
                                 </div>
+                                <h4><a>{{ucwords(@$homepage_info->core_heading2)}}</a></h4>
+                                <p>{{ucfirst(@$homepage_info->core_description2)}}</p>
                             </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 md-mb-30 swiper-slide">
-                                <div class="services__one-item">
-                                    <div class="services__one-item-icon">
-                                        <img src="{{asset('assets/frontend/img/icon/services-3.png')}}" alt="">
-                                        <div class="services__one-item-icon-one">
-                                            <img src="{{asset('assets/frontend/img/icon/services-33.png')}}" alt="">
-                                        </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 md-mb-30">
+                            <div class="services__one-item">
+                                <div class="services__one-item-icon">
+                                    <img src="{{asset('assets/frontend/img/icon/services-3.png')}}" alt="">
+                                    <div class="services__one-item-icon-one">
+                                        <img src="{{asset('assets/frontend/img/icon/services-33.png')}}" alt="">
                                     </div>
-                                    <h4><a>{{ucwords(@$homepage_info->core_heading3)}}</a></h4>
-                                    <p>{{ucfirst(@$homepage_info->core_description3)}}</p>
                                 </div>
+                                <h4><a>{{ucwords(@$homepage_info->core_heading3)}}</a></h4>
+                                <p>{{ucfirst(@$homepage_info->core_description3)}}</p>
                             </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 md-mb-30 swiper-slide">
-                                <div class="services__one-item">
-                                    <div class="services__one-item-icon">
-                                        <img src="{{asset('assets/frontend/img/icon/services-4.png')}}" alt="">
-                                        <div class="services__one-item-icon-one">
-                                            <img src="{{asset('assets/frontend/img/icon/services-44.png')}}" alt="">
-                                        </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 md-mb-30 mt-2">
+                            <div class="services__one-item">
+                                <div class="services__one-item-icon">
+                                    <img src="{{asset('assets/frontend/img/icon/services-4.png')}}" alt="">
+                                    <div class="services__one-item-icon-one">
+                                        <img src="{{asset('assets/frontend/img/icon/services-44.png')}}" alt="">
                                     </div>
-                                    <h4><a>{{ucwords(@$homepage_info->core_heading4)}}</a></h4>
-                                    <p>{{ucfirst(@$homepage_info->core_description4)}}</p>
                                 </div>
+                                <h4><a>{{ucwords(@$homepage_info->core_heading4)}}</a></h4>
+                                <p>{{ucfirst(@$homepage_info->core_description4)}}</p>
                             </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 md-mb-30 swiper-slide">
-                                <div class="services__one-item">
-                                    <div class="services__one-item-icon">
-                                        <img src="{{asset('assets/frontend/img/icon/services-3.png')}}" alt="">
-                                        <div class="services__one-item-icon-one">
-                                            <img src="{{asset('assets/frontend/img/icon/services-33.png')}}" alt="">
-                                        </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 md-mb-30 mt-2">
+                            <div class="services__one-item">
+                                <div class="services__one-item-icon">
+                                    <img src="{{asset('assets/frontend/img/icon/services-3.png')}}" alt="">
+                                    <div class="services__one-item-icon-one">
+                                        <img src="{{asset('assets/frontend/img/icon/services-33.png')}}" alt="">
                                     </div>
-                                    <h4><a>{{ucwords(@$homepage_info->core_heading5)}}</a></h4>
-                                    <p>{{ucfirst(@$homepage_info->core_description5)}}</p>
                                 </div>
+                                <h4><a>{{ucwords(@$homepage_info->core_heading5)}}</a></h4>
+                                <p>{{ucfirst(@$homepage_info->core_description5)}}</p>
                             </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 swiper-slide">
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 mt-2">
                                 <div class="services__one-item">
                                     <div class="services__one-item-icon">
                                         <img src="{{asset('assets/frontend/img/icon/services-2.png')}}" alt="">
@@ -216,8 +215,6 @@
                                     <p>{{ucfirst(@$homepage_info->core_description6)}}</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
@@ -251,13 +248,13 @@
     @endif
     <!-- Experience Area Start -->
     @if(count($director) > 0)
-        <div class="team__details dark__image section-padding">
+        <div class="team__details dark__image section-padding-3">
             <div class="container">
                 <div class="row mb-40 align-items-end">
                     <div class="col-xl-8 col-lg-8 lg-mb-30">
                         <div class="testimonial__area-title lg-t-center">
-                            <span class="subtitle-one">Real Client Stories</span>
-                            <h2>Customer Experiences</h2>
+                            <span class="subtitle-one">Our Stories</span>
+                            <h2>Message From Director</h2>
                         </div>
                     </div>
                 </div>
@@ -285,77 +282,41 @@
         </div>
     @endif
 
-    <!-- Portfolio Area Start -->
-    <div class="portfolio__area section-padding pb-0">
+    @if(count($latestServices) > 0)
+        <div class="portfolio__area section-padding pb-0">
         <div class="container-fluid p-0">
             <div class="row mb-60">
                 <div class="col-xl-12">
                     <div class="portfolio__area-title t-center">
-                        <span class="subtitle-one">Company Case Study</span>
-                        <h2>Our Consulting Success</h2>
+                        <span class="subtitle-one">What we provide</span>
+                        <h2>Our Best Services</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="swiper portfolio__area-slider">
-                        <div class="swiper-wrapper">
-                            <div class="portfolio__area-item swiper-slide">
-                                <img src="assets/img/portfolio/portfolio-1.jpg" alt="">
-                                <div class="portfolio__area-item-content">
-                                    <div class="portfolio__area-item-content-title">
-                                        <h4><a href="project-single.html">Business strategy</a></h4>
-                                        <span class="text-eight">Conbix Agency</span>
-                                    </div>
-                                    <div class="portfolio__area-item-content-icon">
-                                        <a href="project-single.html"><img src="assets/img/icon/up-arrow.png" alt=""></a>
-                                    </div>
+                    <div class="portfolio dark__image">
+                        @foreach(@$latestServices as $index=>$service)
+                            <div class="portfolio-item {{$index==1?'active':''}}">
+                            <img src="{{asset('/images/service/thumb/thumb_'.@$service->banner_image)}}" alt="">
+                            <div class="portfolio-item-inner">
+                                <div class="portfolio-item-inner-title">
+                                    <h4>{{ucwords(@$service->title)}}</h4>
+                                    <span>Life International</span>
                                 </div>
-                            </div>
-                            <div class="portfolio__area-item swiper-slide">
-                                <img src="assets/img/portfolio/portfolio-2.jpg" alt="">
-                                <div class="portfolio__area-item-content">
-                                    <div class="portfolio__area-item-content-title">
-                                        <h4><a href="project-single.html">Digital Consulting</a></h4>
-                                        <span class="text-eight">Conbix Agency</span>
-                                    </div>
-                                    <div class="portfolio__area-item-content-icon">
-                                        <a href="project-single.html"><img src="assets/img/icon/up-arrow.png" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio__area-item swiper-slide">
-                                <img src="assets/img/portfolio/portfolio-3.jpg" alt="">
-                                <div class="portfolio__area-item-content">
-                                    <div class="portfolio__area-item-content-title">
-                                        <h4><a href="project-single.html">Human Resource</a></h4>
-                                        <span class="text-eight">Conbix Agency</span>
-                                    </div>
-                                    <div class="portfolio__area-item-content-icon">
-                                        <a href="project-single.html"><img src="assets/img/icon/up-arrow.png" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio__area-item swiper-slide">
-                                <img src="assets/img/portfolio/portfolio-4.jpg" alt="">
-                                <div class="portfolio__area-item-content">
-                                    <div class="portfolio__area-item-content-title">
-                                        <h4><a href="project-single.html">Business Consulting</a></h4>
-                                        <span class="text-eight">Conbix Agency</span>
-                                    </div>
-                                    <div class="portfolio__area-item-content-icon">
-                                        <a href="project-single.html"><img src="assets/img/icon/up-arrow.png" alt=""></a>
-                                    </div>
+                                <div class="portfolio-item-inner-icon">
+                                    <a href="{{route('service.single',$service->slug)}}"><i class="fal fa-long-arrow-up"></i></a>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Portfolio Area End -->
-    <!-- Testimonial Area Start -->
+    @endif
+
     <div class="testimonial__area section-padding">
         <img class="testimonial__area-shape dark-n" src="assets/img/shape/testimonial.png" alt="">
         <img class="testimonial__area-shape light-n" src="assets/img/shape/testimonial-dark.png" alt="">

@@ -485,7 +485,6 @@
             </div>
             <div class="project-three-active">
                 @foreach(@$latestServices as $service)
-
                     <div class="project-item style-two wow fadeInUp delay-0-2s">
                         <div class="project-iamge">
                             <img src="<?php if(@$service->banner_image){?>{{asset('/images/service/'.@$service->banner_image)}}<?php }?>" alt="Project">
