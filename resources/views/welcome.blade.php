@@ -4,53 +4,39 @@
 
 @endsection
 @section('content')
-<div class="banner__one swiper banner-one-slider">
-    <div class="swiper-wrapper">
-        <div class="banner__one-image swiper-slide" data-background="assets/img/banner/banner-1.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="banner__one-content">
-                            <span data-animation="fadeInUp" data-delay=".4s">Welcome to Conbix</span>
-                            <h1 data-animation="fadeInUp" data-delay=".7s">Business consulting advice</h1>
-                            <div class="banner__one-content-button" data-animation="fadeInUp" data-delay="1s">
-                                <div class="banner__one-content-button-item">
-                                    <a class="btn-one" href="about.html">Read More<i class="far fa-chevron-double-right"></i></a>
+    @if(count($sliders) > 0)
+
+        <div class="banner__two swiper banner-two-slider">
+            <div class="swiper-wrapper">
+                @foreach(@$sliders as $slider)
+                    <div class="banner__two-image swiper-slide" data-background="{{ asset('/images/sliders/'.$slider->image) }}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="banner__two-content">
+                                    <b class="subtitle">Life International</b>
+                                    <span data-animation="fadeInUp" data-delay=".3s">{{@$slider->subheading}}</span>
+                                    <h1 data-animation="fadeInUp" data-delay=".7s">{{@$slider->heading}}</h1>
+                                    @if(@$slider->button)
+                                        <div class="banner__two-content-button" data-animation="fadeInUp" data-delay="1s">
+                                            <a class="btn-five" href="{{@$slider->link}}"> {{@$slider->button ?? 'Start here'}} <i class="far fa-chevron-double-right"></i></a>
+                                        </div>
+                                    @endif
+                                    <img class="banner__two-image-shape-one" src="{{asset('assets/frontend/img/shape/banner-1.png')}}" data-animation="rollIn" data-delay="2s" alt="">
                                 </div>
-                                <div class="banner__one-content-video-icon">
-                                    <a class="video-popup" href="https://www.youtube.com/watch?v=0WC-tD-njcA"><i class="fas fa-play"></i></a>
-                                </div>
+                                <img class="banner__two-image-shape-two" src="{{asset('assets/frontend/img/shape/banner-2.png')}}" data-animation="fadeInRightBig" data-delay="1.1s" alt="">
                             </div>
-                            <div class="banner-four-pagination"></div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-        </div>
-        <div class="banner__one-image swiper-slide" data-background="assets/img/banner/banner-2.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="banner__one-content">
-                            <span data-animation="fadeInUp" data-delay=".4s">Welcome to Conbix</span>
-                            <h1 data-animation="fadeInUp" data-delay=".7s">Inspire experience program</h1>
-                            <div class="banner__one-content-button" data-animation="fadeInUp" data-delay="1s">
-                                <div class="banner__one-content-button-item">
-                                    <a class="btn-one" href="about.html">Read More<i class="far fa-chevron-double-right"></i></a>
-                                </div>
-                                <div class="banner__one-content-video-icon">
-                                    <a class="video-popup" href="https://www.youtube.com/watch?v=0WC-tD-njcA"><i class="fas fa-play"></i></a>
-                                </div>
-                            </div>
-                            <div class="banner-four-pagination"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="banner__two-arrow">
+                <div class="banner__two-arrow-prev swiper-button-prev"><i class="fal fa-long-arrow-left"></i></div>
+                <div class="banner__two-arrow-next swiper-button-next"><i class="fal fa-long-arrow-right"></i></div>
             </div>
-        </div>
-    </div>
-</div>
-<!-- Banner Area End -->
+        </div><!-- Banner Area End -->
+    @endif
 <!-- About Area Start -->
 <div class="about__one dark__image section-padding">
     <div class="container">
@@ -58,12 +44,8 @@
             <div class="col-xl-6 col-lg-6 lg-mb-30">
                 <div class="about__one-left">
                     <div class="about__one-left-image">
-                        <img class="one" src="assets/img/about/about-1.jpg" alt="">
-                        <img class="two" src="assets/img/about/about-2.jpg" alt="">
-                    </div>
-                    <div class="about__one-left-experience">
-                        <h1><span class="counter">32</span>+</h1>
-                        <h6>Years Experience Our Company</h6>
+                        <img class="one" src="{{asset('assets/frontend/img/about/about-1.jpg')}}" alt="">
+                        <img class="two" src="{{asset('assets/frontend/img/about/about-2.jpg')}}" alt="">
                     </div>
                 </div>
             </div>
@@ -78,35 +60,15 @@
                         <div>
                             <a class="btn-one" href="about.html">Discover More<i class="far fa-chevron-double-right"></i></a>
                         </div>
-                        <div class="about__one-right-btn-author">
-                            <div class="about__one-right-btn-author-avatar">
-                                <img src="assets/img/avatar/avatar-1.jpg" alt="">
-                            </div>
-                            <div class="about__one-right-btn-author-name">
-                                <span class="text-one">Nguyen, Shane</span>
-                                <h6>Founder CEO</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about__one-right-bottom">
-                        <div class="about__one-right-bottom-list">
-                            <span><i class="far fa-check"></i>Performing market research.</span>
-                            <span><i class="far fa-check"></i>Providing information to a client.</span>
-                            <span><i class="far fa-check"></i>Strategic planning.</span>
-                        </div>
-                        <div class="about__one-right-bottom-experience">
-                            <h3><span class="counter">150</span>+</h3>
-                            <h6>Expert Team members</h6>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <img class="about__one-shape-1 dark-n" src="assets/img/shape/about-1.png" alt="">
-    <img class="about__one-shape-1 light-n" src="assets/img/shape/about-1-dark.png" alt="">
-    <img class="about__one-shape-2 dark-n" src="assets/img/shape/about-2.png" alt="">
-    <img class="about__one-shape-2 light-n" src="assets/img/shape/about-2-dark.png" alt="">
+    <img class="about__one-shape-1 dark-n" src="{{asset('assets/frontend/img/shape/about-1.png')}}" alt="">
+    <img class="about__one-shape-1 light-n" src="{{asset('assets/frontend/img/shape/about-1-dark.png')}}" alt="">
+    <img class="about__one-shape-2 dark-n" src="{{asset('assets/frontend/img/shape/about-2.png')}}" alt="">
+    <img class="about__one-shape-2 light-n" src="{{asset('assets/frontend/img/shape/about-2-dark.png')}}" alt="">
 </div>
 <!-- About Area End -->
 <!-- Services Area Start -->
@@ -127,9 +89,9 @@
             <div class="col-xl-3 col-lg-4 col-md-6 xl-mb-30">
                 <div class="services__one-item">
                     <div class="services__one-item-icon">
-                        <img src="assets/img/icon/services-1.png" alt="">
+                        <img src="{{asset('assets/frontend/img/icon/services-1.png')}}" alt="">
                         <div class="services__one-item-icon-one">
-                            <img src="assets/img/icon/services-11.png" alt="">
+                            <img src="{{asset('assets/frontend/img/icon/services-11.png')}}" alt="">
                         </div>
                     </div>
                     <h4><a href="services-right-sidebar.html">business model</a></h4>

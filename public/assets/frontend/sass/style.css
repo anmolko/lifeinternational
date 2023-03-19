@@ -4693,6 +4693,7 @@ Banner Two CSS
 ==========================================================================*/
 .banner__two {
   position: relative;
+    height: 550px;
 }
 .banner__two-image {
   background-position: center;
@@ -4725,17 +4726,17 @@ Banner Two CSS
 .banner__two-content {
   position: relative;
   text-align: center;
-  padding: 220px 0;
+  padding: 120px 0;
 }
 .banner__two-content .subtitle {
   position: absolute;
   left: 50%;
-  top: 23%;
+  top: 5%;
   transform: translateX(-50%);
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 250px;
-  line-height: 200px;
+    font-size: 90px;
+    line-height: 80px;
   font-family: var(--heading-font);
   font-style: normal;
   opacity: 0.2;
