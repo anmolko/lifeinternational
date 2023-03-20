@@ -38,18 +38,15 @@ class RecruitmentProcessController extends Controller
      */
     public function store(Request $request)
     {
-        $listnum   = count($request->input('icon'));
+        $listnum   = count($request->input('title'));
         for ($i=0;$i<$listnum;$i++){
             $heading      =  (array_key_exists($i, $request->input('heading')) ?  $request->input('heading')[$i]: Null);
             $description  =  (array_key_exists($i, $request->input('description')) ?  $request->input('description')[$i]: Null);
-            $link         =  (array_key_exists($i, $request->input('link')) ?  $request->input('link')[$i]: Null);
             $data=[
                 'heading'               => $heading,
                 'description'           => $description,
-                'link'                  => $link,
-                'icon'                  => $request->input('icon')[$i],
-                'title'                 => ($request->input('title')[$i] !== null) ? $request->input('title')[$i]:Null,
-                'icon_description'      => ($request->input('icon_description')[$i] !== null) ? $request->input('icon_description')[$i]:Null,
+                'title'                 =>  $request->input('title')[$i] ?? null,
+                'icon_description'      =>  $request->input('icon_description')[$i] ?? null,
                 'created_by'            => Auth::user()->id,
             ];
             $status = RecruitmentProcess::create($data);
@@ -99,22 +96,19 @@ class RecruitmentProcessController extends Controller
 
     public function listUpdate(Request $request)
     {
-        $listnum   = count($request->input('icon'));
+        $listnum   = count($request->input('title'));
         $db_elements     = json_decode($request->input('recruitment_elements'),true);
         $db_elements_id  = array_map(function($item){ return $item['id']; }, $db_elements);
         for ($i=0;$i<$listnum;$i++){
             $heading      =  (array_key_exists($i, $request->input('heading')) ?  $request->input('heading')[$i]: Null);
             $description  =  (array_key_exists($i, $request->input('description')) ?  $request->input('description')[$i]: Null);
-            $link         =  (array_key_exists($i, $request->input('link')) ?  $request->input('link')[$i]: Null);
 
             if($request->input('id')[$i] == null){
                 $data=[
                     'heading'               => $heading,
                     'description'           => $description,
-                    'link'                  => $link,
-                    'icon'                  => $request->input('icon')[$i],
-                    'title'                 => ($request->input('title')[$i] !== null) ? $request->input('title')[$i]:Null,
-                    'icon_description'      => ($request->input('icon_description')[$i] !== null) ? $request->input('icon_description')[$i]:Null,
+                    'title'                 => $request->input('title')[$i] ?? null,
+                    'icon_description'      => $request->input('icon_description')[$i] ?? null,
                     'created_by'            => Auth::user()->id,
                 ];
                 $status = RecruitmentProcess::create($data);
@@ -123,10 +117,8 @@ class RecruitmentProcessController extends Controller
                 $process                      = RecruitmentProcess::find($request->input('id')[$i]);
                 $process->heading             = $heading;
                 $process->description         = $description;
-                $process->link                = $link;
-                $process->icon                = $request->input('icon')[$i];
-                $process->title               = ($request->input('title')[$i] !== null) ? $request->input('title')[$i]:Null;
-                $process->icon_description    = ($request->input('icon_description')[$i] !== null) ? $request->input('icon_description')[$i]:Null;
+                $process->title               = $request->input('title')[$i] ?? null;
+                $process->icon_description    = $request->input('icon_description')[$i] ?? null;
                 $process->updated_by          = Auth::user()->id;
                 $status                       = $process->update();
             }

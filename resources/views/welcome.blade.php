@@ -317,95 +317,35 @@
     </div>
     @endif
 
-    <div class="work__area section-padding pb-0">
-        <div class="container">
-            <div class="row mb-70">
-                <div class="col-xl-12">
-                    <div class="work__area-title t-center">
-                        <span class="subtitle-two">Work Process</span>
-                        <h2>Our Solution Process</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-3 col-sm-6 xl-mb-30">
-                    <div class="work__area-item">
-                        <span>01</span>
-                        <h6>Identifying problems</h6>
-                        <p>Aenean pretium condimentum ornare. Curabitur</p>
-                        <img class="work__area-item-arrow sm-display-n dark-n" src="{{asset('assets/frontend/img/icon/arrow-1.png')}}" alt="">
-                        <img class="work__area-item-arrow sm-display-n light-n" src="{{asset('assets/frontend/img/icon/arrow-1-dark.png')}}" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 sm-mb-30">
-                    <div class="work__area-item">
-                        <span>02</span>
-                        <h6>Research your Problem</h6>
-                        <p>Aenean pretium condimentum ornare. Curabitur</p>
-                        <img class="work__area-item-arrow xl-display-n dark-n" src="{{asset('assets/frontend/img/icon/arrow-2.png')}}" alt="">
-                        <img class="work__area-item-arrow xl-display-n light-n" src="{{asset('assets/frontend/img/icon/arrow-2-dark.png')}}" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 sm-mb-30">
-                    <div class="work__area-item">
-                        <span>03</span>
-                        <h6>Solutions your Problem</h6>
-                        <p>Aenean pretium condimentum ornare. Curabitur</p>
-                        <img class="work__area-item-arrow xl-display-n dark-n" src="{{asset('assets/frontend/img/icon/arrow-1.png')}}" alt="">
-                        <img class="work__area-item-arrow xl-display-n light-n" src="{{asset('assets/frontend/img/icon/arrow-1-dark.png')}}" alt="">
-                        <img class="work__area-item-arrow display-n xl-display-b sm-display-n dark-n" src="{{asset('assets/frontend/img/icon/arrow-2.png')}}" alt="">
-                        <img class="work__area-item-arrow display-n xl-display-b sm-display-n light-n" src="{{asset('assets/frontend/img/icon/arrow-2-dark.png')}}" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6">
-                    <div class="work__area-item">
-                        <span>04</span>
-                        <h6>Consultation with experts</h6>
-                        <p>Aenean pretium condimentum ornare. Curabitur</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-5">
-                    <div class="col-xl-3 col-sm-6 xl-mb-30">
-                        <div class="work__area-item">
-                            <span>05</span>
-                            <h6>Identifying problems</h6>
-                            <p>Aenean pretium condimentum ornare. Curabitur</p>
-                            <img class="work__area-item-arrow xl-display-n dark-n" src="{{asset('assets/frontend/img/icon/arrow-2.png')}}" alt="">
-                            <img class="work__area-item-arrow xl-display-n light-n" src="{{asset('assets/frontend/img/icon/arrow-2-dark.png')}}" alt="">
+    @if(@$recruitments[0]->heading)
+        <div class="work__area section-padding pb-0">
+            <div class="container">
+                <div class="row mb-70">
+                    <div class="col-xl-12">
+                        <div class="work__area-title t-center">
+                            <span class="subtitle-two">{{@$recruitment[0]->description ?? 'The Process'}}</span>
+                            <h2>{{@$recruitment[0]->heading ?? 'Our Recruitment Process'}}</h2>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-sm-6 sm-mb-30">
-                        <div class="work__area-item">
-                            <span>06</span>
-                            <h6>Research your Problem</h6>
-                            <p>Aenean pretium condimentum ornare. Curabitur</p>
-                            <img class="work__area-item-arrow sm-display-n dark-n" src="{{asset('assets/frontend/img/icon/arrow-1.png')}}" alt="">
-                            <img class="work__area-item-arrow sm-display-n light-n" src="{{asset('assets/frontend/img/icon/arrow-1-dark.png')}}" alt="">
+                </div>
+                <div class="row">
+                    @foreach(@$recruitments as $index=>$recruitment)
+                        <div class="col-xl-3 col-sm-6 xl-mb-30 mt-3">
+                            <div class="work__area-item">
+                                <span>{{$index>8?'':'0'}}{{ $index+1 }}</span>
+                                <h6>{{@$recruitment->title}}</h6>
+                                <p>{{@$recruitment->icon_description}}</p>
+                                @if(!in_array($index,$recuruitment_index) && !$loop->last)
+                                        <img class="work__area-item-arrow sm-display-n dark-n" src="{{ $loop->even ? asset('assets/frontend/img/icon/arrow-1.png'):asset('assets/frontend/img/icon/arrow-2.png') }}" alt="">
+                                        <img class="work__area-item-arrow sm-display-n light-n" src="{{ $loop->even ? asset('assets/frontend/img/icon/arrow-1-dark.png'):asset('assets/frontend/img/icon/arrow-2-dark.png') }}" alt="">
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-sm-6 sm-mb-30">
-                        <div class="work__area-item">
-                            <span>07</span>
-                            <h6>Solutions your Problem</h6>
-                            <p>Aenean pretium condimentum ornare. Curabitur</p>
-                            <img class="work__area-item-arrow xl-display-n dark-n" src="{{asset('assets/frontend/img/icon/arrow-2.png')}}" alt="">
-                            <img class="work__area-item-arrow xl-display-n light-n" src="{{asset('assets/frontend/img/icon/arrow-2-dark.png')}}" alt="">
-                            <img class="work__area-item-arrow display-n xl-display-b sm-display-n dark-n" src="{{asset('assets/frontend/img/icon/arrow-1.png')}}" alt="">
-                            <img class="work__area-item-arrow display-n xl-display-b sm-display-n light-n" src="{{asset('assets/frontend/img/icon/arrow-1-dark.png')}}" alt="">
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-sm-6">
-                    <div class="work__area-item">
-                        <span>08</span>
-                        <h6>Consultation with experts</h6>
-                        <p>Aenean pretium condimentum ornare. Curabitur</p>
-                    </div>
+                    @endforeach
                 </div>
             </div>
-
         </div>
-    </div>
+    @endif
 
     <div class="testimonial__area section-padding">
         <img class="testimonial__area-shape dark-n" src="assets/img/shape/testimonial.png" alt="">
