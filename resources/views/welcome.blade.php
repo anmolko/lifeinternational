@@ -284,41 +284,41 @@
 
     @if(count($latestServices) > 0)
         <div class="portfolio__area section-padding pb-0">
-        <div class="container-fluid p-0">
-            <div class="row mb-60">
-                <div class="col-xl-12">
-                    <div class="portfolio__area-title t-center">
-                        <span class="subtitle-one">What we provide</span>
-                        <h2>Our Best Services</h2>
+            <div class="container-fluid p-0">
+                <div class="row mb-60">
+                    <div class="col-xl-12">
+                        <div class="portfolio__area-title t-center">
+                            <span class="subtitle-one">What we provide</span>
+                            <h2>Our Best Services</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="portfolio dark__image">
-                        @foreach(@$latestServices as $index=>$service)
-                            <div class="portfolio-item {{$index==1?'active':''}}">
-                            <img src="{{asset('/images/service/thumb/thumb_'.@$service->banner_image)}}" alt="">
-                            <div class="portfolio-item-inner">
-                                <div class="portfolio-item-inner-title">
-                                    <h4>{{ucwords(@$service->title)}}</h4>
-                                    <span>Life International</span>
-                                </div>
-                                <div class="portfolio-item-inner-icon">
-                                    <a href="{{route('service.single',$service->slug)}}"><i class="fal fa-long-arrow-up"></i></a>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="portfolio dark__image">
+                            @foreach(@$latestServices as $index=>$service)
+                                <div class="portfolio-item {{$index==1?'active':''}}">
+                                <img src="{{asset('/images/service/thumb/thumb_'.@$service->banner_image)}}" alt="">
+                                <div class="portfolio-item-inner">
+                                    <div class="portfolio-item-inner-title">
+                                        <h4>{{ucwords(@$service->title)}}</h4>
+                                        <span>Life International</span>
+                                    </div>
+                                    <div class="portfolio-item-inner-icon">
+                                        <a href="{{route('service.single',$service->slug)}}"><i class="fal fa-long-arrow-up"></i></a>
+                                    </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     @endif
 
     @if(@$recruitments[0]->heading)
-        <div class="work__area section-padding pb-0">
+        <div class="work__area section-padding">
             <div class="container">
                 <div class="row mb-70">
                     <div class="col-xl-12">
@@ -346,6 +346,95 @@
             </div>
         </div>
     @endif
+    @if(!empty($homepage_info->why_heading))
+        <div class="company__two dark__image section-padding">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-7 lg-mb-30">
+                        <div class="company__two-left">
+                            <div class="company__two-left-title">
+                                <span class="subtitle-one">{{ucwords(@$homepage_info->why_subheading)}}</span>
+                                <h2>{{ucwords(@$homepage_info->why_heading)}}</h2>
+                                <p>{{ucfirst(@$homepage_info->why_description)}}</p>
+                            </div>
+                            <div class="company__two-left-skill">
+                                <div class="company__two-left-skill-item">
+                                    <h2><span class="counter">{{@$homepage_info->project_completed ?? '450'}}</span></h2>
+                                    <h6>Project Completed Overall</h6>
+                                </div>
+                                <div class="company__two-left-skill-item">
+                                    <h2><span class="counter">{{@$homepage_info->visa_approved ?? '340'}}</span></h2>
+                                    <h6>Total Visa Approved</h6>
+                                </div>
+                            </div>
+                            <div class="company__two-left-skill">
+                                <div class="company__two-left-skill-item">
+                                    <h2><span class="counter">{{@$homepage_info->happy_clients}}</span></h2>
+                                    <h6>Happy Clients All Over</h6>
+                                </div>
+                                <div class="company__two-left-skill-item">
+                                    <h2><span class="counter">{{@$homepage_info->success_stories}}</span></h2>
+                                    <h6>Our Success Stories</h6>
+                                </div>
+                            </div>
+                            @if(@$homepage_info->why_button)
+                                <a class="btn-two" href="{{@$homepage_info->why_link}}">{{@$homepage_info->why_button}}<i class="far fa-chevron-double-right"></i></a>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-5">
+                        <div class="company__two-right dark__image t-right">
+                            <img class="img__full" src="{{asset('/images/home/welcome/'.@$homepage_info->what_image5)}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    @if(@$setting_data->grievance_heading)
+        <div class="contact__three section-padding">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 lg-mb-30">
+                        <div class="contact__three-left mr-40 xl-mr-0">
+                            <div class="contact__three-left-map">
+                                @if(@$setting_data->google_map)
+                                    <iframe src="{{@$setting_data->google_map}}" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="contact__three-righ">
+                            <div class="contact__three-right-title">
+                                <span class="subtitle-one">Life International Overseas</span>
+                                <h2 class="mb-30">{{ucwords(@$setting_data->grievance_heading)}}</h2>
+                            </div>
+                            <div class="contact__three-right-form">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="about__one-right-title">
+                                                <p> {{ ucfirst(@$setting_data->grievance_description) }}</p>
+                                            </div>
+                                            @if(@$setting_data->grievance_button)
+                                                <div class="contact__two-right-form-item">
+                                                    <a href="{{@$setting_data->grievance_link}}" class="btn-one" type="submit">
+                                                        {{ucwords(@$setting_data->grievance_button)}} <i class="far fa-chevron-double-right"></i></a>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 
     <div class="testimonial__area section-padding">
         <img class="testimonial__area-shape dark-n" src="assets/img/shape/testimonial.png" alt="">
@@ -442,92 +531,6 @@
         </div>
     </div>
     <!-- Testimonial Area End -->
-    <!-- Get In Touch Start End -->
-    <div class="getIn__touch section-padding" data-background="assets/img/pages/getInTouch.jpg">
-        <img class="getIn__touch-shape left-right-animate2" src="assets/img/shape/getInTouch.png" alt="">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-5 lg-mb-30">
-                    <div class="getIn__touch-left">
-                        <div class="getIn__touch-left-title">
-                            <span class="subtitle-one">Get In Touch</span>
-                            <h2>Free Consultation</h2>
-                        </div>
-                        <div class="getIn__touch-left-form">
-                            <form action="#">
-                                <div class="mt-25">
-                                    <input type="text" name="name" placeholder="Full Name" required="required">
-                                </div>
-                                <div class="mt-25">
-                                    <input type="email" name="email" placeholder="Email Address" required="required">
-                                </div>
-                                <div class="mt-25">
-                                    <input type="text" name="subject" placeholder="Subject" required="required">
-                                </div>
-                                <div class="mt-25">
-                                    <button class="btn-one" type="submit">Free Consulting</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-7">
-                    <div class="getIn__touch-right">
-                        <div class="getIn__touch-right-title">
-                            <h2>We serving 30% Of Global 600 Companies</h2>
-                            <p>Aenean a felis consequat, varius orci ut, varius metus. Donec iaculis leo turpis, vitae sagittis massa luctus feugiat. Donec vel sodales dui,</p>
-                        </div>
-                        <div class="getIn__touch-right-bottom">
-                            <div class="getIn__touch-right-bottom-text">
-                                <h4>client satisfaction in the globaly</h4>
-                            </div>
-                            <div class="getIn__touch-right-bottom-shape">
-                                <img src="assets/img/icon/getInTouch.png" alt="">
-                            </div>
-                            <div class="getIn__touch-right-bottom-image">
-                                <ul>
-                                    <li><img src="assets/img/avatar/avatar-7.jpg" alt=""></li>
-                                    <li><img src="assets/img/avatar/avatar-5.jpg" alt=""></li>
-                                    <li><img src="assets/img/avatar/avatar-6.jpg" alt=""></li>
-                                    <li><img src="assets/img/avatar/avatar-4.jpg" alt=""></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Get In Touch Area End -->
-    <!-- Emargency Help Area Start -->
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-5"></div>
-            <div class="col-xl-7">
-                <div class="help__area">
-                    <div class="help__area-item">
-                        <div class="help__area-item-icon icon-animation">
-                            <i class="fal fa-phone-alt"></i>
-                        </div>
-                        <div class="help__area-item-info">
-                            <span class="text-three">Emargency Help</span>
-                            <h5><a href="tel:+012652689523">+012 652 689 523</a></h5>
-                        </div>
-                    </div>
-                    <div class="help__area-item">
-                        <div class="help__area-item-icon">
-                            <i class="fal fa-envelope-open-text"></i>
-                        </div>
-                        <div class="help__area-item-info">
-                            <span class="text-three">Email drop Us</span>
-                            <h5><a href="mailto:conbix@gmail.com">conbix@gmail.com</a></h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Emargency Help Area End -->
     <!-- Blog Area Start -->
     <div class="blog__one dark__image section-padding">
         <div class="container">

@@ -22,7 +22,7 @@
         }
 
         .feature-image-button{
-            position: absolute;
+            /*position: absolute;*/
             top: 25%;
         }
 
@@ -117,12 +117,12 @@
                                                 General Grievance
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link fw-semibold" data-bs-toggle="tab" href="#simple-what-makes-us-action"
-                                               role="tab">
-                                                What makes us different?
-                                            </a>
-                                        </li>
+{{--                                        <li class="nav-item">--}}
+{{--                                            <a class="nav-link fw-semibold" data-bs-toggle="tab" href="#simple-what-makes-us-action"--}}
+{{--                                               role="tab">--}}
+{{--                                                What makes us different?--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
 
                                         <li class="nav-item">
                                             <a class="nav-link fw-semibold" data-bs-toggle="tab" href="#simple-why-us-action"
@@ -252,7 +252,7 @@
 
                            @include('backend.home.includes.mission_vision_tab')
 
-                           @include('backend.home.includes.what_makes_us_tab')
+{{--                           @include('backend.home.includes.what_makes_us_tab')--}}
 
                            @include('backend.home.includes.why_us_tab')
 

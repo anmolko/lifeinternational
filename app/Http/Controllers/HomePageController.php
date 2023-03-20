@@ -355,6 +355,21 @@ class HomePageController extends Controller
         $update_theme->why_button           =  $request->input('why_button');
         $update_theme->why_link             =  $request->input('why_link');
         $update_theme->updated_by           =  Auth::user()->id;
+        $oldimage5                          = $update_theme->what_image5;
+
+        if (!empty($request->file('what_image5'))){
+            $path    = base_path().'/public/images/home/welcome/';
+            $image = $request->file('what_image5');
+            $name1 = uniqid().'_why_us_'.$image->getClientOriginalName();
+            $moved          = Image::make($image->getRealPath())->fit(600, 500)->orientate()->save($path.$name1);
+            if ($moved){
+                $update_theme->what_image5 = $name1;
+                if (!empty($oldimage1) && file_exists(public_path().'/images/home/welcome/'.$oldimage1)){
+                    @unlink(public_path().'/images/home/welcome/'.$oldimage1);
+                }
+            }
+        }
+
 
         $status=$update_theme->update();
         if($status){

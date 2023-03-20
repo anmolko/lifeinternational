@@ -16,7 +16,7 @@
                         </figure>
                         <div class="position-relative mb-3">
                             <label class="form-label">Heading <span class="text-muted text-danger">*</span></label>
-                            <input type="text" class="form-control" maxlength="55" name="why_heading" value="{{@$homesettings->why_heading}}"
+                            <input type="text" class="form-control" maxlength="35" name="why_heading" value="{{@$homesettings->why_heading}}"
                                    placeholder="Enter heading" required>
                             <div class="invalid-feedback">
                                 Please enter the heading.
@@ -24,7 +24,7 @@
                         </div>
                         <div class="position-relative mb-3">
                             <label class="form-label">SubHeading</label>
-                            <input type="text" class="form-control" maxlength="20" name="why_subheading" value="{{@$homesettings->why_subheading}}"
+                            <input type="text" class="form-control" maxlength="30" name="why_subheading" value="{{@$homesettings->why_subheading}}"
                                    placeholder="Enter subheading">
                             <div class="invalid-feedback">
                                 Please enter the heading.
@@ -33,7 +33,7 @@
 
                         <div class="position-relative mb-3">
                             <label class="form-label">Description <span class="text-muted text-danger">*</span></label>
-                            <textarea class="form-control" maxlength="660" name="why_description" placeholder="Enter why us description" rows="4" required>{{@$homesettings->why_description}}</textarea>
+                            <textarea class="form-control" maxlength="150" name="why_description" placeholder="Enter why us description" rows="4" required>{{@$homesettings->why_description}}</textarea>
                             <div class="invalid-tooltip">
                                 Please enter the  description.
                             </div>
@@ -41,7 +41,7 @@
 
                         <div class="position-relative mb-3">
                             <label class="form-label">Button</label>
-                            <input type="text" class="form-control" maxlength="50" name="why_button" value="{{@$homesettings->why_button}}"
+                            <input type="text" class="form-control" maxlength="30" name="why_button" value="{{@$homesettings->why_button}}"
                                    placeholder="Enter button text">
                             <div class="invalid-feedback">
                                 Please enter the heading.
@@ -56,7 +56,23 @@
                                 Please enter the heading.
                             </div>
                         </div>
+                        <div class="col-md-9">
+                            <div>
+                                <img id="current-sliderlist-5-img" src="<?php if(!empty(@$homesettings->what_image5)){ echo '/images/home/welcome/'.@$homesettings->what_image5; } else{  echo '/images/default-image.jpg'; } ?>" class="position-relative img-fluid img-thumbnail blog-feature-image" >
+                                <input  type="file" accept="image/png, image/jpeg" hidden
+                                        id="sliderlist-5-image" onchange="loadbasicFile('sliderlist-5-image','current-sliderlist-5-img',event)" name="what_image5" {{(@$homesettings->what_image5 !== null) ? "":"required" }}
+                                        class="profile-foreground-img-file-input" >
+                                <figcaption class="figure-caption"> Image for current box. (SIZE: 600px X 500px)</figcaption>
+                                <div class="invalid-feedback" >
+                                    Please select a image.
+                                </div>
+                                <label for="sliderlist-5-image" class="profile-photo-edit btn btn-light feature-image-button">
+                                    <i class="ri-image-edit-line align-bottom me-1"></i> Add Image
+                                </label>
+                            </div>
+                        </div>
                     </div>
+
 
                     <!-- end card body -->
                 </div>
@@ -71,7 +87,6 @@
                         <h5 class="card-title mb-0">Site Statistics</h5>
                     </div>
                     <div class="card-body">
-
                         <div class="position-relative mb-3">
                             <label class="form-label">Project completed <span class="text-muted text-danger">*</span></label>
                             <input type="number" class="form-control" name="project_completed" value="{{@$homesettings->project_completed}}"
