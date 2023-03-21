@@ -154,6 +154,9 @@ a:hover {
 .section-padding-3 {
     padding: 80px 0px;
 }
+.section-padding-4 {
+    padding: 80px 0px 40px;
+}
 
 @media (max-width: 575px) {
   .section-padding {
@@ -7327,6 +7330,7 @@ Team CSS
 .team__area-item-image {
   position: relative;
   z-index: 1;
+  height: 150px;
 }
 .team__area-item-image::before {
   content: "";
@@ -7408,11 +7412,14 @@ Team CSS
 }
 .team__area-item-image img {
   width: 100%;
+object-fit: none;
+object-position: 50% 50%;
 }
+
 .team__area-item-content {
   padding: 22px;
   margin: 0 30px;
-  margin-top: -60px;
+  margin-top: -35px;
   background: var(--bg-white);
   position: relative;
   z-index: 1;

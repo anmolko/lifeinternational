@@ -393,7 +393,7 @@
     @endif
 
     @if(@$setting_data->grievance_heading)
-        <div class="contact__three section-padding">
+        <div class="contact__three section-padding-4">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-lg-6 lg-mb-30">
@@ -435,7 +435,43 @@
         </div>
     @endif
 
+    @if(count($clients) > 0)
+        <div class="team__area section-padding-3 dark__image">
+            <div class="container">
+                <div class="row align-items-end mb-70">
+                    <div class="col-xl-7 col-lg-8 lg-mb-30">
+                        <div class="blog__one-title lg-t-center">
+                            <span class="subtitle-one">Life International Special</span>
+                            <h2>Our Valuable Clients</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-4 t-right lg-t-center">
+                        <a class="btn-two" href="{{route('client.frontend')}}">View All<i class="far fa-chevron-double-right"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="swiper testimonial__area-slider">
+                        <div class="swiper-wrapper">
+                            @foreach($clients as $client)
+                                <div class="col-xl-4 col-lg-4 col-md-6 mb-30 swiper-slide">
+                                    <div class="team__area-item">
+                                        <div class="team__area-item-image d-flex justify-content-center align-items-center">
+                                            <img src="{{asset('/images/clients/'.@$client->image)}}" alt="">
+                                        </div>
+                                        <div class="team__area-item-content page">
+                                            <h5><a href="{{ $client->link ?? '#' }}" target="{{ ($client->link !== null) ? '_blank':'' }}">{{@$client->name ?? ''}}</a></h5>
+    {{--                                        <span class="text-eight">Sr. Consultant</span>--}}
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="testimonial__area section-padding">
         <img class="testimonial__area-shape dark-n" src="assets/img/shape/testimonial.png" alt="">
         <img class="testimonial__area-shape light-n" src="assets/img/shape/testimonial-dark.png" alt="">
