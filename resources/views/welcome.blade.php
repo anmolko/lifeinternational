@@ -438,15 +438,12 @@
     @if(count($clients) > 0)
         <div class="team__area section-padding-3 dark__image">
             <div class="container">
-                <div class="row align-items-end mb-70">
-                    <div class="col-xl-7 col-lg-8 lg-mb-30">
-                        <div class="blog__one-title lg-t-center">
-                            <span class="subtitle-one">Life International Special</span>
+                <div class="row mb-70">
+                    <div class="col-xl-12">
+                        <div class="work__area-title t-center">
+                            <span class="subtitle-two">Life International Special</span>
                             <h2>Our Valuable Clients</h2>
                         </div>
-                    </div>
-                    <div class="col-xl-5 col-lg-4 t-right lg-t-center">
-                        <a class="btn-two" href="{{route('client.frontend')}}">View All<i class="far fa-chevron-double-right"></i></a>
                     </div>
                 </div>
                 <div class="row">
@@ -472,183 +469,105 @@
             </div>
         </div>
     @endif
-    <div class="testimonial__area section-padding">
-        <img class="testimonial__area-shape dark-n" src="assets/img/shape/testimonial.png" alt="">
-        <img class="testimonial__area-shape light-n" src="assets/img/shape/testimonial-dark.png" alt="">
-        <div class="container">
-            <div class="row mb-70 align-items-end">
-                <div class="col-xl-8 col-lg-8 lg-mb-30">
-                    <div class="testimonial__area-title lg-t-center">
-                        <span class="subtitle-one">Real Client Stories</span>
-                        <h2>Customer Experiences</h2>
+
+    @if(count($testimonials) > 1)
+        <div class="testimonial__area section-padding-3">
+            <img class="testimonial__area-shape dark-n" src="{{asset('assets/frontend/img/shape/testimonial.png')}}" alt="">
+            <img class="testimonial__area-shape light-n" src="{{asset('assets/frontend//img/shape/testimonial-dark.png')}}" alt="">
+            <div class="container">
+                <div class="row mb-70 align-items-end">
+                    <div class="col-xl-8 col-lg-8 lg-mb-30">
+                        <div class="testimonial__area-title lg-t-center">
+                            <span class="subtitle-one">Our Client Stories</span>
+                            <h2>Customer Experiences</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="testimonial__area-button t-right lg-t-center">
+                            <div class="testimonial__area-button-prev swiper-button-prev"><i class="fal fa-long-arrow-left"></i></div>
+                            <div class="testimonial__area-button-next swiper-button-next"><i class="fal fa-long-arrow-right"></i></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4">
-                    <div class="testimonial__area-button t-right lg-t-center">
-                        <div class="testimonial__area-button-prev swiper-button-prev"><i class="fal fa-long-arrow-left"></i></div>
-                        <div class="testimonial__area-button-next swiper-button-next"><i class="fal fa-long-arrow-right"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="swiper testimonial__area-slider">
-                        <div class="swiper-wrapper">
-                            <div class="testimonial__area-item swiper-slide">
-                                <div class="testimonial__area-item-client">
-                                    <div class="testimonial__area-item-icon">
-                                        <i class="fal fa-quote-right"></i>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="swiper testimonial__area-slider">
+                            <div class="swiper-wrapper">
+                                @foreach($testimonials as $testimonial)
+                                    <div class="testimonial__area-item swiper-slide">
+                                    <div class="testimonial__area-item-client">
+                                        <div class="testimonial__area-item-icon">
+                                            <i class="fal fa-quote-right"></i>
+                                        </div>
+                                        <div class="testimonial__area-item-client-image">
+                                            <img src="{{asset('/images/testimonial/'.@$testimonial->image)}}" alt="">
+                                        </div>
+                                        <div class="testimonial__area-item-client-title">
+                                            <h5>{{ucwords($testimonial->name)}}</h5>
+                                            <span class="text-eight">{{ucwords($testimonial->position)}}</span>
+                                        </div>
                                     </div>
-                                    <div class="testimonial__area-item-client-image">
-                                        <img src="assets/img/avatar/avatar-1.jpg" alt="">
-                                    </div>
-                                    <div class="testimonial__area-item-client-title">
-                                        <h5>Flores, Juanita</h5>
-                                        <span class="text-eight">Ceo Founder</span>
-                                    </div>
+                                    <p>{{@$testimonial->description }}</p>
+{{--                                    <div class="testimonial__area-item-reviews">--}}
+{{--                                        <i class="fas fa-star"></i>--}}
+{{--                                        <i class="fas fa-star"></i>--}}
+{{--                                        <i class="fas fa-star"></i>--}}
+{{--                                        <i class="fas fa-star"></i>--}}
+{{--                                        <i class="fas fa-star"></i>--}}
+{{--                                    </div>--}}
                                 </div>
-                                <p>Aenean a felis consequat, varius orci ut, varius metus. Donec iaculis leo turpis, vitae sagittis massa luctus feugiat.</p>
-                                <div class="testimonial__area-item-reviews">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="testimonial__area-item swiper-slide">
-                                <div class="testimonial__area-item-client">
-                                    <div class="testimonial__area-item-icon">
-                                        <i class="fal fa-quote-right"></i>
-                                    </div>
-                                    <div class="testimonial__area-item-client-image">
-                                        <img src="assets/img/avatar/avatar-2.jpg" alt="">
-                                    </div>
-                                    <div class="testimonial__area-item-client-title">
-                                        <h5>Cooper, Kristin</h5>
-                                        <span class="text-eight">Co Founder</span>
-                                    </div>
-                                </div>
-                                <p>Aenean a felis consequat, varius orci ut, varius metus. Donec iaculis leo turpis, vitae sagittis massa luctus feugiat.</p>
-                                <div class="testimonial__area-item-reviews">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="testimonial__area-item swiper-slide">
-                                <div class="testimonial__area-item-client">
-                                    <div class="testimonial__area-item-icon">
-                                        <i class="fal fa-quote-right"></i>
-                                    </div>
-                                    <div class="testimonial__area-item-client-image">
-                                        <img src="assets/img/avatar/avatar-3.jpg" alt="">
-                                    </div>
-                                    <div class="testimonial__area-item-client-title">
-                                        <h5>Johnsie Jock</h5>
-                                        <span class="text-eight">sr. Designer</span>
-                                    </div>
-                                </div>
-                                <p>Aenean a felis consequat, varius orci ut, varius metus. Donec iaculis leo turpis, vitae sagittis massa luctus feugiat.</p>
-                                <div class="testimonial__area-item-reviews">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Testimonial Area End -->
-    <!-- Blog Area Start -->
-    <div class="blog__one dark__image section-padding">
-        <div class="container">
-            <div class="row align-items-end mb-70">
-                <div class="col-xl-7 col-lg-8 lg-mb-30">
-                    <div class="blog__one-title lg-t-center">
-                        <span class="subtitle-one">From the blog</span>
-                        <h2>News & Articles</h2>
-                    </div>
-                </div>
-                <div class="col-xl-5 col-lg-4 t-right lg-t-center">
-                    <a class="btn-two" href="blog-grid-three.html">See more blog<i class="far fa-chevron-double-right"></i></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-lg-6 xl-mb-30">
-                    <div class="blog__one-item">
-                        <div class="blog__one-item-image">
-                            <a href="single-right-sidebar.html"><img src="assets/img/blog/blog-1.jpg" alt=""></a>
-                            <div class="blog__one-item-image-date">
-                                <span class="text-three">23</span>
-                                <span class="text-five">Dec</span>
-                            </div>
-                        </div>
-                        <div class="blog__one-item-content">
-                            <div class="blog__one-item-content-meta">
-                                <ul>
-                                    <li><a href="#"><i class="far fa-user"></i>By-Admin</a></li>
-                                    <li><a href="#"><i class="far fa-comment-dots"></i>Comments (3)</a></li>
-                                </ul>
-                            </div>
-                            <h4><a href="single-right-sidebar.html">When a small business is just starting out,</a></h4>
-                            <p>Experts say some good first steps in starting business are researching</p>
+    @endif
+    @if(count($latestPosts) > 0)
+        <!-- Blog Area Start -->
+        <div class="blog__one dark__image section-padding">
+            <div class="container">
+                <div class="row align-items-end mb-70">
+                    <div class="col-xl-7 col-lg-8 lg-mb-30">
+                        <div class="blog__one-title lg-t-center">
+                            <span class="subtitle-one">From the blog</span>
+                            <h2>News & Articles</h2>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 lg-mb-30">
-                    <div class="blog__one-item">
-                        <div class="blog__one-item-image">
-                            <a href="single-right-sidebar.html"><img src="assets/img/blog/blog-2.jpg" alt=""></a>
-                            <div class="blog__one-item-image-date">
-                                <span class="text-three">20</span>
-                                <span class="text-five">Dec</span>
-                            </div>
-                        </div>
-                        <div class="blog__one-item-content">
-                            <div class="blog__one-item-content-meta">
-                                <ul>
-                                    <li><a href="#"><i class="far fa-user"></i>By-Admin</a></li>
-                                    <li><a href="#"><i class="far fa-comment-dots"></i>Comments (3)</a></li>
-                                </ul>
-                            </div>
-                            <h4><a href="single-right-sidebar.html">Finances and accounting are one of the hardest</a></h4>
-                            <p>Experts say some good first steps in starting business are researching</p>
-                        </div>
+                    <div class="col-xl-5 col-lg-4 t-right lg-t-center">
+                        <a class="btn-two" href="{{route('blog.frontend')}}">See more blog<i class="far fa-chevron-double-right"></i></a>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-6">
-                    <div class="blog__one-item">
-                        <div class="blog__one-item-image">
-                            <a href="single-right-sidebar.html"><img src="assets/img/blog/blog-3.jpg" alt=""></a>
-                            <div class="blog__one-item-image-date">
-                                <span class="text-three">17</span>
-                                <span class="text-five">Dec</span>
+                <div class="row">
+                    @foreach(@$latestPosts as $post)
+                        <div class="col-xl-4 col-lg-6 xl-mb-30">
+                        <div class="blog__one-item">
+                            <div class="blog__one-item-image">
+                                <a href="{{route('blog.single',$post->slug)}}"><img src="{{asset('/images/blog/'.@$post->image)}}" alt=""></a>
+                                <div class="blog__one-item-image-date">
+{{--                                    <span class="text-three">23</span>--}}
+                                    <span class="text-five">{{date('M j, Y',strtotime(@$post->created_at))}}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="blog__one-item-content">
-                            <div class="blog__one-item-content-meta">
-                                <ul>
-                                    <li><a href="#"><i class="far fa-user"></i>By-Admin</a></li>
-                                    <li><a href="#"><i class="far fa-comment-dots"></i>Comments (3)</a></li>
-                                </ul>
+                            <div class="blog__one-item-content">
+                                <div class="blog__one-item-content-meta">
+                                    <ul>
+                                        <li><a href="{{route('blog.category',@$post->category->slug)}}"><i class="far fa-list-alt"></i>{{ucfirst(@$post->category->name)}}</a></li>
+                                    </ul>
+                                </div>
+                                <h4><a href="{{route('blog.single',$post->slug)}}">{{ucfirst($post->title)}}</a></h4>
+                                {!! elipsis($post->description) !!}
                             </div>
-                            <h4><a href="single-right-sidebar.html">Despite the benefits of variety & opportunities,</a></h4>
-                            <p>Experts say some good first steps in starting business are researching</p>
                         </div>
                     </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Blog Area End -->
+        <!-- Blog Area End -->
+    @endif
 @endsection
 
 @section('js')

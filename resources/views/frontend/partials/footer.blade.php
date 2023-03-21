@@ -6,7 +6,7 @@
         <div class="row align-items-center">
             <div class="col-xl-7 col-lg-8 lg-mb-30">
                 <div class="footer__top-title lg-t-center">
-                    <h2>Small Business Grow faster With Our Consulting Services</h2>
+                    <h2>Your Business Can Grow faster With Consulting Services</h2>
                 </div>
             </div>
             <div class="col-xl-5 col-lg-4">

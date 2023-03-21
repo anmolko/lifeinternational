@@ -78,7 +78,7 @@ class FrontController extends Controller
         $sliders            = $this->slider->where('status','active')->orderBy('created_at', 'asc')->get();
         $homepage_info      = $this->home_page->first();
         $testimonials       = Testimonial::orderBy('created_at', 'asc')->get();
-        $latestPosts        = $this->blog->inRandomOrder()->take(4)->get();
+        $latestPosts        = $this->blog->inRandomOrder()->take(3)->get();
         $servicecategory    = ServiceCategory::inRandomOrder()->take(6)->get();
         $recruitments       = RecruitmentProcess::all();
         $director           = ManagingDirector::orderBy('order', 'asc')->get();
