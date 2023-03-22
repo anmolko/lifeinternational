@@ -89,7 +89,7 @@
                                         </div>
                                     @endif
                                 </div>
-                             @endif
+                            @endif
 
 
                         </div>
@@ -470,7 +470,7 @@
         </div>
     @endif
 
-    @if(count($testimonials) > 1)
+    @if(count($testimonials) > 0)
         <div class="testimonial__area section-padding-3">
             <img class="testimonial__area-shape dark-n" src="{{asset('assets/frontend/img/shape/testimonial.png')}}" alt="">
             <img class="testimonial__area-shape light-n" src="{{asset('assets/frontend//img/shape/testimonial-dark.png')}}" alt="">

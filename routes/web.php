@@ -34,7 +34,7 @@ Route::get('/categories', function () {
 });
 
 Route::get('/contact-us', 'App\Http\Controllers\FrontController@contact')->name('contact');
-Route::post('/contact-us', 'App\Http\Controllers\FrontController@contactStore')->name('contact.store');
+Route::post('/contact-us/store', 'App\Http\Controllers\FrontController@contactStore')->name('contact.store');
 Route::get('/testimonial', 'App\Http\Controllers\FrontController@testimonial')->name('testimonial');
 
 

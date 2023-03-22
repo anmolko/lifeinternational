@@ -84,340 +84,293 @@
 @endsection
 @section('content')
 
-    <!-- Page Banner Start -->
-    <section class="page-banner-area pt-245 rpt-150 pb-170 rpb-100 rel z-1 bgc-lighter text-center">
+    <div class="page__banner" data-background="{{asset('assets/frontend/img/pages/page-banner.jpg')}}">
         <div class="container">
-            <div class="banner-inner rpt-10">
-            <h1 class="page-title wow fadeInUp delay-0-2s animated">{{ucwords(@$page_detail->name)}}</h1>
-
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb justify-content-center wow fadeInUp delay-0-4s">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">{{ucwords(@$page_detail->name)}}</li>
-                    </ol>
-                </nav>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="page__banner-content">
+                        <span>Page</span>
+                        <ul>
+                            <li><a href="/">Home</a><span>|</span></li>
+                            <li>{{ucwords(@$page_detail->name)}}<</li>
+                        </ul>
+                        <h1>{{ucwords(@$page_detail->name)}}</h1>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="banner-shapes">
-            <div class="circle wow zoomInLeft delay-0-2s" data-wow-duration="2s"></div>
-            <img class="shape-one" src="{{asset('assets/frontend/images/shapes/hero-shape1.png')}}" alt="Shape">
-            <img class="shape-two" src="{{asset('assets/frontend/images/shapes/hero-shape2.png')}}" alt="Shape">
-        </div>
-    </section>
+    </div>
 
     @foreach($sections as $key=>$value)
 
         @if($value == "basic_section")
-          <!--- Basic Section--->
-          <section class="ww-do-two-area py-130 rel z-1">
-            <div class="container">
-              <div class="row justify-content-between align-items-center">
+            <div class="about__one dark__image section-padding-4 ">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-6 col-lg-6 lg-mb-30">
+                            @if(@$basic_elements->list_image == "left")
+                                <div class="about__one-left">
+                                    <div class="about__one-left-image">
+                                        <img class="two" src="{{asset('/images/section_elements/basic_section/'.@$basic_elements->image) }}" alt="">
+                                    </div>
+                                </div>
+                            @else
+                                <div class="about__one-right">
+                                    <div class="about__one-right-title">
+                                        <span class="subtitle-one">{{$basic_elements->subheading??'Know more'}}</span>
+                                        <h2 style="max-width: 550px;"> {{ucwords(@$basic_elements->heading)}}</h2>
+                                        <p style="max-width: 550px;">  {!! @$basic_elements->description !!}</p>
+                                    </div>
+                                    @if(@$basic_elements->button_link)
+                                        <div class="about__one-right-btn">
+                                            <div>
+                                                <a class="btn-one" href="{{@$basic_elements->button_link}}">{{ucwords(@$basic_elements->button ?? 'Discover More')}}<i class="far fa-chevron-double-right"></i></a>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            @endif
 
-                @if(@$basic_elements->list_image == "right")
 
-                  <div class="col-xl-5 col-lg-6">
-                    <div class="ww-do-two-content rmb-65 wow fadeInUp delay-0-2s animated" style="visibility: visible; animation-name: fadeInUp;">
-                      <div class="section-title mb-30">
-                                @if(@$basic_elements->subheading)
-                                  <span class="sub-title style-two mb-15">{{ucfirst(@$basic_elements->subheading)}}</span>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            @if(@$basic_elements->list_image == "left")
+                                <div class="about__one-right-title ml-10">
+                                    <span class="subtitle-one">{{$basic_elements->subheading??'Know more'}}</span>
+                                    <h2 style="max-width: 550px;"> {{ucwords(@$basic_elements->heading)}}</h2>
+                                    <p style="max-width: 550px;">  {!! @$basic_elements->description !!}</p>
+                                </div>
+                                @if(@$basic_elements->button_link)
+                                    <div class="about__one-right-btn">
+                                        <div>
+                                            <a class="btn-one" href="{{@$basic_elements->button_link}}">{{ucwords(@$basic_elements->button ?? 'Discover More')}}<i class="far fa-chevron-double-right"></i></a>
+                                        </div>
+                                    </div>
                                 @endif
-                                @if(@$basic_elements->heading)
-                                  <h2>{{ucwords(@$basic_elements->heading)}}</h2>
-                                @endif
-
-                      </div>
-                      <p class="win-justify"> {!! @$basic_elements->description !!}</p>
-                      @if(@$basic_elements->button)
-                      <div class="ww-do-btns">
-                        <a href="{{@$basic_elements->button_link}}" class="theme-btn mt-15">{{ucwords(@$basic_elements->button)}} <i class="fas fa-angle-double-right"></i></a>
-                      </div>
-                      @endif
+                            @else
+                                <div class="about__one-left">
+                                    <div class="about__one-left-image">
+                                        <img class="two" src="{{asset('/images/section_elements/basic_section/'.@$basic_elements->image) }}" alt="">
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
 
                     </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="ww-do-two-images rel">
-                      <div class="row">
-                    <div class="best-skills-image wow fadeInRight delay-0-2s animated animated" style="visibility: visible; animation-name: fadeInRight;">
-                      <img src="{{asset('/images/section_elements/basic_section/'.@$basic_elements->image) }}" alt="Best Skills">
-                    </div>
-                      </div>
-                    </div>
-                  </div>
-                @else
-                  <div class="col-lg-6">
-                    <div class="ww-do-two-images rel">
-                      <div class="row">
-                    <div class="best-skills-image wow fadeInRight delay-0-2s animated animated" style="visibility: visible; animation-name: fadeInRight;">
-                      <img src="{{asset('/images/section_elements/basic_section/'.@$basic_elements->image) }}" alt="Best Skills">
-                    </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-xl-5 col-lg-6">
-                    <div class="ww-do-two-content rmb-65 wow fadeInUp delay-0-2s animated" style="visibility: visible; animation-name: fadeInUp;">
-                      <div class="section-title mb-30">
-                                @if(@$basic_elements->subheading)
-                                  <span class="sub-title style-two mb-15">{{ucfirst(@$basic_elements->subheading)}}</span>
-                                @endif
-                                @if(@$basic_elements->heading)
-                                  <h2>{{ucwords(@$basic_elements->heading)}}</h2>
-                                @endif
-
-                      </div>
-                      <p class="win-justify"> {!! @$basic_elements->description !!}</p>
-                      @if(@$basic_elements->button)
-                      <div class="ww-do-btns">
-                        <a href="{{@$basic_elements->button_link}}" class="theme-btn mt-15">{{ucwords(@$basic_elements->button)}} <i class="fas fa-angle-double-right"></i></a>
-                      </div>
-                      @endif
-
-                    </div>
-                  </div>
-
-                @endif
-
-              </div>
+                </div>
+                <img class="about__one-shape-1 dark-n" src="{{asset('assets/frontend/img/shape/about-1.png')}}" alt="">
+                <img class="about__one-shape-1 light-n" src="{{asset('assets/frontend/img/shape/about-1-dark.png')}}" alt="">
+                <img class="about__one-shape-2 dark-n" src="{{asset('assets/frontend/img/shape/about-2.png')}}" alt="">
+                <img class="about__one-shape-2 light-n" src="{{asset('assets/frontend/img/shape/about-2-dark.png')}}" alt="">
             </div>
-          </section>
         @endif
 
         @if($value == "call_to_action_1")
-          <!--- Call to Action--->
-          <section class="call-to-action-area bgc-black pt-80 pb-50">
-            <div class="container">
-              <div class="row justify-content-between align-items-center">
-                <div class="col-xl-8 col-lg-10">
-                  <div class="section-title text-white mb-25 wow fadeInUp delay-0-2s animated" style="visibility: visible; animation-name: fadeInUp;">
-                    <h2>{{ucfirst(@$call1_elements->heading)}}</h2>
-                    <p>{{ucfirst(@$call1_elements->description)}}</p>
-                  </div>
+            <div class="about__solution mt-5" data-background="{{asset('assets/frontend/img/about/about-solution.jpg')}}" style="background-image: url('{{asset('assets/frontend/img/about/about-solution.jpg')}}');">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-8">
+                            <div class="about__solution-left xl-t-center">
+                                <h2>{{ucfirst(@$call1_elements->heading)}}</h2>
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="about__solution-right t-right xl-t-center">
+                                <a class="btn-one" href="{{@$call1_elements->button_link ?? '/contact-us'}}">{{ucwords(@$call1_elements->button ?? 'Get Free Consultations')}} <i class="far fa-chevron-double-right"></i></a>
+                                <img class="about__solution-right-shape left-right-animate" src="{{asset('assets/frontend/img/shape/about-solution.png')}}" alt="">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-3 text-lg-end">
-                @if(@$call1_elements->button)
-                <a href="{{@$call1_elements->button_link}}" class="theme-btn style-two mb-30 wow fadeInUp delay-0-4s animated" style="visibility: visible; animation-name: fadeInUp;">{{ucwords(@$call1_elements->button)}} <i class="fas fa-angle-double-right"></i></a>
-
-                @endif
-                </div>
-              </div>
             </div>
-          </section>
         @endif
 
         @if($value == "background_image_section")
           <!--- Background Image--->
-          <section class="video-area bgc-black">
-            <div class="container">
-              <div class="row medium-gap align-items-end pt-80">
-                <div class="col-lg-6">
-                  <div class="video-part rmb-65 wow fadeInRight delay-0-2s animated" style="visibility: visible; animation-name: fadeInRight; margin-bottom: 0px">
-                    <img src="{{asset('/images/section_elements/bgimage_section/'.@$bgimage_elements->image)}}" alt="Video">
-                    @if(@$bgimage_elements->list_description)
-                      <a href="{{@$bgimage_elements->list_description}}" class="mfp-iframe video-play" tabindex="-1"><i class="fas fa-play"></i></a>
-                    @endif
-
+          <div class="cta__two" data-background="{{ $bgimage_elements->image ? asset('/images/section_elements/bgimage_section/'.@$bgimage_elements->image):asset('assets/frontend//img/pages/getInTouchThree.jpg')}}">
+              <img class="cta__two-shape left-right-animate2" src="{{asset('assets/frontend/img/shape/getInTouch.png')}}" alt="">
+              <div class="container">
+                  <div class="row align-items-center">
+                      <div class="col-xl-6 col-lg-5 lg-mb-30">
+                          <div class="cta__two-title">
+                              <span class="subtitle-one">{{@$bgimage_elements->subheading ?? 'Need Help?'}}</span>
+                              <h2>{{@$bgimage_elements->heading ?? 'Have Questions? Lets Connect'}}</h2>
+                          </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-7">
+                          <div class="cta__two-info">
+                              <div class="cta__two-info-item">
+                                  <div class="cta__two-info-item-icon">
+                                      <i class="fal fa-phone-alt icon-animation"></i>
+                                  </div>
+                                  <div>
+                                      <span>Reach out</span>
+                                      <h6><a href="tel:{{@$setting_data->phone ??''}}">{{@$setting_data->phone ??''}}</a></h6>
+                                  </div>
+                              </div>
+                              <div class="cta__two-info-item">
+                                  <div class="cta__two-info-item-icon">
+                                      <i class="fal fa-envelope"></i>
+                                  </div>
+                                  <div>
+                                      <span>Mail us</span>
+                                      <h6><a href="mailto:{{@$setting_data->email ??''}}">{{@$setting_data->email ??''}}</a></h6>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                   </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="video-content text-white pb-95 rpb-115 wow fadeInLeft delay-0-2s animated" style="visibility: visible; animation-name: fadeInLeft;">
-                    <div class="section-title mb-30">
-                      @if(@$bgimage_elements->heading)
-
-                        <h2>{{ucwords(@$bgimage_elements->heading)}}</h2>
-
-                      @endif
-
-                    </div><p class="win-justify">{{ucfirst(@$bgimage_elements->description)}}</p>
-                  </div>
-                </div>
               </div>
-            </div>
-          </section>
+          </div>
         @endif
 
         @if($value == "flash_cards")
-          <!--- Mission Vision--->
-          <section class="services-area-five pt-115 pb-100">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-10">
-                  <div class="section-title text-center mb-60 wow fadeInUp delay-0-2s animated" style="visibility: visible; animation-name: fadeInUp;">
-                    <span class="sub-title style-two mb-20">Our Process</span>
-                    <h2> Mission, Vision & Value</h2>
-                  </div>
+            <div class="chooseUs__area section-padding-3">
+                <div class="container">
+                    <div class="row align-items-center mb-70">
+                        <div class="col-xl-6 col-lg-7 lg-mb-20">
+                            <div class="chooseUs__area-title">
+                                <span class="subtitle-one">Why Choose Us</span>
+                                <h2>consultant's reputation is extremely important.</h2>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-5">
+                            <div class="chooseUs__area-right">
+
+                                <div class="chooseUs__area-right-shape">
+                                    <img class="left-right-animate dark-n" src="{{asset('assets/frontend/img/shape/choose-us.png')}}" alt="">
+                                    <img class="left-right-animate light-n" src="{{asset('assets/frontend/img/shape/choose-us-dark.png')}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach(@$flash_elements as $index=>$flash_element)
+
+                            <div class="col-sm-4">
+                                <div class="chooseUs__area-item">
+                                    <div class="chooseUs__area-item-icon">
+                                        <img src="{{asset('assets/frontend/img/icon/'.get_icons($index))}}" alt="">
+                                    </div>
+                                    <h4>{{ucwords(@$flash_element->list_header)}}</h4>
+                                    <p>{{ucfirst(@$flash_element->list_description) }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+
+                    </div>
                 </div>
-              </div>
-              <div class="row">
-                @foreach(@$flash_elements as $flash_element)
-
-                  @if($loop->index == 0)
-                    <div class="col-xl-4 col-md-6">
-                      <div class="service-item-five wow fadeInUp delay-0-2s animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <div class="icon">
-                          <img src="{{asset('/images/section_elements/list_1/'.@$flash_element->image)}}" alt="Icon">
-                        </div>
-                        <h4>{{ucwords(@$flash_element->list_header)}}</h4>
-                        <p class="win-justify">{{ucfirst(@$flash_element->list_description) }}</p>
-                      </div>
-                    </div>
-                  @endif
-
-                  @if($loop->index == 1)
-
-                    <div class="col-xl-4 col-md-6">
-                      <div class="service-item-five wow fadeInUp delay-0-4s animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <div class="icon">
-                          <img src="{{asset('/images/section_elements/list_1/'.@$flash_element->image)}}" alt="Icon">
-                        </div>
-                        <h4>{{ucwords(@$flash_element->list_header)}}</h4>
-                        <p class="win-justify">{{ucfirst(@$flash_element->list_description) }}</p>
-                      </div>
-                    </div>
-                  @endif
-
-                  @if($loop->index == 2)
-
-                    <div class="col-xl-4 col-md-6">
-                      <div class="service-item-five wow fadeInUp delay-0-6s animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <div class="icon">
-                          <img src="{{asset('/images/section_elements/list_1/'.@$flash_element->image)}}" alt="Icon">
-                        </div>
-                        <h4>{{ucwords(@$flash_element->list_header)}}</h4>
-                        <p class="win-justify">{{ucfirst(@$flash_element->list_description) }}</p>
-                      </div>
-                    </div>
-                  @endif
-                @endforeach
-
-              </div>
             </div>
-          </section>
         @endif
 
         @if($value == "simple_header_and_description")
-
-          <!--- Simple Header Description--->
-          <section class="project-details-area pt-80 pb-130 rel z-1" style="    padding-left: 150px;
-    padding-right: 150px;">
-            <div class="container">
-              <div class="section-title text-center mb-50 wow fadeInUp delay-0-2s animated" style="visibility: visible; animation-name: fadeInUp;">
-                  @if(@$header_descp_elements->heading)
-
-                    <h2>{{ucwords(@$header_descp_elements->heading)}}</h2>
-                      <hr class="mb-4">
-                  @endif
-
-                  @if(@$header_descp_elements->subheading)
-                    <span class="sub-title-two">{{@$header_descp_elements->subheading}}</span>
-
-                  @endif
-              </div>
-
-                <div class="winrecruit win-justify">
-                {!! @$header_descp_elements->description !!}
-               </div>
+            <div class="project__details section-padding-3 {{ $header_descp_elements->heading ?  '':'pt-0'}}">
+                <div class="container">
+                    @if($header_descp_elements->heading)
+                        <div class="portfolio__area-title t-center mb-5">
+                            <span class="{{@$header_descp_elements->subheading ? 'subtitle-one':''}}">{{@$header_descp_elements->subheading ?? ''}}</span>
+                            <h2>{{ucwords(@$header_descp_elements->heading)}}</h2>
+                        </div>
+                    @endif
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="project__details-area">
+                                {!! @$header_descp_elements->description !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </section>
         @endif
 
         @if($value == "map_and_description")
-          <!--- Map & Description--->
-          <section class="faq-page-about-area pt-130">
-            <div class="container">
-              <div class="row large-gap justify-content-center align-items-center pb-115">
-                <div class="col-xl-5 col-lg-6">
-                  <div class="faq-page-content rmb-65 wow fadeInRight delay-0-2s animated" style="visibility: visible; animation-name: fadeInRight;">
-                    <div class="section-title mb-25">
-                        @if(@$map_descp->subheading)
-                          <span class="sub-title style-two mb-15">{{@$map_descp->subheading}}</span>
-                        @endif
-                        @if(@$map_descp->heading)
-                          <h2>{{ucwords(@$map_descp->heading)}}</h2>
-                        @endif
-
-                    </div>
-                    <p class="win-justify">
-                    {!!  @$map_descp->description !!}
-
-                    </p>
-                      @if(@$map_descp->button)
-                        <a href="{{@$map_descp->button_link}}" class="theme-btn style-two mb-30 wow fadeInUp delay-0-4s animated" style="visibility: visible; animation-name: fadeInUp;">{{ucwords(@$map_descp->button)}} <i class="fas fa-angle-double-right"></i></a>
-                      @endif
-
+            <div class="contact__three section-padding-3" style="background: var(--color-6);">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-6 col-lg-6 lg-mb-30">
+                            <div class="contact__three-right">
+                                <div class="contact__three-right-title">
+                                    <span class="subtitle-one">{{@$map_descp->subheading ?? ''}}</span>
+                                    <h2 class="mb-30">{{ucwords(@$map_descp->heading ?? '')}}</h2>
+                                </div>
+                                <div class="contact__three-right-form">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="about__one-right-title">
+                                                    <p> {!! ucfirst(@$map_descp->description) !!}</p>
+                                                </div>
+                                                @if(@$map_descp->button)
+                                                    <div class="contact__two-right-form-item">
+                                                        <a href="{{@$map_descp->link}}" class="btn-one" type="submit">
+                                                            {{ucwords(@$map_descp->button)}} <i class="far fa-chevron-double-right"></i></a>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="contact__three-left mr-40 xl-mr-0">
+                                <div class="contact__three-left-map">
+                                    @if(@$setting_data->google_map)
+                                        <iframe src="{{@$setting_data->google_map}}" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                  <div class="faq-page-image wow fadeInLeft delay-0-2s animated" style="visibility: visible; animation-name: fadeInLeft;">
-
-                          @if(@$map_descp->list_description)
-                          {!! @$map_descp->list_description !!}
-                          @elseif(@$setting_data->google_map)
-                            <iframe frameborder="0" width="100%" height="450px"scrolling="no" marginheight="0" marginwidth="0" src="{{@$setting_data->google_map}}"
-                                        title="%3$s" aria-label="%3$s"></iframe>
-                          @endif
-
-                  </div>
-                </div>
-              </div>
-
             </div>
-          </section>
         @endif
 
         @if($value == "accordion_section_2")
-            <!-- FAQs Page Area start -->
-          <section class="faqs-area-area py-100 rel z-1" style="    background: linear-gradient(90deg, rgba(247,249,253,1) 0%, rgba(230,238,255,1) 43%, rgba(230,238,255,1) 50%, rgba(247,249,253,1) 100%);">
-              <div class="container">
-                  <div class="row justify-content-between align-items-end pb-5">
-                      <div class="col-xl-6 col-lg-8 wow fadeInUp delay-0-2s">
-                          <div class="section-title mb-35">
-                              <span class="sub-title style-two mb-15">{{ucwords(@$accordian2_elements[0]->subheading)}}</span>
-                              <h2> {{ucwords(@$accordian2_elements[0]->heading)}}</h2>
-                          </div>
-                      </div>
-                      <div class="col-lg-4 text-lg-end wow fadeInUp delay-0-4s">
-                        @if(@$accordian2_elements[0]->button_link)
-                          <a href="{{@$accordian2_elements[0]->button_link}}" class="theme-btn style-three mb-55 faq-button">{{ucwords(@$accordian2_elements[0]->button)}}<i class="fas fa-angle-double-right"></i></a>
-                          @endif
-                      </div>
-                  </div>
-                  <div class="accordion style-two" id="faq-accordion">
-                      <div class="row">
-                      @foreach($accordian2_elements->chunk(1) as $index => $accordian2_element)
+            <div class="faq__area section-padding-3">
+                <div class="container">
+                    <div class="row"><div class="row align-items-end mb-70">
+                            <div class="col-xl-7 col-lg-8 lg-mb-30">
+                                <div class="blog__one-title lg-t-center">
+                                    <span class="subtitle-one">{{ucwords(@$accordian2_elements[0]->subheading)}}</span>
+                                    <h2>{{ucwords(@$accordian2_elements[0]->heading)}}</h2>
+                                </div>
+                            </div>
 
-                          <div class="col-lg-6 rmb-20 wow fadeInUp  @if($loop->first) delay-0-2s @else delay-0-4s @endif">
+                            <div class="col-xl-5 col-lg-4 t-right lg-t-center">
+                                @if(@$accordian2_elements[0]->button_link)
+                                    <a class="btn-two" href="{{@$accordian2_elements[0]->button_link}}">{{ucwords(@$accordian2_elements[0]->button ?? 'Reach Out')}}<i class="far fa-chevron-double-right"></i></a>
+                                @endif
+                            </div>
+                        </div>
 
-                              <div class="accordion-item">
-                                  <h5 class="accordion-header">
-                                      <button <?php if($accordian2_element[$index]->list_description !== null){ ?>
-                                              class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapse{{$index}}" <?php }else{ ?>  style="background: transparent;"   <?php }?>   >
-                                      {{@$accordian2_element[$index]->list_header}}
-                                      </button>
-                                  </h5>
-                                  @if($accordian2_element[$index]->list_description !== null)
-                                  <div id="collapse{{$index}}" class="accordion-collapse collapse @if($index == '0') show @endif" data-bs-parent="#faq-accordion">
-                                      <div class="accordion-body">
-                                          <p class="win-justify">{!! @$accordian2_element[$index]->list_description !!}</p>
-                                      </div>
-                                  </div>
-                                  @endif
-                              </div>
+                        @foreach($accordian2_elements->chunk($list_2/2) as $index=>$accordian2_elements)
+                            <div class="col-xl-6">
+                                @foreach($accordian2_elements as $index2=>$accordian2_element)
+                                    <div class="faq-collapse">
+                                        <div class="faq-collapse-item mb-2">
+                                            <div class="faq-collapse-item-card">
+                                                <div class="faq-collapse-item-card-header">
+                                                    <h6><span class="far fa-question-circle"></span>{{$accordian2_element->list_header}}-{{$index2}}</h6>
+                                                    <i class="far fa-minus"></i>
+                                                </div>
+                                                <div class="faq-collapse-item-card-header-content display-none {{ ($index2==0 ||$index2==4) ? 'active':''}}" style="display:{{ ($index2==0 || $index2==4) ? 'block':'none'}}">
+                                                    <p>{{$accordian2_element->list_description}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endforeach
 
-                          </div>
-                      @endforeach
-
-                      </div>
-                  </div>
-              </div>
-          </section>
-          <!-- FAQs Page Area end -->
+                    </div>
+                </div>
+            </div>
         @endif
 
         @if($value == "small_box_description")
-
           <!-- Small Box description start -->
-          <!-- <section class="freature-area-six "> -->
           <section class="pt-100 pb-100">
               <div class="container">
                   <div class="feature-six-inner bgs-cover bgc-primary" style="background-image: url({{asset('/assets/frontend/images/background/freature-bg-line.png')}});">

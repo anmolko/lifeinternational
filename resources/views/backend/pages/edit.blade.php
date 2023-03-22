@@ -268,87 +268,87 @@
 
                                 </div>
                             </div>
-                            <div class="card shadow-none">
-                                <div class="card-header">
-                                    <h5 class="card-title text-primary mb-0">Gallery Section 1 </h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label class="image-checkbox {{(in_array('gallery_section', $sections) ? "image-checkbox-checked":"")}}">
-                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/gallery_section.png')}}" width="100%"/>
-                                                <input type="checkbox" name="section[]" value="gallery_section" id="gallery_section.png" {{(in_array('gallery_section', $sections) ? "checked":"")}}  />
-                                                <i class="ri ri-check-line hidden"></i>
-                                            </label>
-                                        </div>
-                                    </div>
+{{--                            <div class="card shadow-none">--}}
+{{--                                <div class="card-header">--}}
+{{--                                    <h5 class="card-title text-primary mb-0">Gallery Section 1 </h5>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <label class="image-checkbox {{(in_array('gallery_section', $sections) ? "image-checkbox-checked":"")}}">--}}
+{{--                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/gallery_section.png')}}" width="100%"/>--}}
+{{--                                                <input type="checkbox" name="section[]" value="gallery_section" id="gallery_section.png" {{(in_array('gallery_section', $sections) ? "checked":"")}}  />--}}
+{{--                                                <i class="ri ri-check-line hidden"></i>--}}
+{{--                                            </label>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </div>
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <div class="card shadow-none">
-                                <div class="card-header">
-                                    <h5 class="card-title text-primary mb-0">Slider Lists</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-12 mb-3">
-                                            <div class="form-group">
-                                                <label>Number of Slider List <span class="text-muted text-danger">* When created, the number of slider list must be 3</span></label>
-                                                <input type="number"  class="form-control" name="list_number_3" id="list_number_3" value="{{$list3}}">
-                                                <input type="hidden" name="list_3_id" value="{{$list3_id}}">
-                                                <div class="invalid-feedback">
-                                                    Please enter the list number.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <label class="image-checkbox {{(in_array('slider_list', $sections) ? "image-checkbox-checked":"")}}">
-                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/list_option_1.png')}}" width="100%"/>
-                                                <input type="checkbox" name="section[]" id="list_option_1.png" value="slider_list" {{(in_array('slider_list', $sections) ? "checked":"")}} />
-                                                <i class="ri ri-check-line hidden"></i>
-                                            </label>
-                                            <span class="ctm-text-sm text-warning">* using this element will create a inner page to display individual list data. Use only when big informations are needed to be showcased</span>
+{{--                            <div class="card shadow-none">--}}
+{{--                                <div class="card-header">--}}
+{{--                                    <h5 class="card-title text-primary mb-0">Slider Lists</h5>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-12 mb-3">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label>Number of Slider List <span class="text-muted text-danger">* When created, the number of slider list must be 3</span></label>--}}
+{{--                                                <input type="number"  class="form-control" name="list_number_3" id="list_number_3" value="{{$list3}}">--}}
+{{--                                                <input type="hidden" name="list_3_id" value="{{$list3_id}}">--}}
+{{--                                                <div class="invalid-feedback">--}}
+{{--                                                    Please enter the list number.--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <label class="image-checkbox {{(in_array('slider_list', $sections) ? "image-checkbox-checked":"")}}">--}}
+{{--                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/list_option_1.png')}}" width="100%"/>--}}
+{{--                                                <input type="checkbox" name="section[]" id="list_option_1.png" value="slider_list" {{(in_array('slider_list', $sections) ? "checked":"")}} />--}}
+{{--                                                <i class="ri ri-check-line hidden"></i>--}}
+{{--                                            </label>--}}
+{{--                                            <span class="ctm-text-sm text-warning">* using this element will create a inner page to display individual list data. Use only when big informations are needed to be showcased</span>--}}
 
-                                        </div>
-                                    </div>
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </div>
-                            <div class="card shadow-none">
-                                <div class="card-header">
-                                    <h5 class="card-title text-primary mb-0">Box description</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-12 pb-2">
-                                            <div class="form-group">
-                                                <label>Select number of box description <span class="text-muted text-danger">*</span></label>
-                                                <select class="form-control select" name="list_number_3_process_sel" id="list_number_3_process_sel">
-                                                    <option {{($process_number == null) ? "disabled selected":"disabled"}}>Select Number of List</option>
-                                                    <option value="2" {{($process_number =="2") ? "selected":""}}>Two</option>
-                                                    <option value="4" {{($process_number =="4") ? "selected":""}}>Four</option>
-                                                    <option value="6" {{($process_number =="6") ? "selected":""}}>Six</option>
-                                                    <option value="8" {{($process_number =="8") ? "selected":""}}>Eight</option>
-                                                    <option value="10" {{($process_number =="10") ? "selected":""}}>Ten</option>
-                                                </select>
-                                                <input type="hidden" name="process_sel_id" value="{{$process_id}}">
-                                                <div class="invalid-feedback">
-                                                    Please enter the list number.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <label class="image-checkbox {{(in_array('small_box_description', $sections) ? "image-checkbox-checked":"")}}">
-                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/small_box_description.png')}}" width="100%"/>
-                                                <input type="checkbox" name="section[]" id="small_box_description.png" value="small_box_description" {{(in_array('small_box_description', $sections) ? "checked":"")}} />
-                                                <i class="ri ri-check-line hidden"></i>
-                                            </label>
-                                        </div>
-                                    </div>
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="card shadow-none">--}}
+{{--                                <div class="card-header">--}}
+{{--                                    <h5 class="card-title text-primary mb-0">Box description</h5>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-12 pb-2">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label>Select number of box description <span class="text-muted text-danger">*</span></label>--}}
+{{--                                                <select class="form-control select" name="list_number_3_process_sel" id="list_number_3_process_sel">--}}
+{{--                                                    <option {{($process_number == null) ? "disabled selected":"disabled"}}>Select Number of List</option>--}}
+{{--                                                    <option value="2" {{($process_number =="2") ? "selected":""}}>Two</option>--}}
+{{--                                                    <option value="4" {{($process_number =="4") ? "selected":""}}>Four</option>--}}
+{{--                                                    <option value="6" {{($process_number =="6") ? "selected":""}}>Six</option>--}}
+{{--                                                    <option value="8" {{($process_number =="8") ? "selected":""}}>Eight</option>--}}
+{{--                                                    <option value="10" {{($process_number =="10") ? "selected":""}}>Ten</option>--}}
+{{--                                                </select>--}}
+{{--                                                <input type="hidden" name="process_sel_id" value="{{$process_id}}">--}}
+{{--                                                <div class="invalid-feedback">--}}
+{{--                                                    Please enter the list number.--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <label class="image-checkbox {{(in_array('small_box_description', $sections) ? "image-checkbox-checked":"")}}">--}}
+{{--                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/small_box_description.png')}}" width="100%"/>--}}
+{{--                                                <input type="checkbox" name="section[]" id="small_box_description.png" value="small_box_description" {{(in_array('small_box_description', $sections) ? "checked":"")}} />--}}
+{{--                                                <i class="ri ri-check-line hidden"></i>--}}
+{{--                                            </label>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </div>
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                         </div>
                     </div>

@@ -6,7 +6,7 @@
         <div class="row align-items-center">
             <div class="col-xl-7 col-lg-8 lg-mb-30">
                 <div class="footer__top-title lg-t-center">
-                    <h2>Your Business Can Grow faster With Consulting Services</h2>
+                    <h2>Your Business Can Grow faster With Our Services</h2>
                 </div>
             </div>
             <div class="col-xl-5 col-lg-4">
@@ -61,7 +61,7 @@
                                 <i class="far fa-map-marker-alt"></i>
                             </div>
                             <div class="footer__one-widget-location-item-info">
-                                <a href="#">2972 Westheimer Rd. Santa Ana, Illinois 85486</a>
+                                <a>{{@$setting_data->address}}</a>
                             </div>
                         </div>
                         <h6>Our Socials</h6>
@@ -120,7 +120,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <p>Copyright {{date("Y")}}  <a href="/">Life international Overseas</a> - Developed by <a href="https://www.canosoft.com.np/" target="_blank">Canosoft Techonology</a>. All right reserved</p>
+                    <p>Copyright {{date("Y")}}  <a href="/">{{$setting_data->website_name ?? 'Life international Overseas'}}</a> - Developed by <a href="https://www.canosoft.com.np/" target="_blank">Canosoft Techonology</a>. All right reserved</p>
                 </div>
             </div>
         </div>

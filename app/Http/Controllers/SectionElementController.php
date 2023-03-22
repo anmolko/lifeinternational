@@ -184,7 +184,6 @@ class SectionElementController extends Controller
             $data=[
                 'page_section_id'        => $section_id,
                 'heading'                => $request->input('heading'),
-                'description'            => $request->input('description'),
                 'button'                 => $request->input('button'),
                 'button_link'            => $request->input('button_link'),
                 'created_by'             => Auth::user()->id,
@@ -195,8 +194,7 @@ class SectionElementController extends Controller
             $data=[
                 'page_section_id'        => $section_id,
                 'heading'                => $request->input('heading'),
-                'description'            => $request->input('description'),
-                'list_description'       => $request->input('list_description'),
+                'subheading'             => $request->input('subheading'),
                 'created_by'             => Auth::user()->id,
             ];
 
@@ -204,7 +202,7 @@ class SectionElementController extends Controller
                 $image = $request->file('image');
                 $name = uniqid() . '__background__' . $image->getClientOriginalName();
                 $path = base_path() . '/public/images/section_elements/bgimage_section/';
-                $moved = Image::make($image->getRealPath())->resize(630, 595)->orientate()->save($path . $name);
+                $moved = Image::make($image->getRealPath())->fit(1920, 650)->orientate()->save($path . $name);
                 if ($moved) {
                     $data['image'] = $name;
                 }
@@ -213,22 +211,17 @@ class SectionElementController extends Controller
         }
         elseif ($section_name == 'flash_cards'){
             for ($i=0;$i<3;$i++){
+                $heading =  (array_key_exists($i, $request->input('heading')) ?  $request->input('heading')[$i]: Null);
+                $subheading =  (array_key_exists($i, $request->input('subheading')) ?  $request->input('subheading')[$i]: Null);
+
                 $data=[
+                    'heading'                => $heading,
+                    'subheading'             => $subheading,
                     'list_header'            => $request->input('list_header')[$i],
                     'page_section_id'        => $section_id,
                     'list_description'       => $request->input('list_description')[$i],
                     'created_by'             => Auth::user()->id,
                 ];
-
-                if (array_key_exists($i,$request->file('image'))){
-                    $image        = $request->file('image')[$i];
-                    $name         = uniqid().'_flash_'.$image->getClientOriginalName();
-                    $path         = base_path().'/public/images/section_elements/list_1/';
-                    $moved        = Image::make($image->getRealPath())->resize(60, 60)->orientate()->save($path.$name);
-                    if ($moved){
-                        $data['image']= $name;
-                    }
-                }
                 $status = SectionElement::create($data);
             }
         }
@@ -411,8 +404,7 @@ class SectionElementController extends Controller
             $action                      = SectionElement::find($id);
             $action->page_section_id     = $section_id;
             $action->heading             = $request->input('heading');
-            $action->description         = $request->input('description');
-            $action->list_description    = $request->input('list_description');
+            $action->subheading          = $request->input('subheading');
             $action->updated_by          = Auth::user()->id;
             $oldimage                    = $action->image;
 
@@ -420,7 +412,7 @@ class SectionElementController extends Controller
                 $image        = $request->file('image');
                 $name         = uniqid().'__background__'.$image->getClientOriginalName();
                 $path         = base_path().'/public/images/section_elements/bgimage_section/';
-                $moved        = Image::make($image->getRealPath())->resize(630, 595)->orientate()->save($path.$name);
+                $moved        = Image::make($image->getRealPath())->resize(1920, 650)->orientate()->save($path.$name);
                 if ($moved){
                     $action->image = $name;
                     if (!empty($oldimage) && file_exists(public_path().'/images/section_elements/bgimage_section/'.$oldimage)){
@@ -460,27 +452,17 @@ class SectionElementController extends Controller
 
         if ($section_name == 'flash_cards') {
             for ($i=0;$i<3;$i++){
+                $heading     =  (array_key_exists($i, $request->input('heading')) ?  $request->input('heading')[$i]: null);
+                $subheading  =  (array_key_exists($i, $request->input('subheading')) ?  $request->input('subheading')[$i]: null);
+
                 $flash                   = SectionElement::find($request->input('id')[$i]);
+                $flash->heading          = $heading;
+                $flash->subheading       = $subheading;
                 $flash->list_header      = $request->input('list_header')[$i];
                 $flash->page_section_id  = $section_id;
                 $flash->list_description = $request->input('list_description')[$i];
                 $flash->updated_by       = Auth::user()->id;
-                $oldimage                = $flash->list_image;
 
-                if($request->file('image') !== null){
-                    if (array_key_exists($i,$request->file('image'))){
-                        $image        = $request->file('image')[$i];
-                        $name         = uniqid().'_flash_'.$image->getClientOriginalName();
-                        $path         = base_path().'/public/images/section_elements/list_1/';
-                        $moved        = Image::make($image->getRealPath())->resize(60, 60)->orientate()->save($path.$name);
-                        if ($moved){
-                            $flash->image = $name;
-                            if (!empty($oldimage) && file_exists(public_path().'/images/section_elements/list_1/'.$oldimage)){
-                                @unlink(public_path().'/images/section_elements/list_1/'.$oldimage);
-                            }
-                        }
-                    }
-                }
 
                 $status                  = $flash->update();
             }

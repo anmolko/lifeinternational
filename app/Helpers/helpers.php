@@ -135,6 +135,7 @@ if (!function_exists('get_menu_url')) {
         return $url;
     }
 }
+
 if (!function_exists('elipsis')) {
     /**
      * @param $text
@@ -168,3 +169,24 @@ if (!function_exists('elipsis')) {
     }
 }
 
+if (!function_exists('get_icons')) {
+    /**
+     * @param $menu_type
+     * @param $menu
+     * @return string
+     */
+    function get_icons($index){
+        $icon   = '';
+        if($index == 0){
+            $icon = 'service-1.png';
+        }else if($index == 1){
+            $icon = 'service-2.png';
+        }else if($index == 2){
+            $icon = 'service-3.png';
+        }else{
+            $icon = 'service-4.png';
+        }
+
+        return $icon;
+    }
+}
