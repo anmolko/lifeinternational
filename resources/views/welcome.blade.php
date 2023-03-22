@@ -346,95 +346,6 @@
             </div>
         </div>
     @endif
-    @if(!empty($homepage_info->why_heading))
-        <div class="company__two dark__image section-padding">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-7 lg-mb-30">
-                        <div class="company__two-left">
-                            <div class="company__two-left-title">
-                                <span class="subtitle-one">{{ucwords(@$homepage_info->why_subheading)}}</span>
-                                <h2>{{ucwords(@$homepage_info->why_heading)}}</h2>
-                                <p>{{ucfirst(@$homepage_info->why_description)}}</p>
-                            </div>
-                            <div class="company__two-left-skill">
-                                <div class="company__two-left-skill-item">
-                                    <h2><span class="counter">{{@$homepage_info->project_completed ?? '450'}}</span></h2>
-                                    <h6>Project Completed Overall</h6>
-                                </div>
-                                <div class="company__two-left-skill-item">
-                                    <h2><span class="counter">{{@$homepage_info->visa_approved ?? '340'}}</span></h2>
-                                    <h6>Total Visa Approved</h6>
-                                </div>
-                            </div>
-                            <div class="company__two-left-skill">
-                                <div class="company__two-left-skill-item">
-                                    <h2><span class="counter">{{@$homepage_info->happy_clients}}</span></h2>
-                                    <h6>Happy Clients All Over</h6>
-                                </div>
-                                <div class="company__two-left-skill-item">
-                                    <h2><span class="counter">{{@$homepage_info->success_stories}}</span></h2>
-                                    <h6>Our Success Stories</h6>
-                                </div>
-                            </div>
-                            @if(@$homepage_info->why_button)
-                                <a class="btn-two" href="{{@$homepage_info->why_link}}">{{@$homepage_info->why_button}}<i class="far fa-chevron-double-right"></i></a>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-5">
-                        <div class="company__two-right dark__image t-right">
-                            <img class="img__full" src="{{asset('/images/home/welcome/'.@$homepage_info->what_image5)}}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-    @if(@$setting_data->grievance_heading)
-        <div class="contact__three section-padding-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-6 lg-mb-30">
-                        <div class="contact__three-left mr-40 xl-mr-0">
-                            <div class="contact__three-left-map">
-                                @if(@$setting_data->google_map)
-                                    <iframe src="{{@$setting_data->google_map}}" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="contact__three-righ">
-                            <div class="contact__three-right-title">
-                                <span class="subtitle-one">Life International Overseas</span>
-                                <h2 class="mb-30">{{ucwords(@$setting_data->grievance_heading)}}</h2>
-                            </div>
-                            <div class="contact__three-right-form">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="about__one-right-title">
-                                                <p> {{ ucfirst(@$setting_data->grievance_description) }}</p>
-                                            </div>
-                                            @if(@$setting_data->grievance_button)
-                                                <div class="contact__two-right-form-item">
-                                                    <a href="{{@$setting_data->grievance_link}}" class="btn-one" type="submit">
-                                                        {{ucwords(@$setting_data->grievance_button)}} <i class="far fa-chevron-double-right"></i></a>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
     @if(count($clients) > 0)
         <div class="team__area section-padding-3 dark__image">
             <div class="container">
@@ -457,7 +368,7 @@
                                         </div>
                                         <div class="team__area-item-content page">
                                             <h5><a href="{{ $client->link ?? '#' }}" target="{{ ($client->link !== null) ? '_blank':'' }}">{{@$client->name ?? ''}}</a></h5>
-    {{--                                        <span class="text-eight">Sr. Consultant</span>--}}
+                                            {{--                                        <span class="text-eight">Sr. Consultant</span>--}}
                                         </div>
                                     </div>
                                 </div>
@@ -469,6 +380,49 @@
             </div>
         </div>
     @endif
+
+    @if(count($latestJobs) > 1)
+        <div class="project__area section-padding-3" style="background: var(--color-6);">
+            <div class="container">
+                <div class="row mb-60">
+                    <div class="col-xl-12">
+                        <div class="portfolio__area-title t-center">
+                            <span class="subtitle-one">Explore more</span>
+                            <h2>Our Latest Job Demands</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($latestJobs as $job)
+                        <div class="col-xl-4 col-md-6 mb-30">
+                            <div class="project__area-item">
+                                <img src="{{ ($job->image !== null) ? asset('/images/job/thumb/thumb_'.@$job->image): asset('assets/frontend/images/win.png')}}" alt="">
+                                <div class="project__area-item-content">
+                                    <h4><a href="{{route('job.single',@$job->slug)}}">{{ ucfirst($job->name)}}</a></h4>
+                                    <span>
+                                    @if(@$job->end_date >= $today)
+                                            {{date('M j, Y',strtotime(@$job->start_date))}} - {{date('M j, Y',strtotime(@$job->end_date))}}
+                                        @else
+                                            Expired
+                                        @endif
+                                </span>
+                                </div>
+                                <div class="project__area-item-icon">
+                                    <a href="{{route('job.single',@$job->slug)}}"><i class="far fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="row mt-70">
+                    <div class="col-xl-12 t-center">
+                        <a class="btn-one" href="{{route('job.list')}}"> See more Jobs<i class="far fa-chevron-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 
     @if(count($testimonials) > 0)
         <div class="testimonial__area section-padding-3">
@@ -524,9 +478,54 @@
             </div>
         </div>
     @endif
+    @if(!empty($homepage_info->why_heading))
+        <div class="company__two dark__image section-padding">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-7 lg-mb-30">
+                        <div class="company__two-left">
+                            <div class="company__two-left-title">
+                                <span class="subtitle-one">{{ucwords(@$homepage_info->why_subheading)}}</span>
+                                <h2>{{ucwords(@$homepage_info->why_heading)}}</h2>
+                                <p>{{ucfirst(@$homepage_info->why_description)}}</p>
+                            </div>
+                            <div class="company__two-left-skill">
+                                <div class="company__two-left-skill-item">
+                                    <h2><span class="counter">{{@$homepage_info->project_completed ?? '450'}}</span></h2>
+                                    <h6>Project Completed Overall</h6>
+                                </div>
+                                <div class="company__two-left-skill-item">
+                                    <h2><span class="counter">{{@$homepage_info->visa_approved ?? '340'}}</span></h2>
+                                    <h6>Total Visa Approved</h6>
+                                </div>
+                            </div>
+                            <div class="company__two-left-skill">
+                                <div class="company__two-left-skill-item">
+                                    <h2><span class="counter">{{@$homepage_info->happy_clients}}</span></h2>
+                                    <h6>Happy Clients All Over</h6>
+                                </div>
+                                <div class="company__two-left-skill-item">
+                                    <h2><span class="counter">{{@$homepage_info->success_stories}}</span></h2>
+                                    <h6>Our Success Stories</h6>
+                                </div>
+                            </div>
+                            @if(@$homepage_info->why_button)
+                                <a class="btn-two" href="{{@$homepage_info->why_link}}">{{@$homepage_info->why_button}}<i class="far fa-chevron-double-right"></i></a>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-5">
+                        <div class="company__two-right dark__image t-right">
+                            <img class="img__full" src="{{asset('/images/home/welcome/'.@$homepage_info->what_image5)}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     @if(count($latestPosts) > 0)
         <!-- Blog Area Start -->
-        <div class="blog__one dark__image section-padding">
+        <div class="blog__one dark__image section-padding-3" >
             <div class="container">
                 <div class="row align-items-end mb-70">
                     <div class="col-xl-7 col-lg-8 lg-mb-30">
@@ -568,6 +567,49 @@
         </div>
         <!-- Blog Area End -->
     @endif
+    @if(@$setting_data->grievance_heading)
+        <div class="contact__three section-padding-2" style="background: var(--color-6);">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 lg-mb-30">
+                        <div class="contact__three-left mr-40 xl-mr-0">
+                            <div class="contact__three-left-map">
+                                @if(@$setting_data->google_map)
+                                    <iframe src="{{@$setting_data->google_map}}" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="contact__three-righ">
+                            <div class="contact__three-right-title">
+                                <span class="subtitle-one">Life International Overseas</span>
+                                <h2 class="mb-30">{{ucwords(@$setting_data->grievance_heading)}}</h2>
+                            </div>
+                            <div class="contact__three-right-form">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="about__one-right-title">
+                                                <p> {{ ucfirst(@$setting_data->grievance_description) }}</p>
+                                            </div>
+                                            @if(@$setting_data->grievance_button)
+                                                <div class="contact__two-right-form-item">
+                                                    <a href="{{@$setting_data->grievance_link}}" class="btn-one" type="submit">
+                                                        {{ucwords(@$setting_data->grievance_button)}} <i class="far fa-chevron-double-right"></i></a>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 @endsection
 
 @section('js')

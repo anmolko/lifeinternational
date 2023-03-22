@@ -83,7 +83,7 @@ class FrontController extends Controller
         $recruitments       = RecruitmentProcess::all();
         $director           = ManagingDirector::orderBy('order', 'asc')->get();
         $today              = date('Y-m-d');
-        $latestJobs         = Job::orderBy('created_at', 'DESC')->where('start_date','<=',$today)->take(4)->get();
+        $latestJobs         = Job::orderBy('created_at', 'DESC')->where('start_date','<=',$today)->take(3)->get();
         $recuruitment_index = [3,7,11,15];
 
         return view('welcome',compact('director','today','latestJobs','clients','recruitments','servicecategory','testimonials','clients','latestPosts','latestServices','countries','homepage_info','sliders','recuruitment_index'));

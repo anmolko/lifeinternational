@@ -57,7 +57,7 @@
                                         <tr>
                                             <th>Feature Image</th>
                                             <th>Name</th>
-                                            <th>Job Code</th>
+{{--                                            <th>Job Code</th>--}}
                                             <th>Category</th>
                                             <th>Status</th>
                                             <th class="text-right">Action</th>
@@ -74,9 +74,9 @@
                                                     <td>
                                                         {{ ucwords(@$job->name) }}
                                                     </td>
-                                                    <td >
-                                                        {{ ucwords(@$job->code) }}
-                                                    </td>
+{{--                                                    <td >--}}
+{{--                                                        {{ ucwords(@$job->code) }}--}}
+{{--                                                    </td>--}}
                                                     <td>{{ucfirst(@$job->category->name)}}</td>
                                                     <td>
                                                         <div class="btn-group view-btn" id="job-status-button-{{$job->id}}">
