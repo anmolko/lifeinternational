@@ -20,7 +20,7 @@
     </style>
 @endsection
 @section('seo')
-    <title>{{ucfirst(@$singleService->title)}} | @if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else Win Recruit Nepal @endif </title>
+    <title>{{ucfirst(@$singleService->title)}} | @if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else Life International Overseas @endif </title>
     <meta name='description' itemprop='description'  content='{{ucfirst(@$singleService->meta_description)}}' />
     <meta name='keywords' content='{{ucfirst(@$singleService->meta_tags)}}' />
     <meta property='article:published_time' content='<?php if(@$singleService->updated_at !=''){?>{{@$singleService->updated_at}} <?php }else {?> {{@$singleService->created_at}} <?php }?>' />
@@ -31,7 +31,7 @@
     <meta property="og:type" content="Coperation" />
     <meta property="og:locale" content="en-us" />
     <meta property="og:locale:alternate"  content="en-us" />
-    <meta property="og:site_name" content="@if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else Win Recruit Nepal @endif" />
+    <meta property="og:site_name" content="@if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else Life International Overseas @endif" />
     <meta property="og:image" content="<?php if(@$singleService->banner_image){?>{{asset('/images/service/'.@$singleService->banner_image)}}<?php }?>" />
     <meta property="og:image:url" content="<?php if(@$singleService->banner_image){?>{{asset('/images/service/'.@$singleService->banner_image)}}<?php }?>" />
     <meta property="og:image:size" content="300" />
@@ -70,13 +70,13 @@
                                 <img src="<?php if(@$singleService->banner_image){?>{{asset('/images/service/'.@$singleService->banner_image)}}<?php }?>" alt="{{@$singleService->slug}}">
                             </div>
                             <h3>{{ucwords(@$singleService->title)}}</h3>
-                          
+
                             <div class="win-justify">
 							    {!! @$singleService->description !!}
                             </div>
                         </div>
                         <div class="tag-share pt-40 pb-25 wow fadeInUp delay-0-2s">
-                            
+
                             <div class="item">
                                 <h5>Share :</h5>
                                 <div class="social-style-three">
@@ -88,14 +88,14 @@
                                 </div>
                             </div>
                         </div>
-               
-                       
-                       
+
+
+
                     </div>
                     <div class="col-lg-4 col-md-7 col-sm-9">
 						@include('frontend.pages.services.sidebar')
 
-                  
+
                     </div>
                 </div>
             </div>

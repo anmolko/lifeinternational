@@ -36,7 +36,7 @@
                 <div class="col-xl-6 col-lg-8 col-md-10">
                     <div class="section-title text-center mb-30 wow fadeInUp delay-0-2s animated" style="visibility: visible; animation-name: fadeInUp;">
                         <span class="sub-title style-two mb-15">Categories we provide</span>
-                        <h2>Win Recruitment's popular service categories</h2>
+                        <h2>Life International overseas popular service categories</h2>
                     </div>
                 </div>
             </div>
