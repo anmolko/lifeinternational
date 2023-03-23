@@ -10,7 +10,7 @@
     </div>
     <div class="all__sidebar-item">
         @if(!empty($latestJobs))
-            <h4>Recent Post</h4>
+            <h4>Recent Jobs</h4>
             <div class="all__sidebar-item-post">
                 @foreach($latestJobs as $index => $latest)
                     <div class="post__item">

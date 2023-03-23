@@ -797,7 +797,7 @@
                                                                      <input type="hidden" class="form-control" value="{{$value}}"  name="section_name" required>
                                                                      <input type="hidden" class="form-control" value="{{$list_3}}" name="list_number_3" required>
                                                                      <input type="hidden" class="form-control" value="{{@$slider_list_elements[$i-1]->id}}" name="id[]">
-                                                                     <input type="text" class="form-control" name="list_header[]" id="slider_title_{{$i-1}}" onkeyup="slugMaker('slider_title_{{$i-1}}','slider_slug_{{$i-1}}')" value="{{@$slider_list_elements[$i-1]->list_header}}"  required>
+                                                                     <input type="text" class="form-control" name="list_header[]" id="slider_title_{{$i-1}}" onclick="slugMaker('slider_title_{{$i-1}}','slider_slug_{{$i-1}}')" value="{{@$slider_list_elements[$i-1]->list_header}}"  required>
                                                                      <div class="invalid-feedback">
                                                                          Please enter the heading.
                                                                      </div>
@@ -810,12 +810,13 @@
                                                                      </div>
                                                                  </div>
                                                                  <div class="form-group mb-3">
-                                                                             <label>Long Description<span class="text-muted text-danger">*</span></label>
-                                                                             <textarea class="form-control" rows="6"  name="list_description[]" required>{{@$slider_list_elements[$i-1]->list_description}}</textarea>
-                                                                             <span class="ctm-text-sm">Please write the description</span>
-                                                                             <div class="invalid-feedback">
-                                                                                 Please write the long description.                                                                                            </div>
-                                                                         </div>
+                                                                     <label>Long Description<span class="text-muted text-danger">*</span></label>
+                                                                     <textarea class="form-control" rows="6"  name="list_description[]" required>{{@$slider_list_elements[$i-1]->list_description}}</textarea>
+                                                                     <span class="ctm-text-sm">Please write the description</span>
+                                                                     <div class="invalid-feedback">
+                                                                         Please write the long description.
+                                                                     </div>
+                                                                 </div>
 
                                                              </div>
                                                              <div class="col-md-5">
@@ -825,7 +826,7 @@
                                                                              id="sliderlist-{{$i}}-image" onchange="loadbasicFile('sliderlist-{{$i}}-image','current-sliderlist-{{$i}}-img',event)" name="list_image[]" {{(@$slider_list_elements[$i-1]->id !== null) ? "":"required" }}
                                                                              class="profile-foreground-img-file-input" >
 
-                                                                     <figcaption class="figure-caption">Banner image for current slider. (SIZE: 850px X 560px)</figcaption>
+                                                                     <figcaption class="figure-caption">Banner image for current slider. (SIZE: 850px X 450px)</figcaption>
                                                                      <div class="invalid-feedback" >
                                                                          Please select a image.
                                                                      </div>

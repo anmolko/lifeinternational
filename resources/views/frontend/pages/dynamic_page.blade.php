@@ -370,6 +370,48 @@
         @endif
 
         @if($value == "small_box_description")
+            <div class="solutions__two section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 lg-mb-30">
+                            <div class="solutions__two-title">
+                                <span class="subtitle-one">Advance Solutions</span>
+                                <h2>We help for Planing</h2>
+                                <p>Aliquam sit amet massa quis augue porta consequat eu eu lectus. Praesent a ipsum a sem</p>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 xl-mb-30">
+                            <div class="solutions__two-item">
+                                <div class="solutions__two-item-icon">
+                                    <img src="assets/img/icon/solutions-1.png" alt="">
+                                </div>
+                                <h4>Digital Consulting</h4>
+                                <p>Pellentesque vitae velit quis ligula vehicula ornare a et quam.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 md-mb-30">
+                            <div class="solutions__two-item">
+                                <div class="solutions__two-item-icon">
+                                    <img src="assets/img/icon/solutions-2.png" alt="">
+                                </div>
+                                <h4>Strategic planning</h4>
+                                <p>Pellentesque vitae velit quis ligula vehicula ornare a et quam.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="solutions__two-item">
+                                <div class="solutions__two-item-icon">
+                                    <img src="assets/img/icon/solutions-3.png" alt="">
+                                </div>
+                                <h4>customer service</h4>
+                                <p>Pellentesque vitae velit quis ligula vehicula ornare a et quam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
           <!-- Small Box description start -->
           <section class="pt-100 pb-100">
               <div class="container">
@@ -424,38 +466,41 @@
         @endif
 
         @if($value == "slider_list")
-          <!-- Slider List Area start -->
-          <section class="feedback-area bgc-lighter pt-100 pb-100 rel z-1">
-            <div class="container ">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section-title text-center mb-40 wow fadeInUp delay-0-2s">
-                            <span class="sub-title style-two mb-20">{{ucwords(@$slider_list_elements[0]->description)}}</span>
-                            <h2>{{ucwords(@$slider_list_elements[0]->heading)}}</h2>
+            <div class="portfolio__area dark__image section-padding">
+                <div class="container-fluid p-0">
+                    <div class="row mb-60">
+                        <div class="col-xl-12">
+                            <div class="portfolio__area-title t-center">
+                                <span class="subtitle-one">{{ucwords(@$slider_list_elements[0]->description)}}</span>
+                                <h2>{{ucwords(@$slider_list_elements[0]->heading)}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="swiper portfolio__area-slider">
+                                <div class="swiper-wrapper">
+                                    @for ($i = 1; $i <=@$list_3; $i++)
+                                        <div class="portfolio__area-item swiper-slide">
+                                            <img src="{{ asset('/images/section_elements/list_1/thumb/thumb_'.$slider_list_elements[$i-1]->list_image) }}" alt="">
+                                            <div class="portfolio__area-item-content">
+                                                <div class="portfolio__area-item-content-title">
+                                                    <h4><a href="{{route('slider.single',@$slider_list_elements[$i-1]->subheading)}}">{{ucwords(@$slider_list_elements[$i-1]->list_header)}}</a></h4>
+                                                    <span class="text-eight">Life Intl</span>
+                                                </div>
+                                                <div class="portfolio__area-item-content-icon">
+                                                    <a href="{{route('slider.single',@$slider_list_elements[$i-1]->subheading)}}">
+                                                        <img src="{{asset('assets/frontend/img/icon/up-arrow.png')}}" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endfor
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="feedback-active">
-                    @for ($i = 1; $i <=@$list_3; $i++)
-
-                      <div class="feedback-item wow fadeInUp delay-0-2s">
-
-                          <h4>{{ucwords(@$slider_list_elements[$i-1]->list_header)}}</h4>
-                          <p >{{ucfirst(Str::limit(@$slider_list_elements[$i-1]->list_description, 100,'...'))}}</p>
-                          <div class="feedback-author">
-                            <div class="content">
-                              <a href="{{route('slider.single',@$slider_list_elements[$i-1]->subheading)}}" class="theme-btn mt-15" tabindex="0">Read More <i class="fas fa-angle-double-right"></i></a>
-                            </div>
-                          </div>
-
-                      </div>
-                    @endfor
-
-                </div>
             </div>
-
-        </section>
-        <!-- Slider List end -->
         @endif
 
     @endforeach

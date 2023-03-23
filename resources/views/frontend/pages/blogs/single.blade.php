@@ -64,9 +64,11 @@
                         <div class="dark__image">
                             <img class="img__full mb-30" src="{{ asset('/images/blog/'.@$singleBlog->image) }}" alt="">
                         </div>
-                        {!! $singleBlog->description !!}
+                        <div class="content-area">
+                            {!! $singleBlog->description !!}
+                        </div>
 
-                        <div class="row mt-45 mb-60">
+                        <div class="row mt-45">
                             <div class="col-md-8 md-mb-15">
                                 <div class="news__details-left-tag">
                                     <h6>Category:</h6>

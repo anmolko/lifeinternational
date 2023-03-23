@@ -301,34 +301,34 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 
-{{--                            <div class="card shadow-none">--}}
-{{--                                <div class="card-header">--}}
-{{--                                    <h5 class="card-title text-primary mb-0">Slider Lists</h5>--}}
-{{--                                </div>--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-md-12 mb-2">--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <label>Number of Slider List <span class="text-muted text-danger">*</span></label>--}}
-{{--                                                <input type="number" min="3" class="form-control" name="list_number_3" >--}}
-{{--                                                <div class="invalid-feedback">--}}
-{{--                                                    Please enter the list number.--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            <div class="card shadow-none">
+                                <div class="card-header">
+                                    <h5 class="card-title text-primary mb-0">Slider Lists</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-2">
+                                            <div class="form-group">
+                                                <label>Number of Slider List <span class="text-muted text-danger">*</span></label>
+                                                <input type="number" min="3" class="form-control" name="list_number_3" >
+                                                <div class="invalid-feedback">
+                                                    Please enter the list number.
+                                                </div>
+                                            </div>
+                                        </div>
 
-{{--                                        <div class="col-md-12">--}}
-{{--                                            <label class="image-checkbox">--}}
-{{--                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/list_option_1.png')}}" width="100%" />--}}
-{{--                                                <input type="checkbox" name="section[]" value="slider_list" id="list_option_1.png" />--}}
-{{--                                                <i class="ri ri-check-line hidden"></i>--}}
-{{--                                            </label>--}}
-{{--                                            <span class="ctm-text-sm text-warning">* using this element will create a inner page to display individual list data. Use only when big information are needed to be showcased. </span>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                        <div class="col-md-12">
+                                            <label class="image-checkbox">
+                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/list_option_1.png')}}" width="100%" />
+                                                <input type="checkbox" name="section[]" value="slider_list" id="list_option_1.png" />
+                                                <i class="ri ri-check-line hidden"></i>
+                                            </label>
+                                            <span class="ctm-text-sm text-warning">* using this element will create a inner page to display individual list data. Use only when big information are needed to be showcased. </span>
+                                        </div>
+                                    </div>
 
-{{--                                </div>--}}
-{{--                            </div>--}}
+                                </div>
+                            </div>
 {{--                            <div class="card shadow-none">--}}
 {{--                                <div class="card-header">--}}
 {{--                                    <h5 class="card-title text-primary mb-0">Small Box description</h5>--}}
