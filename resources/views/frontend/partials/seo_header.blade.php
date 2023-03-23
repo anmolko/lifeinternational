@@ -89,7 +89,7 @@
             <div class="header__area-menubar">
                 <div class="header__area-menubar-left">
                     <div class="header__area-menubar-left-logo">
-                        <a href="/"><img class="dark-n" src="{{asset('assets/frontend/img/logo-1.png')}}" alt=""><img class="light-n" src="{{asset('assets/frontend//img/logo-2.png')}}" alt=""></a>
+                        <a href="/"><img class="dark-n" src="{{asset('/images/settings/'.@$setting_data->logo)}}" alt=""><img class="light-n" src="{{asset('/images/settings/'.@$setting_data->logo_white)}}" alt=""></a>
                     </div>
                 </div>
                 <div class="header__area-menubar-center">
@@ -137,8 +137,8 @@
                                 <span class="header__area-menubar-right-box-search-icon open"><i class="fal fa-search"></i></span>
                             </div>
                             <div class="header__area-menubar-right-box-search-box">
-                                <form>
-                                    <input type="search" placeholder="Search Here.....">
+                                <form method="get" id="searchform" action="{{route('searchJob')}}">
+                                    <input  id="s" name="s" type="text"  placeholder="Find Jobs here.." oninvalid="this.setCustomValidity('Type a keyword')" oninput="this.setCustomValidity('')" required>
                                     <button type="submit"><i class="fal fa-search"></i>
                                     </button>
                                 </form> <span class="header__area-menubar-right-box-search-box-icon"><i class="fal fa-times"></i></span>
@@ -148,15 +148,15 @@
                             <div class="header__area-menubar-right-sidebar-popup-icon"><img src="{{asset('assets/frontend/img/icon/menu.png')}}" alt=""></div>
                         </div>
                         <div class="header__area-menubar-right-box-btn">
-                            <a class="btn-one" href="request-quote.html">Request quote<i class="far fa-chevron-double-right"></i></a>
+                            <a class="btn-one" href="{{route('contact')}}">Reach out<i class="far fa-chevron-double-right"></i></a>
                         </div>
                         <!-- sidebar Menu Start -->
                         <div class="header__area-menubar-right-sidebar-popup">
                             <div class="sidebar-close-btn"><i class="fal fa-times"></i></div>
                             <div class="header__area-menubar-right-sidebar-popup-logo">
-                                <a href="index.html"> <img src="{{asset('assets/frontend/img/logo-2.png')}}" alt=""> </a>
+                                <a href="/"> <img src="{{asset('/images/settings/'.@$setting_data->logo_white)}}" alt=""> </a>
                             </div>
-                            <p>Morbi et tellus imperdiet, aliquam nulla sed, dapibus erat. Aenean dapibus sem non purus venenatis vulputate. Donec accumsan eleifend blandit. Nullam auctor ligula</p>
+                            <p> {!! ucfirst(@$setting_data->website_description ?? 'Welcome to Life International Overseas') !!}</p>
                             <div class="header__area-menubar-right-box-sidebar-popup-contact">
                                 <h4 class="mb-30">Get In Touch</h4>
                                 <div class="header__area-menubar-right-box-sidebar-popup-contact-item">
@@ -164,8 +164,8 @@
                                         <i class="fal fa-phone-alt icon-animation"></i>
                                     </div>
                                     <div class="header__area-menubar-right-box-sidebar-popup-contact-item-content">
-                                        <span>Call Now</span>
-                                        <h6><a href="tel:+125(895)658568">+125 (895) 658 568</a></h6>
+                                        <span>Call</span>
+                                        <h6><a href="tel:{{@$setting_data->phone ?? ''}}">{{@$setting_data->phone ?? ''}}</a></h6>
                                     </div>
                                 </div>
                                 <div class="header__area-menubar-right-box-sidebar-popup-contact-item">
@@ -173,8 +173,8 @@
                                         <i class="fal fa-envelope"></i>
                                     </div>
                                     <div class="header__area-menubar-right-box-sidebar-popup-contact-item-content">
-                                        <span>Quick Email</span>
-                                        <h6><a href="mailto:info.help@gmail.com">info.help@gmail.com</a></h6>
+                                        <span>Email</span>
+                                        <h6><a href="mailto:{{$setting_data->email ?? ''}}">{{$setting_data->email ?? ''}}</a></h6>
                                     </div>
                                 </div>
                                 <div class="header__area-menubar-right-box-sidebar-popup-contact-item">
@@ -182,17 +182,25 @@
                                         <i class="fal fa-map-marker-alt"></i>
                                     </div>
                                     <div class="header__area-menubar-right-box-sidebar-popup-contact-item-content">
-                                        <span>Office Address</span>
-                                        <h6><a href="#">PV3M+X68 Welshpool United Kingdom</a></h6>
+                                        <span>Address</span>
+                                        <h6><a href="/">{{@$setting_data->address}}</a></h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="header__area-menubar-right-box-sidebar-popup-social">
                                 <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    @if(@$setting_data->facebook)
+                                        <li><a href="{{@$setting_data->facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                    @endif
+                                    @if(@$setting_data->youtube)
+                                        <li><a href="{{@$setting_data->youtube}}"><i class="fab fa-youtube"></i></a></li>
+                                    @endif
+                                    @if(@$setting_data->instagram)
+                                        <li><a href="{{@$setting_data->instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                    @endif
+                                    @if(@$setting_data->linkedin)
+                                        <li><a href="{{@$setting_data->linkedin}}"><i class="fab fa-linkedin"></i></a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
