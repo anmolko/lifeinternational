@@ -21,9 +21,9 @@
                                             <a class="btn-five" href="{{@$slider->link}}"> {{@$slider->button ?? 'Start here'}} <i class="far fa-chevron-double-right"></i></a>
                                         </div>
                                     @endif
-                                    <img class="banner__two-image-shape-one" src="{{asset('assets/frontend/img/shape/banner-1.png')}}" data-animation="rollIn" data-delay="2s" alt="">
+                                    <img class="banner__two-image-shape-one" src="{{asset('assets/frontend/img/shape/about-solution.png')}}" data-animation="rollIn" data-delay="2s" alt="">
                                 </div>
-                                <img class="banner__two-image-shape-two" src="{{asset('assets/frontend/img/shape/banner-2.png')}}" data-animation="fadeInRightBig" data-delay="1.1s" alt="">
+                                <img class="banner__two-image-shape-two" src="{{asset('assets/frontend/img/shape/about-2-dark.png')}}" data-animation="fadeInRightBig" data-delay="1.1s" alt="">
                             </div>
                         </div>
                     </div>
