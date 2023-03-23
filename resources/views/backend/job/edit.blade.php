@@ -66,7 +66,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label for="start_date" class="form-label">Start Date <span class="text-muted text-danger">*</span></label>
-                                <input type="text" class="form-control" name="start_date" id="start_date" value="{{@$start}}" >
+                                <input type="text" class="form-control" name="start_date" id="start_date" value="{{@$start}}" required>
                                 <div class="invalid-feedback">
                                     Please Select the start date.
                                 </div>
@@ -74,7 +74,7 @@
 
                             <div class="form-group mb-3">
                                 <label for="end_date" class="form-label">End Date <span class="text-muted text-danger">*</span></label>
-                                <input type="text" class="form-control" name="end_date" id="end_date" value="{{@$end}}" >
+                                <input type="text" class="form-control" name="end_date" id="end_date" value="{{@$end}}" required>
                                 <div class="invalid-feedback">
                                     Please Select the end date.
                                 </div>

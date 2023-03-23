@@ -51,7 +51,7 @@
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label>Job Name <span class=" text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="name" id="job_name">
+                                    <input type="text" class="form-control" name="name" id="job_name" required>
                                     <div class="invalid-feedback">
                                         Please enter the job name.
                                     </div>
@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="start_date" class="form-label">Start Date <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="start_date" id="start_date">
+                                    <input type="text" class="form-control" name="start_date" id="start_date" required>
                                     <div class="invalid-feedback">
                                         Please Select the start date.
                                     </div>
@@ -73,7 +73,7 @@
 
                                 <div class="form-group mb-3">
                                     <label for="end_date" class="form-label">End Date <span class=" text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="end_date" id="end_date">
+                                    <input type="text" class="form-control" name="end_date" id="end_date" required>
                                     <div class="invalid-feedback">
                                         Please Select the end date.
                                     </div>

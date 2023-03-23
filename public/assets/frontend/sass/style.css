@@ -7415,8 +7415,8 @@ Team CSS
 }
 .team__area-item-image img {
   width: 100%;
-object-fit: none;
-object-position: 50% 50%;
+    object-fit: scale-down;
+    object-position: 50% 50%;
 }
 
 .team__area-item-content {
