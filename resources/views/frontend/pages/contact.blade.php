@@ -8,14 +8,14 @@
 @endsection
 @section('content')
 
-    <div class="page__banner" data-background="assets/img/pages/page-banner.jpg">
+    <div class="page__banner" data-background="{{asset('assets/frontend/img/pages/page-banner.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="page__banner-content">
                         <span>Contact</span>
                         <ul>
-                            <li><a href="index.html">Home</a><span>|</span></li>
+                            <li><a href="/">Home</a><span>|</span></li>
                             <li>Contact us</li>
                         </ul>
                         <h1>Send us a message</h1>
@@ -32,8 +32,7 @@
                 <div class="col-xl-4 col-lg-5 lg-mb-30">
                     <div class="contact__two-left">
                         <h3>Contact Us</h3>
-                        <p class="mb-30">On the other hand we moralized bite the HR charms of pleasure.</p>
-                        <div class="contact__two-left-item">
+                        <div class="contact__two-left-item mt-3">
                             <div class="contact__two-left-item-icon">
                                 <img src="{{asset('assets/frontend/img/icon/call.png')}}" alt="">
                             </div>
@@ -82,38 +81,39 @@
                 <div class="col-xl-8 col-lg-7">
                     <div class="contact__two-right">
                         <h3>Get In Touch</h3>
-                        <p>On the other hand we denounce righteous indignation moralized bite the HR charms of pleasure.</p>
-                        <div class="contact__two-right-form">
-                            <form id="contactForm" action="{{route('contact.store')}}" name="contactForm" method="post">
+                        <span id="msgSubmit"></span>
+                        <div class="contact__two-right-form mt-3">
+                            <form id="contactForm" action="{{route('contact.store')}}" name="contactForm" method="POST">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-6 mb-30">
                                         <div class="contact__two-right-form-item conbix-contact-item">
                                             <span class="fal fa-user"></span>
-                                            <input type="text" name="name" placeholder="Full Name" required="required">
+                                            <input type="text" name="name" id="name" placeholder="Full Name *" required="required">
                                         </div>
                                     </div>
                                     <div class="col-md-6 md-mb-30">
                                         <div class="contact__two-right-form-item conbix-contact-item">
                                             <span class="far fa-envelope-open"></span>
-                                            <input type="email" name="email" placeholder="Email Address" required="required">
+                                            <input type="email" name="email" id="email" placeholder="Email Address *" required="required">
                                         </div>
                                     </div>
                                     <div class="col-md-12 md-mb-30 mb-30">
                                         <div class="contact__two-right-form-item conbix-contact-item">
                                             <span class="far fa-phone"></span>
-                                            <input type="text" name="phone" placeholder="Phone Number" required="required">
+                                            <input type="text" name="phone" id="phone" placeholder="Phone Number *" required="required">
                                         </div>
                                     </div>
                                     <div class="col-md-12 mb-30">
                                         <div class="contact__two-right-form-item conbix-contact-item">
                                             <span class="fal fa-book"></span>
-                                            <input type="text" name="subject" placeholder="Subject">
+                                            <input type="text" name="subject" id="subject" placeholder="Subject">
                                         </div>
                                     </div>
                                     <div class="col-md-12 mb-30">
                                         <div class="contact__two-right-form-item conbix-contact-item">
                                             <span class="far fa-comments"></span>
-                                            <textarea name="message" placeholder="Message" required></textarea>
+                                            <textarea name="message" id="message" placeholder="Message *" required></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-12">

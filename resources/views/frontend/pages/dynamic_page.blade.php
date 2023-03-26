@@ -369,7 +369,7 @@
                           </div>
                       </div>
                   @endif
-                    <div id="gallery" style=" padding: 35px 30px 0 30px;">
+                    <div id="gallery" style="">
                         <div id="image-gallery">
                           <div class="row">
                               @foreach(@$gallery_elements as $gallery_element)
