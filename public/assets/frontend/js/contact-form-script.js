@@ -13,6 +13,7 @@
             if (!$.isNumeric(phone)) {
                 formError();
                 submitMSG(false,'Please enter a valid phone number');
+                return false;
             }
             // everything looks good!
             event.preventDefault();

@@ -420,8 +420,9 @@ class FrontController extends Controller
             );
 //        Mail::to('anmolkoirala1313@gmail.com')->send(new ContactDetail($data));
 
-            // Mail::to($theme_data->email)->send(new ContactDetail($data));
-
+//            if($theme_data->email){
+//                Mail::to($theme_data->email)->send(new ContactDetail($data));
+//            }
             $status ='success';
             return response()->json($status);
     }
