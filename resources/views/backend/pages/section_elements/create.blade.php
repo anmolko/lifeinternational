@@ -773,8 +773,6 @@
                                              </div>
                                          </div>
                                      </div>
-
-
                                      <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-success" id="accordionBordered11">
                                          <input type="hidden" class="form-control" value="{{@$slider_list_elements}}" name="slider_list_elements">
 
@@ -940,6 +938,40 @@
                                         {!! Form::open(['route' => 'section-elements.store','method'=>'post','class'=>'needs-validation','id'=>'process-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
                                     @endif
                                     <div id="process-form-ajax">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card ctm-border-radius shadow-sm flex-fill">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title mb-0">
+                                                            General Details
+                                                        </h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="form-group mb-3">
+                                                            <label>Heading <span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" maxlength="35" name="heading[]" value="{{@$process_elements[0]->heading}}" required>
+                                                            <div class="invalid-feedback">
+                                                                Please enter the heading.
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group mb-3">
+                                                            <label>SubHeading </label>
+                                                            <input type="text" class="form-control" maxlength="25" name="subheading[]" value="{{@$process_elements[0]->subheading}}">
+                                                            <div class="invalid-feedback">
+                                                                Please enter the heading.
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group mb-3">
+                                                            <label>Small Description<span class="text-muted text-danger">*</span></label>
+                                                            <textarea class="form-control" maxlength="160" rows="8" name="description[]" required>{{@$process_elements[0]->description}}</textarea>
+                                                            <div class="invalid-feedback">
+                                                                Please enter the small description.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-success" id="accordionBordered">
                                             <input type="hidden" class="form-control" value="{{@$process_elements}}" name="process_list_elements">
 
@@ -954,7 +986,7 @@
                                                         <div id="accor_borderedExamplecollapse{{$i}}" class="accordion-collapse collapse {{($i==1) ? 'show':''}} " aria-labelledby="processelect-heading-{{$i}}" data-bs-parent="#accordionBordered">
                                                             <div class="accordion-body">
                                                                 <div class="row">
-                                                                    <div class="col-md-9">
+                                                                    <div class="col-md-12">
                                                                         <div class="form-group mb-3">
                                                                             <label>Heading </label>
                                                                             <input type="hidden" class="form-control" value="{{$key}}"    name="page_section_id" required>
@@ -967,28 +999,11 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group mb-3">
-                                                                                    <label>Description <span class="text-muted text-danger">*</span></label>
-                                                                                    <textarea class="form-control" maxlength="190" rows="8" name="list_description[]" required>{{@$process_elements[$i-1]->list_description}}</textarea>
-                                                                                    <div class="invalid-feedback">
-                                                                                        Please write the description.
-                                                                                    </div>
-                                                                                </div>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-
-                                                                        <div>
-                                                                            <img  id="current-processelect-{{$i}}-img"  src="<?php if(!empty(@$process_elements[$i-1]->list_image)){ echo '/images/section_elements/list_1/'.@$process_elements[$i-1]->list_image; } else{  echo '/images/default-image.jpg'; } ?>" class="position-relative img-fluid img-thumbnail blog-feature-image" >
-                                                                            <input  type="file" accept="image/png, image/jpeg" hidden
-                                                                                    id="processelect-{{$i}}-image" onchange="loadbasicFile('processelect-{{$i}}-image','current-processelect-{{$i}}-img',event)" name="list_image[]" {{(@$process_elements[$i-1]->id !== null) ? "":"required" }}
-                                                                                    class="profile-foreground-img-file-input" >
-
-                                                                            <figcaption class="figure-caption"> image for current box. (SIZE: 60px X 60px)</figcaption>
-                                                                            <div class="invalid-feedback" >
-                                                                                Please select a image.
+                                                                            <label>Description <span class="text-muted text-danger">*</span></label>
+                                                                            <textarea class="form-control" maxlength="190" rows="8" name="list_description[]" required>{{@$process_elements[$i-1]->list_description}}</textarea>
+                                                                            <div class="invalid-feedback">
+                                                                                Please write the description.
                                                                             </div>
-                                                                            <label for="processelect-{{$i}}-image" class="profile-photo-edit btn btn-light feature-image-button">
-                                                                                <i class="ri-image-edit-line align-bottom me-1"></i> Add Icon Image
-                                                                            </label>
                                                                         </div>
                                                                     </div>
                                                                 </div>

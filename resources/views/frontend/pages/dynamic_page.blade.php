@@ -3,81 +3,38 @@
 @section('css')
     <style>
 
-    .theme-btn.style-three, a.theme-btn.style-three.faq-button {
-        color: #293043 !important;
-        background: transparent;
-        border: 1px solid rgba(0, 102, 255, 0.2);
-    }
-  .custom-editor .media{
-        display: block;
-    }
+        .theme-btn.style-three, a.theme-btn.style-three.faq-button {
+            color: #293043 !important;
+            background: transparent;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+        }
+      .custom-editor .media{
+            display: block;
+        }
 
-    .feature-item-three > img {
-        width:60px;
-        height:60px;
-        margin-top: 10px;
-        margin-right: 25px;
-    }
-    .custom-editor{
-        font-size: 1.1875rem;
-        text-align: justify;
-    }
+        .feature-item-three > img {
+            width:60px;
+            height:60px;
+            margin-top: 10px;
+            margin-right: 25px;
+        }
+        .custom-editor{
+            font-size: 1.1875rem;
+            text-align: justify;
+        }
 
-    .accordion-item {
-      margin-bottom: 30px;
-  }
-
-  #gallery #image-gallery .img-wrapper {
-          height: 270px;
+      .accordion-item {
+          margin-bottom: 30px;
       }
 
+     #gallery #image-gallery .img-wrapper {
+          height: 270px;
+      }
       #gallery img.img-responsive {
           width: 100%;
           height: 100%;
           object-fit: cover;
       }
-
-      ul, ol{
-        padding-left: 1rem;
-      }
-
-    .winrecruit ul li::before,.winrecruit ol li::before {
-      -webkit-box-flex: 0;
-      -ms-flex: none;
-      flex: none;
-      width: 18px;
-      height: 18px;
-      font-size: 10px;
-      margin-top: 7px;
-      font-weight: 600;
-      content: "\f00c";
-      line-height: 14px;
-      border: 2px solid;
-      text-align: center;
-      margin-right: 15px;
-      border-radius: 50%;
-      color: #0066ff;
-      font-family: 'Font Awesome 5 Pro';
-    }
-    .winrecruit ol li ol li::before,.winrecruit ol li ul li::before,.winrecruit ul li ol li::before ,.winrecruit ul li ul li::before {
-      -webkit-box-flex: 0;
-      -ms-flex: none;
-      flex: none;
-      width: 18px;
-      height: 18px;
-      font-size: 10px;
-      margin-top: 7px;
-      font-weight: 600;
-      content: "\f00c";
-      line-height: 14px;
-      border: 2px solid;
-      text-align: center;
-      margin-right: 15px;
-      border-radius: 50%;
-      color: #0066ff;
-      font-family: 'Font Awesome 5 Pro';
-    }
-
     </style>
   <link rel="stylesheet" href="{{asset('assets/frontend/css/lightbox.css')}}">
 
@@ -187,7 +144,7 @@
 
         @if($value == "background_image_section")
           <!--- Background Image--->
-          <div class="cta__two" data-background="{{ $bgimage_elements->image ? asset('/images/section_elements/bgimage_section/'.@$bgimage_elements->image):asset('assets/frontend//img/pages/getInTouchThree.jpg')}}">
+          <div class="cta__two" data-background="{{ @$bgimage_elements->image ? asset('/images/section_elements/bgimage_section/'.@$bgimage_elements->image):asset('assets/frontend//img/pages/getInTouchThree.jpg')}}">
               <img class="cta__two-shape left-right-animate2" src="{{asset('assets/frontend/img/shape/getInTouch.png')}}" alt="">
               <div class="container">
                   <div class="row align-items-center">
@@ -250,7 +207,7 @@
                             <div class="col-sm-4">
                                 <div class="chooseUs__area-item">
                                     <div class="chooseUs__area-item-icon">
-                                        <img src="{{asset('assets/frontend/img/icon/'.get_icons($index))}}" alt="">
+                                        <img src="{{asset('assets/frontend/img/icon/'.get_icons(@$index))}}" alt="">
                                     </div>
                                     <h4>{{ucwords(@$flash_element->list_header)}}</h4>
                                     <p>{{ucfirst(@$flash_element->list_description) }}</p>
@@ -264,9 +221,9 @@
         @endif
 
         @if($value == "simple_header_and_description")
-            <div class="project__details section-padding-3 {{ $header_descp_elements->heading ?  '':'pt-0'}}">
+            <div class="project__details section-padding-3 {{ @$header_descp_elements->heading ?  '':'pt-0'}}">
                 <div class="container">
-                    @if($header_descp_elements->heading)
+                    @if(@$header_descp_elements->heading)
                         <div class="portfolio__area-title t-center mb-5">
                             <span class="{{@$header_descp_elements->subheading ? 'subtitle-one':''}}">{{@$header_descp_elements->subheading ?? ''}}</span>
                             <h2>{{ucwords(@$header_descp_elements->heading)}}</h2>
@@ -344,18 +301,18 @@
                             </div>
                         </div>
 
-                        @foreach($accordian2_elements->chunk($list_2/2) as $index=>$accordian2_elements)
+                        @foreach(@$accordian2_elements->chunk($list_2/2) as $index=>$accordian2_elements)
                             <div class="col-xl-6">
-                                @foreach($accordian2_elements as $index2=>$accordian2_element)
+                                @foreach(@$accordian2_elements as $index2=>$accordian2_element)
                                     <div class="faq-collapse">
                                         <div class="faq-collapse-item mb-2">
                                             <div class="faq-collapse-item-card">
                                                 <div class="faq-collapse-item-card-header">
-                                                    <h6><span class="far fa-question-circle"></span>{{$accordian2_element->list_header}}-{{$index2}}</h6>
+                                                    <h6><span class="far fa-question-circle"></span>{{@$accordian2_element->list_header}}-{{$index2}}</h6>
                                                     <i class="far fa-minus"></i>
                                                 </div>
                                                 <div class="faq-collapse-item-card-header-content display-none {{ ($index2==0 ||$index2==4) ? 'active':''}}" style="display:{{ ($index2==0 || $index2==4) ? 'block':'none'}}">
-                                                    <p>{{$accordian2_element->list_description}}</p>
+                                                    <p>{{@$accordian2_element->list_description}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -375,94 +332,64 @@
                     <div class="row">
                         <div class="col-xl-3 col-lg-6 lg-mb-30">
                             <div class="solutions__two-title">
-                                <span class="subtitle-one">Advance Solutions</span>
-                                <h2>We help for Planing</h2>
-                                <p>Aliquam sit amet massa quis augue porta consequat eu eu lectus. Praesent a ipsum a sem</p>
+                                <span class="subtitle-one">{{ ucfirst($process_elements[0]->subheading ?? 'Advance Solutions')}}</span>
+                                <h2>{{ ucfirst($process_elements[0]->heading ?? '')}}</h2>
+                                <p>{{ $process_elements[0]->description ?? ''}}</p>
                             </div>
                         </div>
 
-                        <div class="col-xl-3 col-md-6 xl-mb-30">
+                        @for ($i = 1; $i <=@$process_num; $i++)
+                            <div class="col-xl-3 col-md-6 xl-mb-30">
                             <div class="solutions__two-item">
                                 <div class="solutions__two-item-icon">
-                                    <img src="assets/img/icon/solutions-1.png" alt="">
+                                    <img src="{{asset('assets/frontend/img/icon/'.get_solution_icons($i-1))}}" alt="">
                                 </div>
-                                <h4>Digital Consulting</h4>
-                                <p>Pellentesque vitae velit quis ligula vehicula ornare a et quam.</p>
+                                <h4>{{ucwords(@$process_elements[$i-1]->list_header ??'')}}</h4>
+                                <p>{{ucfirst(@$process_elements[$i-1]->list_description)}}</p>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6 md-mb-30">
-                            <div class="solutions__two-item">
-                                <div class="solutions__two-item-icon">
-                                    <img src="assets/img/icon/solutions-2.png" alt="">
-                                </div>
-                                <h4>Strategic planning</h4>
-                                <p>Pellentesque vitae velit quis ligula vehicula ornare a et quam.</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="solutions__two-item">
-                                <div class="solutions__two-item-icon">
-                                    <img src="assets/img/icon/solutions-3.png" alt="">
-                                </div>
-                                <h4>customer service</h4>
-                                <p>Pellentesque vitae velit quis ligula vehicula ornare a et quam.</p>
-                            </div>
-                        </div>
+                        @endfor
                     </div>
                 </div>
             </div>
-
-          <!-- Small Box description start -->
-          <section class="pt-100 pb-100">
-              <div class="container">
-                  <div class="feature-six-inner bgs-cover bgc-primary" style="background-image: url({{asset('/assets/frontend/images/background/freature-bg-line.png')}});">
-                      <div class="row">
-                          @for ($i = 1; $i <=@$process_num; $i++)
-
-                              <div class="col-lg-6">
-                                  <div class="feature-item-three wow @if($i=='2') color-two delay-0-5s @elseif($i=='3') color-three delay-0-4s @elseif($i=='4')  color-four delay-0-6s @else delay-0-3s @endif fadeInRight ">
-                                     <img src="<?php if(@$process_elements[$i-1]->list_image){?>{{asset('/images/section_elements/list_1/'.@$process_elements[$i-1]->list_image)}}<?php }?>"  alt="{{ucwords(@$process_elements[$i-1]->list_header)}}"/>
-                                      <div class="content">
-                                          <h4>{{ucwords(@$process_elements[$i-1]->list_header)}}</h4>
-                                          <p class="win-justify">{{ucfirst(@$process_elements[$i-1]->list_description)}}</p>
-                                      </div>
-                                  </div>
-                              </div>
-
-                          @endfor
-
-                      </div>
-                  </div>
-              </div>
-          </section>
           <!-- Feature Six Area end -->
         @endif
 
         @if($value == "gallery_section")
           <!--- Gallery Section 1-->
-          <section  class="pt-115 pb-100">
-            <div id="gallery">
+          <div class="faq__area section-padding-3">
               <div class="container">
-                <div id="image-gallery">
-                  <div class="row">
-                      @foreach(@$gallery_elements as $gallery_element)
-
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
-                          <div class="img-wrapper">
-                            <a href="{{asset('/images/section_elements/gallery/'.@$gallery_element->filename)}}">
-                              <img src="{{asset('/images/section_elements/gallery/'.@$gallery_element->filename)}}" class="img-responsive"></a>
-                            <div class="img-overlay">
-                              <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                            </div>
+                  @if($heading!==null)
+                      <div class="row">
+                          <div class="col-xl-12">
+                              <div class="portfolio__area-title t-center">
+                                  <span class="subtitle-one">{{$subheading ?? ''}}</span>
+                                  <h2>{{$heading ?? ''}}</h2>
+                              </div>
                           </div>
-                        </div>
-                      @endforeach
+                      </div>
+                  @endif
+                    <div id="gallery" style=" padding: 35px 30px 0 30px;">
+                        <div id="image-gallery">
+                          <div class="row">
+                              @foreach(@$gallery_elements as $gallery_element)
 
-                  </div><!-- End row -->
-                </div><!-- End image gallery -->
-              </div><!-- End container -->
-            </div><!-- End container -->
-          </section>
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+                                  <div class="img-wrapper">
+                                    <a href="{{asset('/images/section_elements/gallery/'.@$gallery_element->filename)}}">
+                                      <img src="{{asset('/images/section_elements/gallery/'.@$gallery_element->filename)}}" class="img-responsive"></a>
+                                    <div class="img-overlay">
+                                      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                              @endforeach
+
+                          </div><!-- End row -->
+                        </div><!-- End image gallery -->
+                    </div><!-- End container -->
+              </div>
+          </div>
         @endif
 
         @if($value == "slider_list")

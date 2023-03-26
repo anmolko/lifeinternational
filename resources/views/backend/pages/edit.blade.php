@@ -268,23 +268,39 @@
 
                                 </div>
                             </div>
-{{--                            <div class="card shadow-none">--}}
-{{--                                <div class="card-header">--}}
-{{--                                    <h5 class="card-title text-primary mb-0">Gallery Section 1 </h5>--}}
-{{--                                </div>--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-md-12">--}}
-{{--                                            <label class="image-checkbox {{(in_array('gallery_section', $sections) ? "image-checkbox-checked":"")}}">--}}
-{{--                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/gallery_section.png')}}" width="100%"/>--}}
-{{--                                                <input type="checkbox" name="section[]" value="gallery_section" id="gallery_section.png" {{(in_array('gallery_section', $sections) ? "checked":"")}}  />--}}
-{{--                                                <i class="ri ri-check-line hidden"></i>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                            <div class="card shadow-none">
+                                <div class="card-header">
+                                    <h5 class="card-title text-primary mb-0">Gallery Section 1 </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-3">
+                                                <label>Heading </label>
+                                                <input type="text" class="form-control" name="gallery_heading" value="{{@$heading}}" >
+                                                <div class="invalid-feedback">
+                                                    Please enter the heading.
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <label>Subeading </label>
+                                                <input type="text" class="form-control" name="gallery_subheading" value="{{@$subheading}}">
+                                                <div class="invalid-feedback">
+                                                    Please enter the subheading.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="image-checkbox {{(in_array('gallery_section', $sections) ? "image-checkbox-checked":"")}}">
+                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/gallery_section.png')}}" width="100%"/>
+                                                <input type="checkbox" name="section[]" value="gallery_section" id="gallery_section.png" {{(in_array('gallery_section', $sections) ? "checked":"")}}  />
+                                                <i class="ri ri-check-line hidden"></i>
+                                            </label>
+                                        </div>
+                                    </div>
 
-{{--                                </div>--}}
-{{--                            </div>--}}
+                                </div>
+                            </div>
 
                             <div class="card shadow-none">
                                 <div class="card-header">
@@ -315,40 +331,26 @@
 
                                 </div>
                             </div>
-{{--                            <div class="card shadow-none">--}}
-{{--                                <div class="card-header">--}}
-{{--                                    <h5 class="card-title text-primary mb-0">Box description</h5>--}}
-{{--                                </div>--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-md-12 pb-2">--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <label>Select number of box description <span class="text-muted text-danger">*</span></label>--}}
-{{--                                                <select class="form-control select" name="list_number_3_process_sel" id="list_number_3_process_sel">--}}
-{{--                                                    <option {{($process_number == null) ? "disabled selected":"disabled"}}>Select Number of List</option>--}}
-{{--                                                    <option value="2" {{($process_number =="2") ? "selected":""}}>Two</option>--}}
-{{--                                                    <option value="4" {{($process_number =="4") ? "selected":""}}>Four</option>--}}
-{{--                                                    <option value="6" {{($process_number =="6") ? "selected":""}}>Six</option>--}}
-{{--                                                    <option value="8" {{($process_number =="8") ? "selected":""}}>Eight</option>--}}
-{{--                                                    <option value="10" {{($process_number =="10") ? "selected":""}}>Ten</option>--}}
-{{--                                                </select>--}}
-{{--                                                <input type="hidden" name="process_sel_id" value="{{$process_id}}">--}}
-{{--                                                <div class="invalid-feedback">--}}
-{{--                                                    Please enter the list number.--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-md-12">--}}
-{{--                                            <label class="image-checkbox {{(in_array('small_box_description', $sections) ? "image-checkbox-checked":"")}}">--}}
-{{--                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/small_box_description.png')}}" width="100%"/>--}}
-{{--                                                <input type="checkbox" name="section[]" id="small_box_description.png" value="small_box_description" {{(in_array('small_box_description', $sections) ? "checked":"")}} />--}}
-{{--                                                <i class="ri ri-check-line hidden"></i>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                            <div class="card shadow-none">
+                                <div class="card-header">
+                                    <h5 class="card-title text-primary mb-0">Box description</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="hidden" value="3" class="form-control" name="list_number_3_process_sel" id="list_number_3_process_sel" readonly>
+                                            <input type="hidden" name="process_sel_id" value="{{$process_id}}">
 
-{{--                                </div>--}}
-{{--                            </div>--}}
+                                            <label class="image-checkbox {{(in_array('small_box_description', $sections) ? "image-checkbox-checked":"")}}">
+                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/small_box_description.png')}}" width="100%"/>
+                                                <input type="checkbox" name="section[]" id="small_box_description.png" value="small_box_description" {{(in_array('small_box_description', $sections) ? "checked":"")}} />
+                                                <i class="ri ri-check-line hidden"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
 
                         </div>
                     </div>

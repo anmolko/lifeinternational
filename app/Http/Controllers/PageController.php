@@ -67,6 +67,8 @@ class PageController extends Controller
             $listval2 = ($request->input('list_number_2') == null) ? 2 : $request->input('list_number_2');
             $listval3 = ($request->input('list_number_3') == null) ? 3 : $request->input('list_number_3');
             $process_sel = ($request->input('list_number_3_process_sel') == null) ? 3 : $request->input('list_number_3_process_sel');
+            $gallery_heading     = $request->input('gallery_heading');
+            $gallery_subheading  = $request->input('gallery_subheading');
 
             if ($sections !== null) {
                 foreach ($sections as $key => $value) {
@@ -99,7 +101,17 @@ class PageController extends Controller
                             'page_id' => $page->id,
                             'created_by' => Auth::user()->id,
                         ]);
-                    }  else {
+                    } elseif($value == 'gallery_section'){
+                     $section_status = PageSection::create([
+                         'section_name'                  => $section_name,
+                         'section_slug'                  => $value,
+                         'gallery_heading'               => $gallery_heading,
+                         'gallery_subheading'            => $gallery_subheading,
+                         'position'                      => $pos[$key],
+                         'page_id'                       => $page->id,
+                         'created_by'                    => Auth::user()->id,
+                     ]);
+                 }else {
                         $section_status = PageSection::create([
                             'section_name' => $section_name,
                             'section_slug' => $value,
@@ -161,6 +173,8 @@ class PageController extends Controller
         $slider_type        = "";
         $process_number     = "";
         $process_id         = "";
+        $heading            = "";
+        $subheading         = "";
         foreach ($page->sections as $section){
             $sections[$section->id] = $section->section_slug;
             if( $section->section_slug == 'accordion_section_1'){
@@ -188,7 +202,9 @@ class PageController extends Controller
                 $ordered_sections[$section->section_slug] = 'contact_information.png';
             } elseif ($section->section_slug == 'gallery_section'){
                 $ordered_sections[$section->section_slug] = 'gallery_section.png';
-            }  elseif ($section->section_slug == 'gallery_section_2'){
+                $heading =$section->gallery_heading;
+                $subheading = $section->gallery_subheading;
+            } elseif ($section->section_slug == 'gallery_section_2'){
                 $ordered_sections[$section->section_slug] = 'gallery_section_2.png';
             } elseif ($section->section_slug == 'simple_header_and_description'){
                 $ordered_sections[$section->section_slug] = 'simple_header_descp.png';
@@ -205,7 +221,7 @@ class PageController extends Controller
             }
         }
 
-        return view('backend.pages.edit',compact('page','process_number','process_id','ordered_sections','slider_type','sections','list1','list2','list3','list1_id','list2_id','list3_id','list4','list4_id'));
+        return view('backend.pages.edit',compact('page','heading','subheading','process_number','process_id','ordered_sections','slider_type','sections','list1','list2','list3','list1_id','list2_id','list3_id','list4','list4_id'));
     }
 
     /**
@@ -244,7 +260,9 @@ class PageController extends Controller
             $listval3 = ($request->input('list_number_3') == null) ? 3 : $request->input('list_number_3');
             $listval4 = ($request->input('list_number_4') == null) ? 3 : $request->input('list_number_4');
             $slider_type = ($request->input('list_number_1_slider') == null) ? 'slider_list' : $request->input('list_number_1_slider');
-            $process_sel = ($request->input('list_number_3_process_sel') == null) ? 2 : $request->input('list_number_3_process_sel');
+            $process_sel = ($request->input('list_number_3_process_sel') == null) ? 3 : $request->input('list_number_3_process_sel');
+            $gallery_heading        = $request->input('gallery_heading');
+            $gallery_subheading     = $request->input('gallery_subheading');
 
             if ($incoming_sections !== null) {
                 foreach ($incoming_sections as $key => $value) {
@@ -279,7 +297,18 @@ class PageController extends Controller
                                 'page_id' => $page->id,
                                 'created_by' => Auth::user()->id,
                             ]);
-                        } elseif ($value == 'slider_list') {
+                        } elseif($value == 'gallery_section'){
+                            $section_status = PageSection::create([
+                                'section_name'                  => $section_name,
+                                'section_slug'                  => $value,
+                                'gallery_heading'               => $gallery_heading,
+                                'gallery_subheading'            => $gallery_subheading,
+                                'position'                      => $pos[$key],
+                                'page_id'                       => $page->id,
+                                'created_by'                    => Auth::user()->id,
+                            ]);
+                        }
+                        elseif ($value == 'slider_list') {
                             $data = [
                                 'section_name' => $section_name,
                                 'section_slug' => $value,
@@ -337,7 +366,13 @@ class PageController extends Controller
                             $section_element->list_number_4 = $request->input('list_number_4');
                             $section_element->position = $pos[$key];
                             $section_status = $section_element->update();
-                        } else {
+                        } elseif($value == 'gallery_section'){
+                            $section_element                  = PageSection::where('page_id',$id)->where('section_slug',$value)->first();
+                            $section_element->gallery_heading   =  $gallery_heading;
+                            $section_element->gallery_subheading  = $gallery_subheading;
+                            $section_element->position        = $pos[$key];
+                            $section_status                   = $section_element->update();
+                        }else {
                             $update_section = PageSection::where('page_id', $id)->where('section_slug', $value)->first();
                             $update_section->position = $pos[$key];
                             $section_status = $update_section->update();

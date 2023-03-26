@@ -190,3 +190,22 @@ if (!function_exists('get_icons')) {
         return $icon;
     }
 }
+if (!function_exists('get_solution_icons')) {
+    /**
+     * @param $menu_type
+     * @param $menu
+     * @return string
+     */
+    function get_solution_icons($index){
+        $icon   = '';
+        if($index == 0){
+            $icon = 'solutions-1.png';
+        }else if($index == 1){
+            $icon = 'solutions-2.png';
+        }else if($index == 2){
+            $icon = 'solutions-3.png';
+        }
+
+        return $icon;
+    }
+}

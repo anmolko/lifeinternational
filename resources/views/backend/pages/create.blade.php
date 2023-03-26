@@ -283,23 +283,23 @@
                                 </div>
                             </div>
 
-{{--                            <div class="card shadow-none">--}}
-{{--                                <div class="card-header">--}}
-{{--                                    <h5 class="card-title text-primary mb-0">Gallery Section 1</h5>--}}
-{{--                                </div>--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-md-12">--}}
-{{--                                            <label class="image-checkbox">--}}
-{{--                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/gallery_section.png')}}" width="100%" />--}}
-{{--                                                <input type="checkbox" name="section[]" value="gallery_section" id="gallery_section.png"/>--}}
-{{--                                                <i class="ri ri-check-line hidden"></i>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                            <div class="card shadow-none">
+                                <div class="card-header">
+                                    <h5 class="card-title text-primary mb-0">Gallery Section 1</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="image-checkbox">
+                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/gallery_section.png')}}" width="100%" />
+                                                <input type="checkbox" name="section[]" value="gallery_section" id="gallery_section.png"/>
+                                                <i class="ri ri-check-line hidden"></i>
+                                            </label>
+                                        </div>
+                                    </div>
 
-{{--                                </div>--}}
-{{--                            </div>--}}
+                                </div>
+                            </div>
 
                             <div class="card shadow-none">
                                 <div class="card-header">
@@ -329,39 +329,25 @@
 
                                 </div>
                             </div>
-{{--                            <div class="card shadow-none">--}}
-{{--                                <div class="card-header">--}}
-{{--                                    <h5 class="card-title text-primary mb-0">Small Box description</h5>--}}
-{{--                                </div>--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-md-12 mb-2">--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <label>Select number of box description <span class="text-muted text-danger">*</span></label>--}}
-{{--                                                <select class="form-control select" name="list_number_3_process_sel" id="list_number_3_process_sel">--}}
-{{--                                                    <option disabled >Select Number of List</option>--}}
-{{--                                                    <option value="2" selected>Two</option>--}}
-{{--                                                    <option value="4">Four</option>--}}
-{{--                                                    <option value="6">Six</option>--}}
-{{--                                                    <option value="8">Eight</option>--}}
-{{--                                                    <option value="10">Ten</option>--}}
-{{--                                                </select>--}}
-{{--                                                <div class="invalid-feedback">--}}
-{{--                                                    Please enter the list number.--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-md-12">--}}
-{{--                                            <label class="image-checkbox">--}}
-{{--                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/small_box_description.png')}}" width="100%" />--}}
-{{--                                                <input type="checkbox" name="section[]" value="small_box_description" id="small_box_description.png" />--}}
-{{--                                                <i class="ri ri-check-line hidden"></i>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                            <div class="card shadow-none">
+                                <div class="card-header">
+                                    <h5 class="card-title text-primary mb-0">Small Box description</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="image-checkbox">
+                                                <input type="hidden" value="3" class="form-control" name="list_number_3_process_sel" id="list_number_3_process_sel" readonly>
 
-{{--                                </div>--}}
-{{--                            </div>--}}
+                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/small_box_description.png')}}" width="100%" />
+                                                <input type="checkbox" name="section[]" value="small_box_description" id="small_box_description.png" />
+                                                <i class="ri ri-check-line hidden"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
 
                         </div>
                     </div>
