@@ -187,8 +187,8 @@
                     <div class="row align-items-center mb-70">
                         <div class="col-xl-6 col-lg-7 lg-mb-20">
                             <div class="chooseUs__area-title">
-                                <span class="subtitle-one">Why Choose Us</span>
-                                <h2>consultant's reputation is extremely important.</h2>
+                                <span class="subtitle-one">{{$flash_elements[0]->subheading}}</span>
+                                <h2>  {{$flash_elements[0]->heading}}</h2>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-5">
